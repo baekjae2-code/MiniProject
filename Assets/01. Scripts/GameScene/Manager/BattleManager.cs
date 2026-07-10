@@ -38,9 +38,10 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void GameOver(string name)
+    public void GameOver()
     {
-        name = "";
+        TeamSpawnManager.instance.GameOver();
+        EnemySpawnManager.instance.GameOver();
     }
 
     public float GetManaNow()

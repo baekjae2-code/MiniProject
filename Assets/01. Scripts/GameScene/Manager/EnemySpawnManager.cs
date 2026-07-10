@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
+    public static EnemySpawnManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     public GameObject[] EnemyUnits;
 
     private void Start()
@@ -22,5 +32,9 @@ public class EnemySpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(3f);
         }
+    }
+    public void GameOver()
+    {
+        StopAllCoroutines();
     }
 }

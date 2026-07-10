@@ -19,7 +19,6 @@ public class Base : Unit
 
     private void OnDisable()
     {
-        BattleManager.instance.GameOver(name);
         UIManager.instance.GameOverUI(name);
     }
 }

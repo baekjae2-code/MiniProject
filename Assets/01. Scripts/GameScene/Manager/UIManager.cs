@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     public void GameOverUI(string name)
     {
-        gameOverPopUp.transform.position = Camera.main.transform.position + Vector3.up * 5 + Vector3.forward * 10;
+        gameOverPopUp.transform.position = Camera.main.transform.position + Vector3.right * 3 + Vector3.up * 5 + Vector3.forward * 10;
         gameOverPopUp.SetActive(true);
         if(name == "PlayerBase")
         {
@@ -40,5 +40,6 @@ public class UIManager : MonoBehaviour
         {
             gameOverText.text = "Victory!!";
         }
+        BattleManager.instance.GameOver();
     }
 }

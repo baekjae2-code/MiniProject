@@ -78,4 +78,12 @@ public abstract class Unit : MonoBehaviour
         gameObject.GetComponent<Unit>().enabled = false;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EndPopUp"))
+        {
+            gameObject.GetComponent<Unit>().TakeDamage(999);
+        }
+    }
+
 }

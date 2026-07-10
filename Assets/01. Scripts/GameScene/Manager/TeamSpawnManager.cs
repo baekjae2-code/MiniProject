@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class TeamSpawnManager : MonoBehaviour
 {
+    public static TeamSpawnManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     public GameObject[] teamUnits;
 
     private void Start()
@@ -29,5 +39,10 @@ public class TeamSpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(3f);
         }
+    }
+
+    public void GameOver()
+    {
+        StopAllCoroutines();
     }
 }
