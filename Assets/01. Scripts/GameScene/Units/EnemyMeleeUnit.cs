@@ -52,7 +52,7 @@ public class EnemyMeleeUnit : Unit
     void Attack()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = direction * Random.Range(4f, 6f) + new Vector2(0f, 3f);
+        rb.linearVelocity = direction * Random.Range(3f, 4f) + new Vector2(0f, 3f);
         attackObj.SetActive(true);
         attackCooltime = 0;
     }

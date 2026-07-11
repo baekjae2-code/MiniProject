@@ -18,29 +18,26 @@ public class TeamSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnUnits());
+        StartCoroutine(SpawnUnits(0, 3f));
     }
 
-    public void Spawn()
+    public void Spawn(int spawnUnitNum, float spawnTime)
     {
-        StartCoroutine(SpawnUnits());        
+        StartCoroutine(SpawnUnits(spawnUnitNum, spawnTime));
     }
 
-    IEnumerator SpawnUnits()
+    IEnumerator SpawnUnits(int spawnUnitNum, float spawnTime)
     {
         while (true)
         {
-            foreach (GameObject unit in teamUnits)
-            {
-                GameObject u = Instantiate(unit);
-                u.transform.position = transform.position;
-                u.SetActive(true);
-                u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
-            }
-            yield return new WaitForSeconds(3f);
+            GameObject u = Instantiate(teamUnits[spawnUnitNum]);
+            u.transform.position = transform.position;
+            u.SetActive(true);
+            u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+
+            yield return new WaitForSeconds(spawnTime);
         }
     }
-
     public void GameOver()
     {
         StopAllCoroutines();
