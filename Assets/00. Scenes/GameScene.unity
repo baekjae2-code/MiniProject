@@ -27635,7 +27635,7 @@ GameObject:
   - component: {fileID: 688961330}
   - component: {fileID: 688961329}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: SpawnUnitButton 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27762,7 +27762,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 688961332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681127403}
+        m_TargetAssemblyTypeName: SpawnBtn, Assembly-CSharp
+        m_MethodName: OnSpawnBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &688961332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48530,7 +48542,7 @@ GameObject:
   - component: {fileID: 914966063}
   - component: {fileID: 914966062}
   m_Layer: 0
-  m_Name: Button (4)
+  m_Name: SpawnUnitButton 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48657,7 +48669,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 914966065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681127403}
+        m_TargetAssemblyTypeName: SpawnBtn, Assembly-CSharp
+        m_MethodName: OnSpawnBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &914966065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64536,7 +64560,7 @@ GameObject:
   - component: {fileID: 1257726586}
   - component: {fileID: 1257726585}
   m_Layer: 0
-  m_Name: Button (2)
+  m_Name: SpawnUnitButton 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64663,7 +64687,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1257726588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681127403}
+        m_TargetAssemblyTypeName: SpawnBtn, Assembly-CSharp
+        m_MethodName: OnSpawnBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1257726588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75087,7 +75123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeamSpawnManager
   teamUnits:
   - {fileID: 8573150162662491996, guid: 0d01ed138f96937479b5e8f1aa773b43, type: 3}
+  - {fileID: 7096481202881774179, guid: e8f3bec2dae4b4d438578b4e1db39768, type: 3}
   - {fileID: 3679547281167946321, guid: 96eea2506d374dd4ea58eaf484a32189, type: 3}
+  - {fileID: 3364413760567687914, guid: 3ea0d5a7946481b4f9e262febc498bca, type: 3}
+  - {fileID: 3269772887062911029, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
 --- !u!1 &1500204217
 GameObject:
   m_ObjectHideFlags: 0
@@ -81744,7 +81783,7 @@ GameObject:
   - component: {fileID: 1649964626}
   - component: {fileID: 1649964625}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: SpawnUnitButton 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81871,7 +81910,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1649964628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681127403}
+        m_TargetAssemblyTypeName: SpawnBtn, Assembly-CSharp
+        m_MethodName: OnSpawnBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1649964628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115073,7 +115124,7 @@ PrefabInstance:
       objectReference: {fileID: 2572365745140355499, guid: 4ee5063e1f008e84ba4aea53acb80072, type: 3}
     - target: {fileID: 3596306067256064334, guid: 81570dc7ceea3174f895c75c1c3cdbcb, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: SpawnUnitButton 0
       objectReference: {fileID: 0}
     - target: {fileID: 5114288780218536264, guid: 81570dc7ceea3174f895c75c1c3cdbcb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
