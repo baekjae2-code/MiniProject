@@ -33,7 +33,7 @@ public class UnitUI : MonoBehaviour
     {
         GameManager.instance.printData[nowUnitNumber].level++;
         GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
-        GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
+        GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
         GameManager.instance.UseLevelUp(1000);
         goldText.text = GameManager.instance.Gold.ToString();
         PrintText();

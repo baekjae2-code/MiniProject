@@ -54,6 +54,7 @@ public abstract class Unit : MonoBehaviour
 
     public void Stun(float time)
     {
+        StopAllCoroutines();
         StartCoroutine(StunCoroutine(time));
     }
     IEnumerator StunCoroutine(float time)
@@ -72,6 +73,7 @@ public abstract class Unit : MonoBehaviour
     }
     void Die()
     {
+        StopAllCoroutines();
         gameObject.layer = 0;
         rb.linearVelocity = new Vector2(0, 10f);
         rb.constraints = RigidbodyConstraints2D.None;
