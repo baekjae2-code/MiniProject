@@ -1,6 +1,8 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
@@ -11,8 +13,6 @@ public class MainUI : MonoBehaviour
 
     [SerializeField] Transform mainScreenImg;
     [SerializeField] Transform setScreenImg;
-
-
 
     void Start()
     {
@@ -30,21 +30,28 @@ public class MainUI : MonoBehaviour
         gameStartBtn.DOMoveY(gameStartBtnP, 2f);
         gameSettingBtn.DOMoveY(gameSettingBtnP, 2f);
         gameQuitBtn.DOMoveY(gameQuitBtnP, 3);
+
+        gameStartBtn.GetComponent<Button>().onClick.AddListener(OnClickMainToSet);
     }
 
-    public void MainToSetBtn()
+    public void OnClickMainToSet()
     {
         mainScreenImg.DOMoveX(-960, 0.5f).SetEase(Ease.OutQuad);
         setScreenImg.DOMoveX(960, 0.5f).SetEase(Ease.OutQuad);
     }
-    public void SetToMainBtn()
+    public void OnClickSetToMain()
     {
         mainScreenImg.DOMoveX(960, 0.5f).SetEase(Ease.OutCubic);
         setScreenImg.DOMoveX(960 + 1920, 0.5f).SetEase(Ease.OutCubic);
     }
 
-    public void GameStartBtn()
+    public void OnClickGameStart()
     {
-        SceneManager.LoadScene("GameScene");    
+        for (int i = 0; i < 5; i++)
+        {
+            if (GameManager.instance.deckUnits[i] == "")
+                return;
+        }
+        SceneManager.LoadScene("GameScene");
     }
 }

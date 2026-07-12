@@ -3,17 +3,23 @@ using UnityEngine;
 
 public abstract class Unit : MonoBehaviour
 {
-    [SerializeField] protected int maxHP;
-    [SerializeField] protected int nowHP;
-
+    protected string myName;
+    protected int level;
+    protected float damage;
+    protected float range;
     protected float moveSpeed;
+    protected float attackSpeed;
+    protected float mana;
+    protected float spawn;
+    [SerializeField] protected float maxHP;
+    [SerializeField] protected float nowHP;
+
     protected Rigidbody2D rb;
     protected bool canMove;
-    protected float range;
     protected Transform target;
     protected bool isStun;
     protected float attackCooltime;
-    protected float attackSpeed;
+    protected bool isDead;
     SpriteRenderer[] sr;
 
     void Awake()
@@ -34,6 +40,7 @@ public abstract class Unit : MonoBehaviour
         {
             nowHP = 0;
             Die();
+            isDead = true;
         }
     }
     public void TakeHeal(int heal)

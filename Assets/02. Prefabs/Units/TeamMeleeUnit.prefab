@@ -601,10 +601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeamUnitMove
   maxHP: 10
   nowHP: 10
-  moveSpeed: 3
+  unitsData: {fileID: 11400000, guid: 88ee32a2b9cc52340b76e6b38d8452f4, type: 2}
   attackObj: {fileID: 0}
-  target: {fileID: 0}
-  canMove: 0
 --- !u!61 &8467247884735648287
 BoxCollider2D:
   m_ObjectHideFlags: 0

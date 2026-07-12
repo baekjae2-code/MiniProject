@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class TeamMeleeUnit : Unit
 {
+    public UnitsData unitsData;
+    private UnitData goblinData;
+
     public GameObject attackObj;
     void Start()
     {
-        moveSpeed = 3f;
+        goblinData = unitsData.list[0];
+
+        myName = goblinData.myName;
+        level = goblinData.level;
+        maxHP = goblinData.maxHP;
+        nowHP = goblinData.maxHP;
+        damage = goblinData.damage;
+        range = goblinData.range;
+        moveSpeed = goblinData.moveSpeed;
+        attackSpeed = goblinData.attackSpeed;
+
+        mana = goblinData.mana;
+        spawn = goblinData.spawn;
+
         rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;
-        attackSpeed = 2f;
         attackCooltime = attackSpeed;
     }
 
@@ -31,17 +46,17 @@ public class TeamMeleeUnit : Unit
             Move();
         }
     }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + Vector3.up * 0.5f, 3f);
-    }
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position + Vector3.up * 0.5f, 3f);
+    //}
     void CheckEnemy()
     {
         target = null;
         int layer = LayerMask.NameToLayer("Enemy");
         int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 3, targetLayer);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
         if (collider.Length == 0)
         {
             canMove = true;

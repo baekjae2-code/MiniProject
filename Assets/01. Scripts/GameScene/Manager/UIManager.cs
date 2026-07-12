@@ -30,15 +30,18 @@ public class UIManager : MonoBehaviour
 
     public void GameOverUI(string name)
     {
-        gameOverPopUp.transform.position = Camera.main.transform.position + Vector3.right * 3 + Vector3.up * 5 + Vector3.forward * 10;
-        gameOverPopUp.SetActive(true);
-        if(name == "PlayerBase")
+        if (gameOverPopUp != null)
         {
-            gameOverText.text = "Lose...";
-        }
-        else if(name == "EnemyBase")
-        {
-            gameOverText.text = "Victory!!";
+            gameOverPopUp.transform.position = Camera.main.transform.position + Vector3.right * 3 + Vector3.up * 5 + Vector3.forward * 10;
+            gameOverPopUp.SetActive(true);
+            if (name == "PlayerBase")
+            {
+                gameOverText.text = "Lose...";
+            }
+            else if (name == "EnemyBase")
+            {
+                gameOverText.text = "Victory!!";
+            }
         }
         BattleManager.instance.GameOver();
     }
