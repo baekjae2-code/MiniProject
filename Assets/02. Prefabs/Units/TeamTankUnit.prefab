@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8808183745850568110, guid: d55ae16abccf15d45acdbd4ae4431ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2744993180802166981, guid: d55ae16abccf15d45acdbd4ae4431ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeamTankUnit
   maxHP: 100
   nowHP: 100
-  tankObj: {fileID: 0}
 --- !u!61 &286156614221035946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -386,7 +385,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3253043834051130537, guid: e6d75c69a41b68b408d1dc6eb55344e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

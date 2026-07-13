@@ -9,6 +9,8 @@ public class UnitUI : MonoBehaviour
     public TextMeshProUGUI stateText;
     public TextMeshProUGUI costText;
 
+    public TextMeshProUGUI levelUpText;
+
     int nowUnitNumber;
 
     public TextMeshProUGUI goldText;
@@ -31,12 +33,16 @@ public class UnitUI : MonoBehaviour
 
     public void OnClickUnitLevelUp()
     {
-        GameManager.instance.printData[nowUnitNumber].level++;
-        GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
-        GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
-        GameManager.instance.UseLevelUp(1000);
-        goldText.text = GameManager.instance.Gold.ToString();
-        PrintText();
+        if (GameManager.instance.Gold > GameManager.instance.printData[nowUnitNumber].level * 100)
+        {
+            GameManager.instance.UseLevelUp(GameManager.instance.printData[nowUnitNumber].level * 100);
+
+            GameManager.instance.printData[nowUnitNumber].level++;
+            GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
+            GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
+            goldText.text = GameManager.instance.Gold.ToString();
+            PrintText();
+        }
     }
 
     void PrintText()
@@ -48,5 +54,7 @@ public class UnitUI : MonoBehaviour
             $"Range : {GameManager.instance.printData[nowUnitNumber].range}";
         costText.text = $"Mana  : {GameManager.instance.printData[nowUnitNumber].mana}\n" +
             $"Spawn : {GameManager.instance.printData[nowUnitNumber].spawn}";
+
+        levelUpText.text = $"Level Up : {GameManager.instance.printData[nowUnitNumber].level * 100} G";
     }
 }

@@ -36,8 +36,12 @@ public class GameManager : MonoBehaviour
     }
     public void UseLevelUp(int useGold)
     {
-        Gold -= useGold;
+        if (Gold > useGold)
+            Gold -= useGold;
     }
 
-
+    public void GetGold(int gold)
+    {
+        Gold += gold;
+    }
 }

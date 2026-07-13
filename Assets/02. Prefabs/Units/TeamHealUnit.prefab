@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8808183745850568110, guid: d55ae16abccf15d45acdbd4ae4431ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeamHealUnit
   maxHP: 10
   nowHP: 10
-  healObj: {fileID: 0}
 --- !u!61 &667753324386409438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,7 +294,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2744993180802166981, guid: d55ae16abccf15d45acdbd4ae4431ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
