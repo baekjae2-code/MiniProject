@@ -49283,6 +49283,9 @@ MonoBehaviour:
   EnemyUnits:
   - {fileID: 7089421568498003372, guid: 98c9eda97dfe57a46b40d0d16f4d7a5e, type: 3}
   - {fileID: 2809789647478519742, guid: 72e19026a0fd4244bb8d42ceadd5cbca, type: 3}
+  - {fileID: 3901039603465637647, guid: b54dca847ea98b344bcfcaafb7d50197, type: 3}
+  - {fileID: 1866188792816008093, guid: edc2e1b4975d27041822a97a4158c411, type: 3}
+  - {fileID: 7089421568498003372, guid: 98c9eda97dfe57a46b40d0d16f4d7a5e, type: 3}
 --- !u!1 &974187650
 GameObject:
   m_ObjectHideFlags: 0

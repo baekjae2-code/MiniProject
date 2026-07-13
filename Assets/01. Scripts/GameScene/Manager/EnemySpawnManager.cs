@@ -17,10 +17,39 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnUnits());
+        StartCoroutine(Spawn1wave());
+        StartCoroutine(SpawnGrabwave());
+        StartCoroutine(SpawnFinalwave());
     }
-    IEnumerator SpawnUnits()
+    IEnumerator Spawn1wave()
     {
+        while (true)
+        {
+            GameObject u = Instantiate(EnemyUnits[1]);
+            u.transform.position = transform.position;
+            u.SetActive(true);
+            u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+
+            yield return new WaitForSeconds(4f);
+        }
+    }
+    IEnumerator SpawnGrabwave()
+    {
+        while (true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject u = Instantiate(EnemyUnits[3]);
+                u.transform.position = transform.position;
+                u.SetActive(true);
+                u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+            }
+            yield return new WaitForSeconds(15);
+        }
+    }
+    IEnumerator SpawnFinalwave()
+    {
+        yield return new WaitForSeconds(30f);
         while (true)
         {
             foreach (GameObject unit in EnemyUnits)
@@ -30,7 +59,8 @@ public class EnemySpawnManager : MonoBehaviour
                 u.SetActive(true);
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
             }
-            yield return new WaitForSeconds(3f);
+
+            yield return new WaitForSeconds(4f);
         }
     }
     public void GameOver()
