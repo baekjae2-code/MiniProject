@@ -39,6 +39,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
+                yield return new WaitForSeconds(0.1f);
                 GameObject u = Instantiate(EnemyUnits[3]);
                 u.transform.position = transform.position;
                 u.SetActive(true);
@@ -54,6 +55,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             foreach (GameObject unit in EnemyUnits)
             {
+                yield return new WaitForSeconds(0.1f);
                 GameObject u = Instantiate(unit);
                 u.transform.position = transform.position;
                 u.SetActive(true);

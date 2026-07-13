@@ -1,66 +1,38 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MagicEffect : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
-    public LayerMask enemyLayer;
-    public float hitRadius;
-
-    private ParticleSystem.Particle[] particles;
     private void Awake()
     {
-        particleSystem = GetComponent<ParticleSystem>();
         Destroy(gameObject, 5);
     }
-    void Update()
+    private HashSet<int> hitEnemies = new HashSet<int>();
+
+    // 유니티 파티클 시스템이 충돌할 때 자동으로 실행되는 이벤트 함수
+    private void OnParticleCollision(GameObject other)
     {
-        int count = particleSystem.particleCount;
+        // 충돌한 오브젝트의 고유 ID 구하기
+        int enemyInstanceID = other.GetInstanceID();
 
-        if (particles == null || particles.Length < count)
-            particles = new ParticleSystem.Particle[count];
+        // 이미 한 번 맞은 적이라면 무시
+        if (hitEnemies.Contains(enemyInstanceID)) return;
 
-        count = particleSystem.GetParticles(particles);
+        // 처음 맞은 적이라면 저장 후 효과 적용
+        hitEnemies.Add(enemyInstanceID);
 
-        for (int i = 0; i < count; i++)
+        Debug.Log($"파티클이 {other.name}에 충돌함");
+
+        if (other.TryGetComponent<Rigidbody2D>(out var rb))
         {
-            // 파티클의 월드 좌표
-            Vector3 worldPos = particleSystem.transform.TransformPoint(particles[i].position);
-
-            // 파티클 주변 충돌 검사
-            Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, hitRadius, enemyLayer);
-
-            foreach (Collider2D hit in hits)
-            {
-                Debug.Log($"파티클 {i}가 {hit.name}에 닿음");
-
-                // 데미지
-                hit.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, Random.Range(0.5f, 1f));
-                hit.GetComponent<Unit>().Stun(2f);
-                break;
-            }
+            rb.linearVelocity += new Vector2(0, Random.Range(3f, 5f));
         }
 
-        particleSystem.SetParticles(particles, count);
-    }
-    // 검사 범위 확인
-    void OnDrawGizmosSelected()
-    {
-        if (particleSystem == null) return;
-
-        int count = particleSystem.particleCount;
-
-        if (particles == null || particles.Length < count)
-            particles = new ParticleSystem.Particle[count];
-
-        count = particleSystem.GetParticles(particles);
-
-        Gizmos.color = Color.red;
-
-        for (int i = 0; i < count; i++)
+        if (other.TryGetComponent<Unit>(out var unit))
         {
-            Vector3 worldPos = particleSystem.transform.TransformPoint(particles[i].position);
-            Gizmos.DrawWireSphere(worldPos, hitRadius);
+            unit.Stun(2f);
+            unit.TakeDamage(2);
         }
     }
 }

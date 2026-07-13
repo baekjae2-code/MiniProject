@@ -25,6 +25,9 @@ public class EnemyGrabUnit : Unit
 
     private void FixedUpdate()
     {
+        if (target != null && isGrab)
+            target.position = transform.position + new Vector3(-0.5f, 0.5f);
+
         if (isStun == true)
             return;
 
@@ -37,10 +40,6 @@ public class EnemyGrabUnit : Unit
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
-        }
-        if (target != null && isGrab)
-        {
-            target.position = transform.position + new Vector3(-0.5f, 0.5f);
         }
         if (canMove)
         {
@@ -59,7 +58,7 @@ public class EnemyGrabUnit : Unit
         }
         else
         {
-            
+
             target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
             if (target.transform.parent != null)
                 target = null;
@@ -78,13 +77,15 @@ public class EnemyGrabUnit : Unit
         Transform throwTarget = target;
         isGrab = true;
         throwTarget.SetParent(transform);
-        //target.localPosition = Vector3.zero;
-        target.GetComponent<Unit>().Stun(2f);
+        throwTarget.GetComponent<Unit>().Stun(2f);
         yield return new WaitForSeconds(0.5f);
-        isGrab = false;
-        throwTarget.SetParent(null);
-        throwTarget.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-10f, 5f);
-        target = null;
+        if (throwTarget != null)
+        {
+            throwTarget.SetParent(null);
+            throwTarget.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-10f, 5f);
+            isGrab = false;
+            target = null;
+        }
     }
 
     public void Move()

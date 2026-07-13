@@ -26,6 +26,9 @@ public class TeamTankUnit : Unit
 
     private void FixedUpdate()
     {
+        if (isStun == true)
+            return;
+
         CheckEnemy();
         if (target != null)
         {

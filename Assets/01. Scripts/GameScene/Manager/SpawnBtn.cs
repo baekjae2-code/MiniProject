@@ -34,4 +34,13 @@ public class SpawnBtn : MonoBehaviour
         costText.text = $"Mana  : {GameManager.instance.printData[nowUnitNumber].mana}\n" +
             $"Spawn : {GameManager.instance.printData[nowUnitNumber].spawn}";
     }
+
+    public GameObject mySkill;
+
+    public void OnClickUseSkill()
+    {
+        GameObject skill = Instantiate(mySkill);
+        skill.transform.position = new Vector3(-10f, -0.5f);
+    }
+
 }
