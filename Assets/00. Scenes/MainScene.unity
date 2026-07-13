@@ -7294,7 +7294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1230021354}
         m_TargetAssemblyTypeName: MainUI, Assembly-CSharp
-        m_MethodName: SetToMainBtn
+        m_MethodName: OnClickSetToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

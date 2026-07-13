@@ -31,7 +31,7 @@ public class MagicEffect : MonoBehaviour
 
         if (other.TryGetComponent<Unit>(out var unit))
         {
-            unit.Stun(2f);
+            unit.Stun(1f);
             unit.TakeDamage(2);
         }
     }
