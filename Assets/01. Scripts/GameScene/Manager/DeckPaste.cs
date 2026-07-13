@@ -14,7 +14,7 @@ public class DeckPaste : MonoBehaviour
         for (int i = 0; i < deckButtons.Length - 1; i++)
         {
             GameObject deckUnit = Instantiate(GameManager.instance.unitsImg[GameManager.instance.deckUnitNumber[i]]);
-            deckUnit.transform.parent = deckButtons[i + 1].transform;
+            deckUnit.transform.SetParent(deckButtons[i + 1].transform);
             deckUnit.transform.position = deckButtons[i + 1].transform.position;
         }
     }

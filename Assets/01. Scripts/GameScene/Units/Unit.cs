@@ -27,11 +27,6 @@ public abstract class Unit : MonoBehaviour
         sr = GetComponentsInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
-    private void OnEnable()
-    {
-        //nowHP = 10;
-        //maxHP = 10;
-    }
 
     public void TakeDamage(int damage)
     {

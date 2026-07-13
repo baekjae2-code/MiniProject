@@ -534,7 +534,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -544,7 +544,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.9}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &98942954
 MonoBehaviour:
@@ -39023,7 +39023,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -39033,7 +39033,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &845273424
 MonoBehaviour:
@@ -116379,10 +116379,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3005434796984512507, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
-      propertyPath: m_Name
-      value: TeamMagicEffect
-      objectReference: {fileID: 0}
     - target: {fileID: 3269772887062911029, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
       propertyPath: m_Name
       value: TeamMagicUnit
@@ -116390,10 +116386,6 @@ PrefabInstance:
     - target: {fileID: 3269772887062911029, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130866948857518860, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116422,5 +116414,5 @@ SceneRoots:
   - {fileID: 1747094137}
   - {fileID: 1553823533}
   - {fileID: 1692887217}
-  - {fileID: 203033086}
   - {fileID: 1676984600}
+  - {fileID: 203033086}

@@ -59,7 +59,7 @@ public class TeamMagicUnit : Unit
     }
     void Attack()
     {
-        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 3f + Vector3.right * 1f, Quaternion.identity);
+        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.right * 1f, Quaternion.identity);
         obj.SetActive(true);
         attackCooltime = 0;
     }

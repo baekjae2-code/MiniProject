@@ -26,7 +26,7 @@ public class MagicEffect : MonoBehaviour
 
         if (other.TryGetComponent<Rigidbody2D>(out var rb))
         {
-            rb.linearVelocity += new Vector2(0, Random.Range(3f, 5f));
+            rb.linearVelocity += new Vector2(0, Random.Range(1f, 3f));
         }
 
         if (other.TryGetComponent<Unit>(out var unit))

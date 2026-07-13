@@ -83,9 +83,9 @@ public class EnemyGrabUnit : Unit
         {
             throwTarget.SetParent(null);
             throwTarget.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-10f, 5f);
-            isGrab = false;
-            target = null;
         }
+        isGrab = false;
+        target = null;
     }
 
     public void Move()

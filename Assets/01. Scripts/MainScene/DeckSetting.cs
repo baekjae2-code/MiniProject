@@ -33,7 +33,7 @@ public class DeckSetting : MonoBehaviour
             {
                 GameObject unit = Instantiate(units[unitNumber]);   
                 unit.name = unitNumber.ToString();
-                unit.transform.parent = deckSlots[i].transform;
+                unit.transform.SetParent(deckSlots[i].transform);
                 unit.transform.position = deckSlots[i].transform.position;
                 isSetting[i] = true;
 
