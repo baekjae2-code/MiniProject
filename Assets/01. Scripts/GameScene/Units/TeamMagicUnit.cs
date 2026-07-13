@@ -4,13 +4,22 @@ using UnityEngine;
 public class TeamMagicUnit : Unit
 {
     public GameObject attackObj;
+
+    UnitData magicData;
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
+        magicData = GameManager.instance.printData[5];
+
+        myName = magicData.myName;
+        level = magicData.level;
+        maxHP = magicData.maxHP;
+        nowHP = magicData.maxHP;
+        damage = magicData.damage;
+        range = magicData.range;
+        moveSpeed = magicData.moveSpeed;
+        attackSpeed = magicData.attackSpeed;
+
         attackObj = transform.Find("TeamMagicEffect").gameObject;
-        range = 6f;
-        attackSpeed = 8f;
         attackCooltime = attackSpeed;
     }
 

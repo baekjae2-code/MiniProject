@@ -1,17 +1,26 @@
 using System.Linq;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class TeamHealUnit : Unit
 {
     public GameObject healObj;
-    float healCooltime;
-    float healSpeed;
+
+    UnitData healData;
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
+        healData = GameManager.instance.printData[4];
+
+        myName = healData.myName;
+        level = healData.level;
+        maxHP = healData.maxHP;
+        nowHP = healData.maxHP;
+        damage = healData.damage;
+        range = healData.range;
+        moveSpeed = healData.moveSpeed;
+        attackSpeed = healData.attackSpeed;
+
         healObj = transform.Find("HealMagicEffect").gameObject;
-        healSpeed = 2f;
     }
 
     private void FixedUpdate()
@@ -19,10 +28,10 @@ public class TeamHealUnit : Unit
         if (isStun == true)
             return;
 
-        healCooltime += Time.deltaTime;
+        attackCooltime += Time.deltaTime;
 
         CheckEnemy();
-        if (target != null && healCooltime > healSpeed)
+        if (target != null && attackCooltime > attackSpeed)
         {
             Heal();
         }
@@ -52,7 +61,7 @@ public class TeamHealUnit : Unit
     {
         GameObject obj = Instantiate(healObj, transform.position, healObj.transform.rotation);
         obj.SetActive(true);
-        healCooltime = 0;
+        attackCooltime = 0;
     }
     public void Move()
     {

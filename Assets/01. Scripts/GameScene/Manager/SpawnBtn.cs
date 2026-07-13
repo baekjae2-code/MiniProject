@@ -8,18 +8,17 @@ public class SpawnBtn : MonoBehaviour
     {
         GameObject clicked = EventSystem.current.currentSelectedGameObject; //선택한 버튼의 이름 불러오기
         string[] name = clicked.name.Split();
-
-        float spawnTime = 3f;
-        int useMP = 0;
-
         nowUnitNumber = GameManager.instance.deckUnitNumber[int.Parse(name[1])];
+
+        float spawnTime = GameManager.instance.printData[nowUnitNumber].spawn;
+        float useMP = GameManager.instance.printData[nowUnitNumber].mana;
 
         if (BattleManager.instance.GetManaNow() > useMP)
         {
             BattleManager.instance.UseMana(useMP);
-            TeamSpawnManager.instance.Spawn(GameManager.instance.deckUnitNumber[int.Parse(name[1])], spawnTime);
-            PrintText();
+            TeamSpawnManager.instance.Spawn(nowUnitNumber, spawnTime);
         }
+        PrintText();
     }
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI stateText;

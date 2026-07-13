@@ -16,9 +16,6 @@ public class TeamKingMeleeUnit : TeamMeleeUnit
         moveSpeed = kingUnitData.moveSpeed;
         attackSpeed = kingUnitData.attackSpeed;
 
-        mana = kingUnitData.mana;
-        spawn = kingUnitData.spawn;
-
         rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;

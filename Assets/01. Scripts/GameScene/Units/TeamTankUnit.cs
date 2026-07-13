@@ -6,13 +6,22 @@ using static UnityEngine.GraphicsBuffer;
 public class TeamTankUnit : Unit
 {
     public GameObject tankObj;
-    float tankCooltime;
-    float tankSpeed;
+
+    UnitData tankData;
 
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
+        tankData = GameManager.instance.printData[2];
+
+        myName = tankData.myName;
+        level = tankData.level;
+        maxHP = tankData.maxHP;
+        nowHP = tankData.maxHP;
+        damage = tankData.damage;
+        range = tankData.range;
+        moveSpeed = tankData.moveSpeed;
+        attackSpeed = tankData.attackSpeed;
+
         //tankObj = transform.Find("HealMagicEffect").gameObject;
     }
 

@@ -20,10 +20,6 @@ public class TeamMeleeUnit : Unit
         moveSpeed = goblinData.moveSpeed;
         attackSpeed = goblinData.attackSpeed;
 
-        mana = goblinData.mana;
-        spawn = goblinData.spawn;
-
-        rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
     }
