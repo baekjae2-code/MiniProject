@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Base : Unit
 {
-    private void OnDisable()
+    protected override void Die()
     {
-        UIManager.instance.GameOverUI(name);
+        UIManager.instance?.GameOverUI(gameObject.name);
+        Destroy(gameObject);
     }
 }

@@ -71,7 +71,7 @@ public abstract class Unit : MonoBehaviour
             sr[i].color = Color.white;
         }
     }
-    void Die()
+    protected virtual void Die()
     {
         StopAllCoroutines();
         gameObject.layer = 0;

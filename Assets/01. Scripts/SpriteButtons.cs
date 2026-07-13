@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,10 @@ public class SpriteButtons : MonoBehaviour
                 else if (name == "MainmenuButton")
                 {
                     SceneManager.LoadScene("MainScene");
+                    for (int i = 0; i < GameManager.instance.deckUnitNumber.Length; i++)
+                    {
+                        GameManager.instance.deckUnitNumber[i] = -1;
+                    }
                 }
                 else if (name == "NextStageButton")
                 {
