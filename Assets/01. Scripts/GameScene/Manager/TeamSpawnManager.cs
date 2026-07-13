@@ -14,8 +14,6 @@ public class TeamSpawnManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public GameObject[] teamUnits;
-
     private void Start()
     {
         StartCoroutine(SpawnUnits(0, 3f));
@@ -30,7 +28,7 @@ public class TeamSpawnManager : MonoBehaviour
     {
         while (true)
         {
-            GameObject u = Instantiate(teamUnits[spawnUnitNum]);
+            GameObject u = Instantiate(GameManager.instance.unitsPrefab[spawnUnitNum]);
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));

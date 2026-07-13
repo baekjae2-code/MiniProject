@@ -3473,7 +3473,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   unitsData: {fileID: 11400000, guid: 88ee32a2b9cc52340b76e6b38d8452f4, type: 2}
   printData: []
-  deckUnits: []
+  unitsPrefab:
+  - {fileID: 8573150162662491996, guid: 0d01ed138f96937479b5e8f1aa773b43, type: 3}
+  - {fileID: 3679547281167946321, guid: 96eea2506d374dd4ea58eaf484a32189, type: 3}
+  - {fileID: 7096481202881774179, guid: e8f3bec2dae4b4d438578b4e1db39768, type: 3}
+  - {fileID: 3364413760567687914, guid: 3ea0d5a7946481b4f9e262febc498bca, type: 3}
+  - {fileID: 5389424238830910297, guid: bc660cac935c07c43b255cc05ffb575f, type: 3}
+  - {fileID: 3269772887062911029, guid: 9e43caa3784c24e499560427348eba6b, type: 3}
   unitsImg:
   - {fileID: 3005393048368787025, guid: d3e000cc8f03d7b4085b3e627d352e97, type: 3}
   - {fileID: 5752356985335258103, guid: 7bae8aac42b9c3f479f8e16e62aff036, type: 3}
@@ -3481,6 +3487,7 @@ MonoBehaviour:
   - {fileID: 6648016827456876274, guid: 9dcefb7cc5f03f94892babf0a3ca59cb, type: 3}
   - {fileID: 433313194930912845, guid: ece4b78d56a25b14786525188ec82761, type: 3}
   - {fileID: 7584401969177287114, guid: ed39273d019745842a99682db5257b09, type: 3}
+  deckUnitNumber: 
 --- !u!4 &888157353
 Transform:
   m_ObjectHideFlags: 0

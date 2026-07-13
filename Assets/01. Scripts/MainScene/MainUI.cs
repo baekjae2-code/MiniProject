@@ -49,7 +49,7 @@ public class MainUI : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            if (GameManager.instance.deckUnits[i] == "")
+            if (GameManager.instance.deckUnitNumber[i] == -1)
                 return;
         }
         SceneManager.LoadScene("GameScene");

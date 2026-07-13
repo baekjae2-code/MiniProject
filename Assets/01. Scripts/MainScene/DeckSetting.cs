@@ -37,7 +37,7 @@ public class DeckSetting : MonoBehaviour
                 unit.transform.position = deckSlots[i].transform.position;
                 isSetting[i] = true;
 
-                GameManager.instance.deckUnits[i] = unit.name;
+                GameManager.instance.deckUnitNumber[i] = int.Parse(unit.name);
 
                 return;
             }
@@ -54,6 +54,7 @@ public class DeckSetting : MonoBehaviour
         if (isSetting[deckNumber])
         {
             Destroy(deckSlots[deckNumber].transform.GetChild(0).gameObject);
+            GameManager.instance.deckUnitNumber[deckNumber] = -1;
             isSetting[deckNumber] = false;
         }
     }

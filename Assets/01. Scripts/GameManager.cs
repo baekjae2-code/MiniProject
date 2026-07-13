@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
 
     public UnitsData unitsData;
     public UnitData[] printData;
-    public string[] deckUnits;  //덱에 있는 유닛의 이름들 저장, 덱이 다 정해졌는지 체크
+    public GameObject[] unitsPrefab;
     public GameObject[] unitsImg;
+
+    public int[] deckUnitNumber;  //덱에 있는 유닛의 이름들 저장, 덱이 다 정해졌는지 체크
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour
             printData[i] = unitsData.list[i];
         }
 
-        deckUnits = new string[5];
+        deckUnitNumber = new int[5] { -1, -1, -1, -1, -1 };
     }
     public void UseLevelUp(int useGold)
     {
