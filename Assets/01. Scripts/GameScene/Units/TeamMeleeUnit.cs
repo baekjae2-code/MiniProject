@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class TeamMeleeUnit : Unit
 {
-    public GameObject attackObj;
+    protected GameObject attackObj;
+    UnitData meleeUnit;
 
-    private UnitData goblinData;
     void Start()
     {
-        goblinData = GameManager.instance.printData[0];
+        meleeUnit = GameManager.instance.printData[0];
 
-        myName = goblinData.myName;
-        level = goblinData.level;
-        maxHP = goblinData.maxHP;
-        nowHP = goblinData.maxHP;
-        damage = goblinData.damage;
-        range = goblinData.range;
-        moveSpeed = goblinData.moveSpeed;
-        attackSpeed = goblinData.attackSpeed;
+        myName = meleeUnit.myName;
+        level = meleeUnit.level;
+        maxHP = meleeUnit.maxHP;
+        nowHP = meleeUnit.maxHP;
+        damage = meleeUnit.damage;
+        range = meleeUnit.range;
+        moveSpeed = meleeUnit.moveSpeed;
+        attackSpeed = meleeUnit.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;

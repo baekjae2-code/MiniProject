@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TeamHealUnit : Unit
 {
-    public GameObject healObj;
-
+    GameObject healObj;
     UnitData healData;
+
     void Start()
     {
         healData = GameManager.instance.printData[4];

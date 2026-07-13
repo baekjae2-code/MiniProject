@@ -4,14 +4,23 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyRangedUnit : Unit
 {
-    public GameObject attackObj;
+    GameObject attackObj;
+    UnitData rangedUnit;
+
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
+        rangedUnit = GameManager.instance.printData[1];
+
+        myName = rangedUnit.myName;
+        level = rangedUnit.level;
+        maxHP = rangedUnit.maxHP;
+        nowHP = rangedUnit.maxHP;
+        damage = rangedUnit.damage;
+        range = rangedUnit.range;
+        moveSpeed = rangedUnit.moveSpeed;
+        attackSpeed = rangedUnit.attackSpeed;
+
         attackObj = transform.Find("AttackEffect").gameObject;
-        range = 4f;
-        attackSpeed = 2f;
         attackCooltime = attackSpeed;
     }
 

@@ -4,21 +4,21 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TeamRangedUnit : Unit
 {
-    public GameObject attackObj;
+    GameObject attackObj;
+    UnitData rangedUnit;
 
-    UnitData rangeData;
     void Start()
     {
-        rangeData = GameManager.instance.printData[1];
+        rangedUnit = GameManager.instance.printData[1];
 
-        myName = rangeData.myName;
-        level = rangeData.level;
-        maxHP = rangeData.maxHP;
-        nowHP = rangeData.maxHP;
-        damage = rangeData.damage;
-        range = rangeData.range;
-        moveSpeed = rangeData.moveSpeed;
-        attackSpeed = rangeData.attackSpeed;
+        myName = rangedUnit.myName;
+        level = rangedUnit.level;
+        maxHP = rangedUnit.maxHP;
+        nowHP = rangedUnit.maxHP;
+        damage = rangedUnit.damage;
+        range = rangedUnit.range;
+        moveSpeed = rangedUnit.moveSpeed;
+        attackSpeed = rangedUnit.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;

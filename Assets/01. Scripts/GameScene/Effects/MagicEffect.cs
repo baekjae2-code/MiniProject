@@ -35,7 +35,7 @@ public class MagicEffect : MonoBehaviour
                 Debug.Log($"파티클 {i}가 {hit.name}에 닿음");
 
                 // 데미지
-                hit.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, Random.Range(1f, 2f));
+                hit.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, Random.Range(0.5f, 1f));
                 hit.GetComponent<Unit>().Stun(2f);
                 break;
             }

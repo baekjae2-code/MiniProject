@@ -3,14 +3,23 @@ using UnityEngine;
 
 public class EnemyMagicUnit : Unit
 {
-    public GameObject attackObj;
+    GameObject attackObj;
+    UnitData magicUnit;
+
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
+        magicUnit = GameManager.instance.printData[5];
+
+        myName = magicUnit.myName;
+        level = magicUnit.level;
+        maxHP = magicUnit.maxHP;
+        nowHP = magicUnit.maxHP;
+        damage = magicUnit.damage;
+        range = magicUnit.range;
+        moveSpeed = magicUnit.moveSpeed;
+        attackSpeed = magicUnit.attackSpeed;
+
         attackObj = transform.Find("EnemyMagicEffect").gameObject;
-        range = 6f;
-        attackSpeed = 8f;
         attackCooltime = attackSpeed;
     }
 
@@ -50,7 +59,7 @@ public class EnemyMagicUnit : Unit
     }
     void Attack()
     {
-        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f, Quaternion.identity);
+        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.left * 1f, Quaternion.identity);
         obj.SetActive(true);
         attackCooltime = 0;
     }

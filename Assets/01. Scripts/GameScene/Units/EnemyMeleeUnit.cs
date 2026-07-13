@@ -5,13 +5,23 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMeleeUnit : Unit
 {
-    public GameObject attackObj;
+    protected GameObject attackObj;
+    UnitData meleeUnit;
+
     void Start()
     {
-        moveSpeed = 3f;
-        rb = GetComponent<Rigidbody2D>();
+        meleeUnit = GameManager.instance.printData[0];
+
+        myName = meleeUnit.myName;
+        level = meleeUnit.level;
+        maxHP = meleeUnit.maxHP;
+        nowHP = meleeUnit.maxHP;
+        damage = meleeUnit.damage;
+        range = meleeUnit.range;
+        moveSpeed = meleeUnit.moveSpeed;
+        attackSpeed = meleeUnit.attackSpeed;
+
         attackObj = transform.Find("AttackEffect").gameObject;
-        attackSpeed = 2f;
         attackCooltime = attackSpeed;
     }
 

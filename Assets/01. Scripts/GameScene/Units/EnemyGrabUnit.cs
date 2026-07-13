@@ -5,11 +5,21 @@ using UnityEngine;
 public class EnemyGrabUnit : Unit
 {
     bool isGrab;
+    UnitData grabUnit;
+
     void Start()
     {
-        moveSpeed = 2f;
-        rb = GetComponent<Rigidbody2D>();
-        attackSpeed = 2f;
+        grabUnit = GameManager.instance.printData[6];
+
+        myName = grabUnit.myName;
+        level = grabUnit.level;
+        maxHP = grabUnit.maxHP;
+        nowHP = grabUnit.maxHP;
+        damage = grabUnit.damage;
+        range = grabUnit.range;
+        moveSpeed = grabUnit.moveSpeed;
+        attackSpeed = grabUnit.attackSpeed;
+
         attackCooltime = attackSpeed;
     }
 

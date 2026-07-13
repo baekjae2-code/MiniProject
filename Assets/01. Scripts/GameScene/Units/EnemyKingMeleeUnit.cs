@@ -1,6 +1,7 @@
+﻿using System.Collections;
 using UnityEngine;
 
-public class TeamKingMeleeUnit : TeamMeleeUnit
+public class EnemyKingMeleeUnit : EnemyMeleeUnit
 {
     UnitData kingUnitData;
 

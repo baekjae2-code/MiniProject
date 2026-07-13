@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class TeamMagicUnit : Unit
 {
-    public GameObject attackObj;
+    GameObject attackObj;
+    UnitData magicUnit;
 
-    UnitData magicData;
     void Start()
     {
-        magicData = GameManager.instance.printData[5];
+        magicUnit = GameManager.instance.printData[5];
 
-        myName = magicData.myName;
-        level = magicData.level;
-        maxHP = magicData.maxHP;
-        nowHP = magicData.maxHP;
-        damage = magicData.damage;
-        range = magicData.range;
-        moveSpeed = magicData.moveSpeed;
-        attackSpeed = magicData.attackSpeed;
+        myName = magicUnit.myName;
+        level = magicUnit.level;
+        maxHP = magicUnit.maxHP;
+        nowHP = magicUnit.maxHP;
+        damage = magicUnit.damage;
+        range = magicUnit.range;
+        moveSpeed = magicUnit.moveSpeed;
+        attackSpeed = magicUnit.attackSpeed;
 
         attackObj = transform.Find("TeamMagicEffect").gameObject;
         attackCooltime = attackSpeed;
@@ -59,7 +59,7 @@ public class TeamMagicUnit : Unit
     }
     void Attack()
     {
-        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 3f, Quaternion.identity);
+        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 3f + Vector3.right * 1f, Quaternion.identity);
         obj.SetActive(true);
         attackCooltime = 0;
     }
