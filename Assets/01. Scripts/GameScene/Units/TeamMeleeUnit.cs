@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class TeamMeleeUnit : Unit
 {
-    public UnitsData unitsData;
-    private UnitData goblinData;
-
     public GameObject attackObj;
+
+    private UnitData goblinData;
     void Start()
     {
-        goblinData = unitsData.list[0];
+        goblinData = GameManager.instance.printData[0];
 
         myName = goblinData.myName;
         level = goblinData.level;

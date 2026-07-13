@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174550241276121034}
-  - component: {fileID: 879094846693245596}
+  - component: {fileID: 2340410533150054501}
   - component: {fileID: 3746231883951367462}
   - component: {fileID: 4967277860658718982}
   m_Layer: 7
@@ -224,7 +224,7 @@ Transform:
   - {fileID: 8530271201753116433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &879094846693245596
+--- !u!114 &2340410533150054501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,12 +233,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3364413760567687914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522c06e08cd179d4486846434a3d9a9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 72f308488b21b5741b476764c9c7acb3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeamMeleeUnit
+  m_EditorClassIdentifier: Assembly-CSharp::TeamKingMeleeUnit
   maxHP: 100
   nowHP: 100
-  unitsData: {fileID: 11400000, guid: 88ee32a2b9cc52340b76e6b38d8452f4, type: 2}
   attackObj: {fileID: 0}
 --- !u!61 &3746231883951367462
 BoxCollider2D:
