@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int Gold { get; private set; }
-    public int NowStage { get; private set; }
+    public int NowStage { get; private set; }   //MainUI에서 스테이지 선택
 
     public UnitsData unitsData;
     public UnitData[] printData;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
 
         deckUnitNumber = new int[5] { -1, -1, -1, -1, -1 };
-        NowStage = 3;
+        NowStage = 0;
     }
     public void UseLevelUp(int useGold)
     {

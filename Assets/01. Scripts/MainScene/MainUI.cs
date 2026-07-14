@@ -1,6 +1,8 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,7 +22,18 @@ public class MainUI : MonoBehaviour
     [SerializeField] Transform infoImage;
     [SerializeField] Transform stageLeftBtn;
     [SerializeField] Transform stageRightBtn;
-    [SerializeField] Transform stageToSettinhBtn;
+    [SerializeField] Transform stageToSetBtn;
+
+    float stageLeftBtnPosition;
+    float stageRightBtnPosition;
+
+    [SerializeField] GameObject warningImage;
+    [SerializeField] GameObject warningText;
+    [SerializeField] Image holdWarningImage;
+    [SerializeField] TextMeshProUGUI holdWarningText;
+    [SerializeField] Image deckSettingImage;
+
+    [SerializeField] Volume volume;
 
     void Start()
     {
@@ -40,6 +53,9 @@ public class MainUI : MonoBehaviour
         gameQuitBtn.DOMoveY(gameQuitBtnP, 3);
 
         gameStartBtn.GetComponent<Button>().onClick.AddListener(OnClickMainToSet);
+
+        stageLeftBtnPosition = stageLeftBtn.position.x - 1920;
+        stageRightBtnPosition = stageRightBtn.position.x - 1920;
     }
 
     public void OnClickMainToSet()
@@ -55,9 +71,25 @@ public class MainUI : MonoBehaviour
     }
     public void OnClickSetToStage()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            int num = 0;
+            if (GameManager.instance.deckUnitNumber[i] == -1)   //덱이 꽉찼는지 체크
+            {
+                num++;
+            }
+            if (num > 0)
+            {
+                Warning();
+                return;
+            }
+        }
         screenImgManager.DOMoveX(-1920 - 960, 0.5f).SetEase(Ease.OutQuad);
 
         infoImage.SetParent(canvas);    //자원 창 -> 세팅+스테이지 창 둘다 보임
+
+        stageLeftBtn.position = new Vector2(stageLeftBtnPosition, stageLeftBtn.position.y);
+        stageRightBtn.position = new Vector2(stageRightBtnPosition, stageRightBtn.position.y);
     }
 
     public void OnClickStageToSet()
@@ -72,34 +104,64 @@ public class MainUI : MonoBehaviour
         stageLeftBtn.SetParent(canvas); //스테이지 이동 버튼 -> 이동할때 제자리
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x < -5760 + 960 + 199)
+        if (screenImgManager.position.x < -5760 + 960 + 299)
         {
             screenImgManager.DOMoveX(-5760 + 960, 0.5f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x - 200, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x - 300, 0.5f).SetEase(Ease.OutQuad);
     }
     public void OnClickStageLeft()
     {
         stageLeftBtn.SetParent(canvas);
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x > -1920 - 960 - 199)
+        if (screenImgManager.position.x > -1920 - 960 - 299)
         {
             screenImgManager.DOMoveX(-1920 - 960, 0.5f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x + 200, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x + 300, 0.5f).SetEase(Ease.OutQuad);
     }
     public void OnClickGameStart()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            if (GameManager.instance.deckUnitNumber[i] == -1)   //덱이 꽉찼는지 체크
-                return;
-        }
         SceneManager.LoadScene("GameScene");
+    }
+
+    void Warning()
+    {
+        GameObject warningi = Instantiate(warningImage, new Vector3(960, 0), Quaternion.identity, canvas);
+        GameObject warningt = Instantiate(warningText, new Vector3(960, 0), Quaternion.identity, canvas);
+
+        warningi.SetActive(true);
+        warningt.SetActive(true);
+
+        warningi.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-200f, 200f), Random.Range(1300f, 1600f));
+        warningt.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-200f, 200f), Random.Range(900f, 1000f));
+
+        warningi.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);
+        warningt.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);
+
+        Destroy(warningi, 5f);
+        Destroy(warningt, 5f);
+
+        StartCoroutine(WarningCoroutine());
+    }
+
+    IEnumerator WarningCoroutine()
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.01f);
+        Color32 col = new Color32(255, 0, 0, 255);
+
+        for (byte i = 0; i < 255; i++)
+        {
+            holdWarningImage.color = col;
+            holdWarningText.color = col;
+            deckSettingImage.color = new Color32(255, i, i, 255);
+            col.a--;
+            yield return wait;
+        }
     }
 }
