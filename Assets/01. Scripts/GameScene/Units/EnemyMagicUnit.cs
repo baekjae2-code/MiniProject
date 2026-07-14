@@ -4,20 +4,20 @@ using UnityEngine;
 public class EnemyMagicUnit : Unit
 {
     GameObject attackObj;
-    UnitData magicUnit;
+    UnitData unitData;
 
     void Start()
     {
-        magicUnit = GameManager.instance.printData[5];
+        unitData = GameManager.instance.unitsData.list[5];
 
-        myName = magicUnit.myName;
-        level = magicUnit.level;
-        maxHP = magicUnit.maxHP;
-        nowHP = magicUnit.maxHP;
-        damage = magicUnit.damage;
-        range = magicUnit.range;
-        moveSpeed = magicUnit.moveSpeed;
-        attackSpeed = magicUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        maxHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        nowHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        damage = unitData.damage + GameManager.instance.NowStage * (unitData.damage / 10f);
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackObj = transform.Find("EnemyMagicEffect").gameObject;
         attackCooltime = attackSpeed;

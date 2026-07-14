@@ -6,20 +6,20 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyMeleeUnit : Unit
 {
     protected GameObject attackObj;
-    UnitData meleeUnit;
+    UnitData unitData;
 
     void Start()
     {
-        meleeUnit = GameManager.instance.printData[0];
+        unitData = GameManager.instance.unitsData.list[0]; //적 유닛은 원본 데이터에서 데이터 불러옴(printData는 내 level에 영향받기때문)
 
-        myName = meleeUnit.myName;
-        level = meleeUnit.level;
-        maxHP = meleeUnit.maxHP;
-        nowHP = meleeUnit.maxHP;
-        damage = meleeUnit.damage;
-        range = meleeUnit.range;
-        moveSpeed = meleeUnit.moveSpeed;
-        attackSpeed = meleeUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        maxHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        nowHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        damage = unitData.damage + GameManager.instance.NowStage * (unitData.damage / 10f);
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;

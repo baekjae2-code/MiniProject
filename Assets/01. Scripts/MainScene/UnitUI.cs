@@ -17,7 +17,9 @@ public class UnitUI : MonoBehaviour
 
     private void Start()
     {
-        nowUnitNumber = 0;
+        nowUnitNumber = -1;
+
+        levelUpText.text = "Level Up";
         goldText.text = GameManager.instance.Gold.ToString();
     }
 
@@ -33,6 +35,9 @@ public class UnitUI : MonoBehaviour
 
     public void OnClickUnitLevelUp()
     {
+        if (nowUnitNumber == -1)
+            return;
+
         if (GameManager.instance.Gold > GameManager.instance.printData[nowUnitNumber].level * 100)
         {
             GameManager.instance.UseLevelUp(GameManager.instance.printData[nowUnitNumber].level * 100);

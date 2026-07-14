@@ -66,7 +66,7 @@ public abstract class Unit : MonoBehaviour
             sr[i].color = Color.white;
         }
     }
-    protected virtual void Die()
+    protected virtual void Die()        //base에서 사망시 함수 새로 오버라이드하기 때문에 virtual로 생성
     {
         StopAllCoroutines();
         gameObject.layer = 0;

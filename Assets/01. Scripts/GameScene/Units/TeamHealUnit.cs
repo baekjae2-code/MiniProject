@@ -5,20 +5,20 @@ using UnityEngine;
 public class TeamHealUnit : Unit
 {
     GameObject healObj;
-    UnitData healData;
+    UnitData unitData;
 
     void Start()
     {
-        healData = GameManager.instance.printData[4];
+        unitData = GameManager.instance.printData[4];
 
-        myName = healData.myName;
-        level = healData.level;
-        maxHP = healData.maxHP;
-        nowHP = healData.maxHP;
-        damage = healData.damage;
-        range = healData.range;
-        moveSpeed = healData.moveSpeed;
-        attackSpeed = healData.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level;
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         healObj = transform.Find("HealMagicEffect").gameObject;
     }

@@ -5,20 +5,20 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyRangedUnit : Unit
 {
     GameObject attackObj;
-    UnitData rangedUnit;
+    UnitData unitData;
 
     void Start()
     {
-        rangedUnit = GameManager.instance.printData[1];
+        unitData = GameManager.instance.printData[1];
 
-        myName = rangedUnit.myName;
-        level = rangedUnit.level;
-        maxHP = rangedUnit.maxHP;
-        nowHP = rangedUnit.maxHP;
-        damage = rangedUnit.damage;
-        range = rangedUnit.range;
-        moveSpeed = rangedUnit.moveSpeed;
-        attackSpeed = rangedUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        maxHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        nowHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        damage = unitData.damage + GameManager.instance.NowStage * (unitData.damage / 10f);
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;

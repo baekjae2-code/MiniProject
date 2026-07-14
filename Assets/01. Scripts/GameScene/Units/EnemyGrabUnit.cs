@@ -5,20 +5,20 @@ using UnityEngine;
 public class EnemyGrabUnit : Unit
 {
     bool isGrab;
-    UnitData grabUnit;
+    UnitData unitData;
 
     void Start()
     {
-        grabUnit = GameManager.instance.printData[6];
+        unitData = GameManager.instance.unitsData.list[6];
 
-        myName = grabUnit.myName;
-        level = grabUnit.level;
-        maxHP = grabUnit.maxHP;
-        nowHP = grabUnit.maxHP;
-        damage = grabUnit.damage;
-        range = grabUnit.range;
-        moveSpeed = grabUnit.moveSpeed;
-        attackSpeed = grabUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        maxHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        nowHP = unitData.maxHP + GameManager.instance.NowStage * (unitData.maxHP / 10f);
+        damage = unitData.damage + GameManager.instance.NowStage * (unitData.damage / 10f);
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackCooltime = attackSpeed;
     }

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int Gold { get; private set; }
+    public int NowStage { get; private set; }
 
     public UnitsData unitsData;
     public UnitData[] printData;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
 
         deckUnitNumber = new int[5] { -1, -1, -1, -1, -1 };
+        NowStage = 3;
     }
     public void UseLevelUp(int useGold)
     {
