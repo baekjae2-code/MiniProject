@@ -99,31 +99,32 @@ public class MainUI : MonoBehaviour
         stageLeftBtn.SetParent(stageScreenImg); //스테이지에서 세팅 창으로 이동할때 다시 안보이게
         stageRightBtn.SetParent(stageScreenImg);
     }
-    public void OnClickStageRight()
+
+    public void OnClickStageRight() //화면 오른쪽이동
     {
         stageLeftBtn.SetParent(canvas); //스테이지 이동 버튼 -> 이동할때 제자리
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x < -5760 + 960 + 299)
+        if (screenImgManager.position.x < -5760 + 960 + 399)
         {
             screenImgManager.DOMoveX(-5760 + 960, 0.5f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x - 300, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x - 400, 0.5f).SetEase(Ease.OutQuad);
     }
-    public void OnClickStageLeft()
+    public void OnClickStageLeft()  //화면 왼쪽이동
     {
         stageLeftBtn.SetParent(canvas);
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x > -1920 - 960 - 299)
+        if (screenImgManager.position.x > -1920 - 960 - 399)
         {
             screenImgManager.DOMoveX(-1920 - 960, 0.5f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x + 300, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x + 400, 0.5f).SetEase(Ease.OutQuad);
     }
     public void OnClickGameStart()
     {

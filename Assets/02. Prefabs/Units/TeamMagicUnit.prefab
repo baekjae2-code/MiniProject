@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6165174366508175631}
+  - {fileID: 4361330699718780333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4993776359643486856
@@ -250,13 +250,17 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.22280523
       objectReference: {fileID: 0}
+    - target: {fileID: 8846485965982029346, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
---- !u!4 &6165174366508175631 stripped
+--- !u!4 &4361330699718780333 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2608398009754249397, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
   m_PrefabInstance: {fileID: 8195985350253656506}
   m_PrefabAsset: {fileID: 0}
