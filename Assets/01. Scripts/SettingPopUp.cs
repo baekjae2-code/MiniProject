@@ -1,7 +1,8 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingPopUp : MonoBehaviour
+public class SettingPopUp : PrintText
 {
     public GameObject optionPopUp;
     public GameObject settingPopUp;
@@ -23,6 +24,12 @@ public class SettingPopUp : MonoBehaviour
         optionPopUp.SetActive(false);
         Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
+    }
+    public void OnClickDataClear()
+    {
+        GameManager.instance.ClearData();
+
+        PrintTexts();
     }
 
     public void OnClickSettingPopUp()

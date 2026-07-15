@@ -1,7 +1,9 @@
 using DG.Tweening;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,6 +37,8 @@ public class MainUI : MonoBehaviour
 
     [SerializeField] Volume volume;
 
+    [SerializeField] Image[] stageBtns;
+
     void Start()
     {
         float gameNameP = gameName.position.y;
@@ -56,6 +60,8 @@ public class MainUI : MonoBehaviour
 
         stageLeftBtnPosition = stageLeftBtn.position.x - 1920;
         stageRightBtnPosition = stageRightBtn.position.x - 1920;
+
+        StageUI();
     }
 
     public void OnClickMainToSet()
@@ -105,32 +111,53 @@ public class MainUI : MonoBehaviour
         stageLeftBtn.SetParent(canvas); //스테이지 이동 버튼 -> 이동할때 제자리
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x < -5760 + 960 + 399)
+        if (screenImgManager.position.x < -5760 + 960 + 499)
         {
-            screenImgManager.DOMoveX(-5760 + 960, 0.5f).SetEase(Ease.OutQuad);
+            screenImgManager.DOMoveX(-5760 + 960, 0.2f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x - 400, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x - 500, 0.2f).SetEase(Ease.OutQuad);
     }
     public void OnClickStageLeft()  //화면 왼쪽이동
     {
         stageLeftBtn.SetParent(canvas);
         stageRightBtn.SetParent(canvas);
 
-        if (screenImgManager.position.x > -1920 - 960 - 399)
+        if (screenImgManager.position.x > -1920 - 960 - 499)
         {
-            screenImgManager.DOMoveX(-1920 - 960, 0.5f).SetEase(Ease.OutQuad);
+            screenImgManager.DOMoveX(-1920 - 960, 0.2f).SetEase(Ease.OutQuad);
             return;
         }
 
-        screenImgManager.DOMoveX(screenImgManager.position.x + 400, 0.5f).SetEase(Ease.OutQuad);
+        screenImgManager.DOMoveX(screenImgManager.position.x + 500, 0.2f).SetEase(Ease.OutQuad);
     }
     public void OnClickGameStart()
     {
+        if (GameManager.instance.ClearStage + 1 < int.Parse(EventSystem.current.currentSelectedGameObject.name))    //현재 클리어 다음 스테이지만 가능
+        {
+            return;
+        }
+
+        GameManager.instance.SetStage(int.Parse(EventSystem.current.currentSelectedGameObject.name));    //선택한 버튼의 이름을 스테이지로 세팅
         SceneManager.LoadScene("GameScene");
     }
-
+    public void StageUI()    //스테이지 버튼들 색깔이 클리어하였으면 바뀜, 초기화할떄 호출
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < GameManager.instance.ClearStage + 1)
+            {
+                stageBtns[i].color = Color.white;
+                stageBtns[i].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                stageBtns[i].color = new Color(100 / 255f, 100 / 255f, 100 / 255f);
+                stageBtns[i].transform.GetChild(0).GetComponent<Image>().color = Color.blue;
+            }
+        }
+    }
     void Warning()
     {
         GameObject warningi = Instantiate(warningImage, new Vector3(960, 0), Quaternion.identity, canvas);

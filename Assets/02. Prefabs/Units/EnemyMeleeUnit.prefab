@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1930649727664449291, guid: 152d572cd288ff040b9e77bed8e21fe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,8 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnitMove
   maxHP: 10
   nowHP: 10
-  moveSpeed: 3
-  attackObj: {fileID: 0}
 --- !u!61 &4363573104469847291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -388,7 +386,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1388769850611658484, guid: 152d572cd288ff040b9e77bed8e21fe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -3,14 +3,17 @@ using UnityEngine.EventSystems;
 
 public class DeckSetting : MonoBehaviour
 {
-    [SerializeField] GameObject[] units;
+    [SerializeField] GameObject[] units;    // 이미지 프리팹
 
-    [SerializeField] GameObject[] deckSlots;
+    [SerializeField] GameObject[] deckSlots;// Deckslots 0~4
     bool[] isSetting;
 
     private void Start()
     {
         isSetting = new bool[deckSlots.Length];
+
+        GameManager.instance.LoadDeckData();
+        LoadDeckSlot();
     }
 
     public void OnAddDeckSlot()
@@ -27,11 +30,14 @@ public class DeckSetting : MonoBehaviour
                     return;
         }
 
+        if (GameManager.instance.printData[unitNumber].level == 0)  //레벨이 0이면 덱에 저장 불가
+            return;
+
         for (int i = 0; i < deckSlots.Length; i++)
         {
             if (!isSetting[i])
             {
-                GameObject unit = Instantiate(units[unitNumber]);   
+                GameObject unit = Instantiate(units[unitNumber]);
                 unit.name = unitNumber.ToString();
                 unit.transform.SetParent(deckSlots[i].transform);
                 unit.transform.position = deckSlots[i].transform.position;
@@ -39,9 +45,11 @@ public class DeckSetting : MonoBehaviour
 
                 GameManager.instance.deckUnitNumber[i] = int.Parse(unit.name);
 
-                return;
+                break;
             }
         }
+
+        GameManager.instance.SaveDeckData();
     }
 
     public void OnRemoveDeckSlot()
@@ -56,6 +64,30 @@ public class DeckSetting : MonoBehaviour
             Destroy(deckSlots[deckNumber].transform.GetChild(0).gameObject);
             GameManager.instance.deckUnitNumber[deckNumber] = -1;
             isSetting[deckNumber] = false;
+        }
+    }
+    public void OnRemoveAllDeckSlot()   //초기화 버튼용
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (deckSlots[i].transform.childCount == 1)
+                Destroy(deckSlots[i].transform.GetChild(0).gameObject);
+            GameManager.instance.deckUnitNumber[i] = -1;
+            isSetting[i] = false;
+        }
+    }
+    void LoadDeckSlot() // 저장한 덱을 불러오기
+    {
+        for (int i = 0; i < deckSlots.Length; i++)
+        {
+            if (GameManager.instance.deckUnitNumber[i] != -1)
+            {
+                GameObject unit = Instantiate(units[GameManager.instance.deckUnitNumber[i]]);
+                unit.name = GameManager.instance.deckUnitNumber[i].ToString();
+                unit.transform.SetParent(deckSlots[i].transform);
+                unit.transform.position = deckSlots[i].transform.position;
+                isSetting[i] = true;
+            }
         }
     }
 }

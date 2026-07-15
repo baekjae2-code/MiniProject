@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 99823501640800478, guid: faf03504afb0d6149b1709e93568aabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -682423200754597030, guid: faf03504afb0d6149b1709e93568aabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,10 +215,10 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 696180336079076164}
-  - {fileID: 7317387349619308096}
   - {fileID: 6409233830306689853}
   - {fileID: 6365798473224052667}
   - {fileID: 3235153565978503651}
+  - {fileID: 7317387349619308096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8220551875545323930
@@ -235,8 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMeleeUnit
   maxHP: 100
   nowHP: 100
-  moveSpeed: 5
-  attackObj: {fileID: 0}
 --- !u!61 &2087399012495045231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -389,7 +387,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5951393040698006164, guid: faf03504afb0d6149b1709e93568aabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -427,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 6620229854204970727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.015000045, y: 0.57, z: 0}
+  m_LocalPosition: {x: -0.015000045, y: 0.57, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,7 +478,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6468445465412676740, guid: faf03504afb0d6149b1709e93568aabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

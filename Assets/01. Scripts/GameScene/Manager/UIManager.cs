@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
 
     public void GameOverUI(string name)
     {
-        int getGold = 0;
+        int rewardGold = 0;
         if (gameOverPopUp != null)
         {
             gameOverPopUp.transform.position = Camera.main.transform.position + Vector3.right * 3 + Vector3.up * 5 + Vector3.forward * 10;
@@ -43,12 +43,12 @@ public class UIManager : MonoBehaviour
             else if (name == "EnemyBase")
             {
                 gameOverText.text = "Victory!!";
-                getGold = 200 + Random.Range(200 / 5, 200 / 10);
+                rewardGold = 200 + Random.Range(200 / 5, 200 / 10);
             }
         }
         BattleManager.instance.GameOver();
-        rewardText.text = "+ " + getGold.ToString();
-        GameManager.instance.GetGold(getGold);
+        rewardText.text = "+ " + rewardGold.ToString();
+        GameManager.instance.RewardGold(rewardGold);
 
     }
 }

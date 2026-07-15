@@ -2,25 +2,21 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class UnitUI : MonoBehaviour
+public class UnitUI : PrintText
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI stateText;
-    public TextMeshProUGUI costText;
+    public GameObject lockUnit;
 
-    public TextMeshProUGUI levelUpText;
-
-    int nowUnitNumber;
-
-    public TextMeshProUGUI goldText;
+    public Image[] unitUnlockBtnsColor;
 
     private void Start()
     {
         nowUnitNumber = -1;
+        levelUpText.text = "";
 
-        levelUpText.text = "Level Up";
-        goldText.text = GameManager.instance.Gold.ToString();
+        UnitBtnUI();
+        PrintTexts();
     }
 
     public void OnClickUnitSelect()
@@ -30,7 +26,19 @@ public class UnitUI : MonoBehaviour
         string[] btnName = clicked.name.Split();
         nowUnitNumber = int.Parse(btnName[1]);
 
-        PrintText();
+        PrintTexts();
+        UnitBtnUI();
+
+        if (GameManager.instance.printData[nowUnitNumber].level == 0)
+        {
+            lockUnit.SetActive(true);
+
+            lockUnit.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Unlock : {nowUnitNumber * 1000}";
+        }
+        else
+        {
+            lockUnit.SetActive(false);
+        }
     }
 
     public void OnClickUnitLevelUp()
@@ -38,28 +46,48 @@ public class UnitUI : MonoBehaviour
         if (nowUnitNumber == -1)
             return;
 
-        if (GameManager.instance.Gold > GameManager.instance.printData[nowUnitNumber].level * 100)
+        if (GameManager.instance.Gold >= GameManager.instance.printData[nowUnitNumber].level * 100)
         {
-            GameManager.instance.UseLevelUp(GameManager.instance.printData[nowUnitNumber].level * 100);
+            GameManager.instance.UseGold(GameManager.instance.printData[nowUnitNumber].level * 100);
 
             GameManager.instance.printData[nowUnitNumber].level++;
             GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
             GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
-            goldText.text = GameManager.instance.Gold.ToString();
-            PrintText();
+            PrintTexts();
         }
     }
 
-    void PrintText()
+    public void OnClickUnlockUnit()
     {
-        nameText.text = $"Name  : {GameManager.instance.printData[nowUnitNumber].myName}";
-        stateText.text = $"Lv   : {GameManager.instance.printData[nowUnitNumber].level}\n" +
-            $"Hp   : {GameManager.instance.printData[nowUnitNumber].maxHP:F0}\n" +
-            $"Damage    : {GameManager.instance.printData[nowUnitNumber].damage:F0}\n" +
-            $"Range : {GameManager.instance.printData[nowUnitNumber].range}";
-        costText.text = $"Mana  : {GameManager.instance.printData[nowUnitNumber].mana}\n" +
-            $"Spawn : {GameManager.instance.printData[nowUnitNumber].spawn}";
+        if (nowUnitNumber == -1)
+            return;
 
-        levelUpText.text = $"Level Up : {GameManager.instance.printData[nowUnitNumber].level * 100} G";
+        if (GameManager.instance.printData[nowUnitNumber].level == 0)
+        {
+            if (GameManager.instance.Gold >= nowUnitNumber * 1000)
+            {
+                GameManager.instance.printData[nowUnitNumber].level++;
+                GameManager.instance.UseGold(nowUnitNumber * 1000);
+                lockUnit.SetActive(false);
+                UnitBtnUI();
+                PrintTexts();
+            }
+        }
     }
+    public void UnitBtnUI() // UnitUI 에서 유닛 해금할때마다 호출
+    {
+        for (int i = 0; i < GameManager.instance.printData.Length; i++)
+        {
+            if (GameManager.instance.printData[i].level != 0)
+                unitUnlockBtnsColor[i].color = Color.white;
+            else
+                unitUnlockBtnsColor[i].color = new Color(100 / 255f, 100 / 255f, 100 / 255f);
+        }
+    }
+
+    public void UnlockActiveFalse() //초기화버튼 누를때 호출
+    {
+        lockUnit.SetActive(false);
+    }
+
 }

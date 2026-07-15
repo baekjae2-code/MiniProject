@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3316568102077947979, guid: e0655cd6e638fe84c912908856fa569a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 3184027749572634928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.025000006, y: 0.465, z: 0}
+  m_LocalPosition: {x: -0.025000006, y: 0.465, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8918620466266324370, guid: e0655cd6e638fe84c912908856fa569a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -261,7 +261,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2711762726697182493, guid: e0655cd6e638fe84c912908856fa569a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -352,7 +352,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7060109588801520733, guid: e0655cd6e638fe84c912908856fa569a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -443,7 +443,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2085673043119993200, guid: e0655cd6e638fe84c912908856fa569a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -579,11 +579,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1419799286161732856}
-  - {fileID: 5346001267973944860}
-  - {fileID: 5254200690627239771}
-  - {fileID: 1482096001579525137}
   - {fileID: 802901845189914213}
+  - {fileID: 1482096001579525137}
   - {fileID: 5874088480373810905}
+  - {fileID: 5254200690627239771}
+  - {fileID: 5346001267973944860}
   - {fileID: 2761823893645478487}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -601,8 +601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeamUnitMove
   maxHP: 10
   nowHP: 10
-  unitsData: {fileID: 11400000, guid: 88ee32a2b9cc52340b76e6b38d8452f4, type: 2}
-  attackObj: {fileID: 0}
 --- !u!61 &8467247884735648287
 BoxCollider2D:
   m_ObjectHideFlags: 0

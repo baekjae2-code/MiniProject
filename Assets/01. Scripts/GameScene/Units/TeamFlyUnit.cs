@@ -1,34 +1,25 @@
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class EnemyRangedUnit : Unit
+public class TeamFlyUnit : Unit
 {
     GameObject attackObj;
     UnitData unitData;
 
     void Start()
     {
-        unitData = GameManager.instance.printData[1];
+        unitData = GameManager.instance.printData[3];
 
         myName = unitData.myName;
-        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
-        maxHP = unitData.maxHP; 
+        level = unitData.level;
+        maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;
         damage = unitData.damage;
-
-        for(int i = 0; i < GameManager.instance.NowStage; i++)
-        {
-            maxHP += (maxHP / 10f);
-            nowHP += (nowHP / 10f);
-            damage += (damage / 10f);
-        }
-
-        range = unitData.range;
-        moveSpeed = unitData.moveSpeed;
+        range = 5;
+        moveSpeed = 1;
         attackSpeed = unitData.attackSpeed;
 
-        attackObj = transform.Find("AttackEffect").gameObject;
+        attackObj = transform.Find("TeamFlyMagicEffect").gameObject;
         attackCooltime = attackSpeed;
     }
 
@@ -48,11 +39,16 @@ public class EnemyRangedUnit : Unit
         {
             Move();
         }
+        else
+        {
+            rb.linearVelocityX = 0;
+        }
+        Fly();
     }
     void CheckEnemy()
     {
         target = null;
-        int layer = LayerMask.NameToLayer("Player");
+        int layer = LayerMask.NameToLayer("Enemy");
         int targetLayer = 1 << layer;
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
         if (collider.Length == 0)
@@ -68,14 +64,25 @@ public class EnemyRangedUnit : Unit
     }
     void Attack()
     {
+        GameObject obj = Instantiate(attackObj, transform.position, Quaternion.identity);
         Vector2 direction = (target.position - transform.position).normalized;
-        GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, Quaternion.identity);
         obj.SetActive(true);
-        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 20f;
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {
-        rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocityX = moveSpeed;
+    }
+    void Fly()
+    {
+        if (transform.position.y < 1.5f)
+        {
+            rb.linearVelocityY = 2f;
+        }
+        else
+        {
+            rb.linearVelocityY += 0.2f;
+        }
     }
 }

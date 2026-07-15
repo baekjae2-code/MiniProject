@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 7db57fb70dc00db46bd7f1035afef439
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2234941880349645471
+    second: flyingUnit_0
+  - first:
+      213: -8809870784432798822
+    second: flyingUnit_1
+  - first:
+      213: 648288060945842398
+    second: flyingUnit_2
+  - first:
+      213: -165256261590474749
+    second: flyingUnit_3
+  - first:
+      213: 7274238147794411511
+    second: flyingUnit_4
+  - first:
+      213: 5744177364559452301
+    second: flyingUnit_5
+  - first:
+      213: -5551107189208116692
+    second: flyingUnit_6
+  - first:
+      213: -1987239849470354704
+    second: flyingUnit_7
+  - first:
+      213: -361411999204785427
+    second: flyingUnit_8
+  - first:
+      213: 8329781977845544164
+    second: flyingUnit_9
+  - first:
+      213: -7940442121476474837
+    second: flyingUnit_10
+  - first:
+      213: -4771511551158284350
+    second: flyingUnit_11
+  - first:
+      213: -6579720667950777318
+    second: flyingUnit_12
+  - first:
+      213: 6240433576043434351
+    second: flyingUnit_13
+  - first:
+      213: 4838159307750849960
+    second: flyingUnit_14
+  - first:
+      213: -7183375611713378797
+    second: flyingUnit_15
+  - first:
+      213: 6157027341943988763
+    second: flyingUnit_16
+  - first:
+      213: 4658151928183330046
+    second: flyingUnit_17
+  - first:
+      213: 7557438018226078820
+    second: flyingUnit_18
+  - first:
+      213: -6902046893675191451
+    second: flyingUnit_19
+  - first:
+      213: 3190359477977650477
+    second: flyingUnit_20
+  - first:
+      213: -7412041556161784507
+    second: flyingUnit_21
+  - first:
+      213: 2509726790545627973
+    second: flyingUnit_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flyingUnit_0
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 722
+        width: 532
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a52e78ccb140f10800000000000000
+      internalID: 2234941880349645471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_1
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 659
+        width: 218
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a938ac0c23d0db580800000000000000
+      internalID: -8809870784432798822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 395
+        width: 259
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0cdc08e8e2ff800800000000000000
+      internalID: 648288060945842398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 413
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300adfe3e44e4bdf0800000000000000
+      internalID: -165256261590474749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_4
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 393
+        width: 241
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff91ea0e0943f460800000000000000
+      internalID: 7274238147794411511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_5
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 416
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88d76d01ea67bf40800000000000000
+      internalID: 5744177364559452301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_6
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 395
+        width: 249
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2212252c6186f2b0800000000000000
+      internalID: -5551107189208116692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_7
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 416
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa91d0c2e7eb64e0800000000000000
+      internalID: -1987239849470354704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_8
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 391
+        width: 248
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2c5d993b10cfaf0800000000000000
+      internalID: -361411999204785427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_9
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 399
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e43fe56394599370800000000000000
+      internalID: 8329781977845544164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_10
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 401
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2878d5f5f1edc190800000000000000
+      internalID: -7940442121476474837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_11
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 403
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf8987568f28cdb0800000000000000
+      internalID: -4771511551158284350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_12
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 398
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c7f71d9e220b4a0800000000000000
+      internalID: -6579720667950777318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_13
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 363
+        width: 83
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f615d7036497a9650800000000000000
+      internalID: 6240433576043434351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_14
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 360
+        width: 82
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad3d39b148942340800000000000000
+      internalID: 4838159307750849960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_15
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 363
+        width: 83
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316ae97b0f58f4c90800000000000000
+      internalID: -7183375611713378797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_16
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 363
+        width: 82
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1260f40fb7227550800000000000000
+      internalID: 6157027341943988763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 405
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef41b2daf7415a040800000000000000
+      internalID: 4658151928183330046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_18
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 75
+        width: 229
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464c56826d961e860800000000000000
+      internalID: 7557438018226078820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_19
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 79
+        width: 231
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563e6673be00730a0800000000000000
+      internalID: -6902046893675191451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_20
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 47
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2598aeba0f664c20800000000000000
+      internalID: 3190359477977650477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_21
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 47
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5451b80b973232990800000000000000
+      internalID: -7412041556161784507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flyingUnit_22
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 47
+        width: 88
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54bd0c9083754d220800000000000000
+      internalID: 2509726790545627973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 92adcd0b6617b144fa8eb20502f96c2f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      flyingUnit_0: 2234941880349645471
+      flyingUnit_1: -8809870784432798822
+      flyingUnit_10: -7940442121476474837
+      flyingUnit_11: -4771511551158284350
+      flyingUnit_12: -6579720667950777318
+      flyingUnit_13: 6240433576043434351
+      flyingUnit_14: 4838159307750849960
+      flyingUnit_15: -7183375611713378797
+      flyingUnit_16: 6157027341943988763
+      flyingUnit_17: 4658151928183330046
+      flyingUnit_18: 7557438018226078820
+      flyingUnit_19: -6902046893675191451
+      flyingUnit_2: 648288060945842398
+      flyingUnit_20: 3190359477977650477
+      flyingUnit_21: -7412041556161784507
+      flyingUnit_22: 2509726790545627973
+      flyingUnit_3: -165256261590474749
+      flyingUnit_4: 7274238147794411511
+      flyingUnit_5: 5744177364559452301
+      flyingUnit_6: -5551107189208116692
+      flyingUnit_7: -1987239849470354704
+      flyingUnit_8: -361411999204785427
+      flyingUnit_9: 8329781977845544164
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
