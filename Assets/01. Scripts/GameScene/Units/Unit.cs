@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Unit : MonoBehaviour
@@ -24,7 +25,8 @@ public abstract class Unit : MonoBehaviour
 
     void Awake()
     {
-        sr = GetComponentsInChildren<SpriteRenderer>();
+        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();    
+        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
     }
 

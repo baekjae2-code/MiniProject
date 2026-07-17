@@ -76,7 +76,7 @@ public class TeamFlyUnit : Unit
         GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, Quaternion.identity);
         obj.GetComponent<TeamRangedAttack>().damage = damage;
         obj.SetActive(true);
-        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15;
+        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 10;
         attackCooltime = 0;
     }
     public void Move()
