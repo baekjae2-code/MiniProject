@@ -4923,7 +4923,6 @@ GameObject:
   - component: {fileID: 8825161717983027662}
   - component: {fileID: 9167283633207230253}
   - component: {fileID: 5797866862806416800}
-  - component: {fileID: 5100553410987256174}
   m_Layer: 0
   m_Name: HitEffect
   m_TagString: Untagged
@@ -9751,18 +9750,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
---- !u!114 &5100553410987256174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922349827912017171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fda26b795f5dd64eb3064855341a3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitEffect
 --- !u!1 &3024023157095847269
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class TeamKingMeleeUnit : TeamMeleeUnit
 {
-    UnitData kingUnitData;
+    UnitData unitData;
 
     void Start()
     {
-        kingUnitData = GameManager.instance.printData[3];
+        unitData = GameManager.instance.printData[3];
 
-        myName = kingUnitData.myName;
-        level = kingUnitData.level;
-        maxHP = kingUnitData.maxHP;
-        nowHP = kingUnitData.maxHP;
-        damage = kingUnitData.damage;
-        range = kingUnitData.range;
-        moveSpeed = kingUnitData.moveSpeed;
-        attackSpeed = kingUnitData.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level;
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;

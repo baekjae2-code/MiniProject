@@ -1,37 +1,19 @@
 fileFormatVersion: 2
-guid: c3cbe4c1f0179fb4dabd15335272057b
+guid: fb58307bdecc2e145a6d2af1def7c4e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8979405933268748967
-    second: wand_0
+      213: 1638786920156990335
+    second: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_0"
   - first:
-      213: 2133547724018545567
-    second: wand_1
+      213: 115458584869880954
+    second: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_1"
   - first:
-      213: 1970229908701677614
-    second: wand_2
+      213: 1004949178142187777
+    second: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_2"
   - first:
-      213: -7583531537508862685
-    second: wand_3
-  - first:
-      213: -1295454503453441889
-    second: wand_4
-  - first:
-      213: 9133145505948021712
-    second: wand_5
-  - first:
-      213: 7331178898750282422
-    second: wand_6
-  - first:
-      213: 9069439383580615899
-    second: wand_7
-  - first:
-      213: 2402685092827029152
-    second: wand_8
-  - first:
-      213: -6062250661017640871
-    second: wand_9
+      213: 7872174523165529442
+    second: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_3"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -153,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wand_0
+      name: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 863
-        height: 872
+        x: 95
+        y: 631
+        width: 367
+        height: 305
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7aac4821f124d9c70800000000000000
-      internalID: 8979405933268748967
+      spriteID: f7b838e65042eb610800000000000000
+      internalID: 1638786920156990335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wand_1
+      name: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_1"
       rect:
         serializedVersion: 2
-        x: 729
-        y: 796
-        width: 8
-        height: 9
+        x: 555
+        y: 634
+        width: 377
+        height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f93f779d952eb9d10800000000000000
-      internalID: 2133547724018545567
+      spriteID: a744071a8f03a9100800000000000000
+      internalID: 115458584869880954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wand_2
+      name: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_2"
       rect:
         serializedVersion: 2
-        x: 735
-        y: 776
-        width: 27
-        height: 32
+        x: 95
+        y: 88
+        width: 370
+        height: 368
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e28830ac9a9a75b10800000000000000
-      internalID: 1970229908701677614
+      spriteID: 1016c7cf3fb42fd00800000000000000
+      internalID: 1004949178142187777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wand_3
+      name: "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_3"
       rect:
         serializedVersion: 2
-        x: 690
-        y: 774
-        width: 16
-        height: 18
+        x: 559
+        y: 169
+        width: 377
+        height: 289
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,140 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 325ffc3fe32e1c690800000000000000
-      internalID: -7583531537508862685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_4
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 772
-        width: 14
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f904af22efe950ee0800000000000000
-      internalID: -1295454503453441889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_5
-      rect:
-        serializedVersion: 2
-        x: 860
-        y: 737
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0d3bcfbb2737fbe70800000000000000
-      internalID: 9133145505948021712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_6
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 683
-        width: 24
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ba99dcbd549db560800000000000000
-      internalID: 7331178898750282422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_7
-      rect:
-        serializedVersion: 2
-        x: 885
-        y: 699
-        width: 13
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd4a242411f1ddd70800000000000000
-      internalID: 9069439383580615899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_8
-      rect:
-        serializedVersion: 2
-        x: 884
-        y: 626
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0aed419ac5d085120800000000000000
-      internalID: 2402685092827029152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wand_9
-      rect:
-        serializedVersion: 2
-        x: 853
-        y: 598
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 950aaaa942f8edba0800000000000000
-      internalID: -6062250661017640871
+      spriteID: 265592f25059f3d60800000000000000
+      internalID: 7872174523165529442
       vertices: []
       indices: 
       edges: []
@@ -386,16 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wand_0: 8979405933268748967
-      wand_1: 2133547724018545567
-      wand_2: 1970229908701677614
-      wand_3: -7583531537508862685
-      wand_4: -1295454503453441889
-      wand_5: 9133145505948021712
-      wand_6: 7331178898750282422
-      wand_7: 9069439383580615899
-      wand_8: 2402685092827029152
-      wand_9: -6062250661017640871
+      "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_0": 1638786920156990335
+      "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_1": 115458584869880954
+      "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_2": 1004949178142187777
+      "2026\uB144 7\uC6D4 16\uC77C \uC624\uD6C4 04_29_07_3": 7872174523165529442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

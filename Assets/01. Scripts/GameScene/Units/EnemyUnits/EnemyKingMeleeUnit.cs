@@ -7,7 +7,7 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
 
     void Start()
     {
-        unitData = GameManager.instance.printData[3];
+        unitData = GameManager.instance.unitsData.list[3];
 
         myName = unitData.myName;
         level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)

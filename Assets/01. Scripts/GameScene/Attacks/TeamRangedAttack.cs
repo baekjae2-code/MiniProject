@@ -3,23 +3,24 @@ using UnityEngine;
 public class TeamRangedAttack : MonoBehaviour
 {
     public GameObject hitEffect;
-    float lifeTime;
-    float timer;
-    int damage;
-    void Start()
+    public float damage;
+    Rigidbody2D rb;
+
+    void Awake()
     {
-        lifeTime = 2f;
-        timer = 0;
-        damage = 2;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Start()
     {
-        timer += Time.deltaTime;
-        if (timer >= lifeTime)
+        Destroy(gameObject, 2);
+    }
+    void Update()
+    {
+        if (rb.linearVelocity.sqrMagnitude > 0.01f)
         {
-            timer = 0;
-            Destroy(gameObject);
+            float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 
@@ -30,7 +31,8 @@ public class TeamRangedAttack : MonoBehaviour
             collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
             Vector2 direction = collision.transform.position - transform.position;
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(1f, 3f);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(hitEf, 1);
             Destroy(gameObject);
         }
     }

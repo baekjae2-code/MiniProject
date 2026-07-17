@@ -5,7 +5,7 @@ public abstract class Unit : MonoBehaviour
 {
     protected string myName;
     protected int level;
-    protected float damage;
+    public float damage;    //Attack.cs에서 데미지 불러올때 필요하기때문에 public
     protected float range;
     protected float moveSpeed;
     protected float attackSpeed;
@@ -28,7 +28,7 @@ public abstract class Unit : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         nowHP -= damage;
         if (nowHP < 0)
@@ -43,7 +43,7 @@ public abstract class Unit : MonoBehaviour
         nowHP += heal;
         if (nowHP > maxHP)
         {
-            nowHP = maxHP;            
+            nowHP = maxHP;
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class Unit : MonoBehaviour
         isStun = true;
         for (int i = 0; i < sr.Length; i++)
         {
-            sr[i].color = Color.blue;
+            sr[i].color = new Color(150 / 255f, 150 / 255f, 1);
         }
         yield return new WaitForSeconds(time);
         isStun = false;
@@ -72,10 +72,10 @@ public abstract class Unit : MonoBehaviour
         gameObject.layer = 0;
         rb.linearVelocity = new Vector2(0, 10f);
         rb.constraints = RigidbodyConstraints2D.None;
-        rb.angularVelocity += Random.Range(-100f, 100f);
+        rb.angularVelocity += Random.Range(-200, 200);
         for (int i = 0; i < sr.Length; i++)
         {
-            sr[i].color = Color.red;
+            sr[i].color = new Color(1, 50 / 255f, 50 / 255f);
         }
         Destroy(gameObject, 3f);
         gameObject.GetComponent<Collider2D>().enabled = false;

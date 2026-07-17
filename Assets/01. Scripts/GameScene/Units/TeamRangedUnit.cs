@@ -62,10 +62,13 @@ public class TeamRangedUnit : Unit
 
     void Attack()
     {
-        Vector2 direction = (target.position - transform.position).normalized;
-        GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        Vector2 direction = (target.position - transform.position).normalized; 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, rotation);
+        obj.GetComponent<TeamRangedAttack>().damage = damage;
         obj.SetActive(true);
-        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 20f;
+        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15 + Vector2.up * 3f;
         attackCooltime = 0;
     }
     public void Move()

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public UnitsData unitsData;
     public UnitData[] printData;
     public GameObject[] unitsPrefab;
-    public GameObject[] unitsImg;
+    public GameObject[] unitsImg;   //덱 저장
 
     public int[] deckUnitNumber;  //덱에 있는 유닛의 이름들 저장, 덱이 다 정해졌는지 체크
 
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         printData[3].level = PlayerPrefs.GetInt("KingUnitLv", 0);
         printData[4].level = PlayerPrefs.GetInt("HealUnitLv", 0);
         printData[5].level = PlayerPrefs.GetInt("MagicUnitLv", 0);
+        printData[6].level = PlayerPrefs.GetInt("GrabUnitLv", 0);
+        printData[7].level = PlayerPrefs.GetInt("FlyUnitLv", 0);
         for (int i = 0; i < printData.Length; i++)  //레벨에 맞춰서 스펙 세팅
         {
             for (int j = 1; j < printData[i].level; j++)    //레벨 1부터 본인보다 작으면 스펙업
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("KingUnitLv", printData[3].level);
         PlayerPrefs.SetInt("HealUnitLv", printData[4].level);
         PlayerPrefs.SetInt("MagicUnitLv", printData[5].level);
+        PlayerPrefs.SetInt("GrabUnitLv", printData[6].level);
+        PlayerPrefs.SetInt("FlyUnitLv", printData[7].level);
         PlayerPrefs.SetInt("ClearStage", ClearStage);
         PlayerPrefs.SetString("DeckData", deckUnitNumber[0] + " " + deckUnitNumber[1] + " " + deckUnitNumber[2] + " " + deckUnitNumber[3] + " " + deckUnitNumber[4]);
     }

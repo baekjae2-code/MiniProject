@@ -12,6 +12,11 @@ public class DeckSetting : MonoBehaviour
     {
         isSetting = new bool[deckSlots.Length];
 
+        units = new GameObject[GameManager.instance.unitsImg.Length];
+        for (int i = 0; i < GameManager.instance.unitsImg.Length; i++)
+        {
+            units[i] = GameManager.instance.unitsImg[i];
+        }
         GameManager.instance.LoadDeckData();
         LoadDeckSlot();
     }

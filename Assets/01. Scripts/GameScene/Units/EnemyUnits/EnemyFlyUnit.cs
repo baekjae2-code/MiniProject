@@ -1,25 +1,33 @@
 using System.Linq;
 using UnityEngine;
 
-public class TeamFlyUnit : Unit
+public class EnemyFlyUnit : Unit
 {
     GameObject attackObj;
     UnitData unitData;
 
     void Start()
     {
-        unitData = GameManager.instance.printData[7];
+        unitData = GameManager.instance.unitsData.list[7];
 
         myName = unitData.myName;
-        level = unitData.level;
+        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
         maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;
         damage = unitData.damage;
+
+        for (int i = 0; i < GameManager.instance.NowStage; i++)
+        {
+            maxHP += (maxHP / 10f);
+            nowHP += (nowHP / 10f);
+            damage += (damage / 10f);
+        }
+
         range = unitData.range;
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackObj = transform.Find("TeamFlyMagicEffect").gameObject;
+        attackObj = transform.Find("EnemyFlyMagicEffect").gameObject;
         attackCooltime = attackSpeed;
 
     }
@@ -46,17 +54,17 @@ public class TeamFlyUnit : Unit
         }
         Fly();
 
-        {   //움직임 제어 ( 맞을때 빠르게 날아감 )
-            if (rb.linearVelocityX > moveSpeed)
-                rb.linearVelocityX -= moveSpeed / 5f;
+        {
             if (rb.linearVelocityX < -moveSpeed)
                 rb.linearVelocityX += moveSpeed / 5f;
+            if (rb.linearVelocityX > moveSpeed)
+                rb.linearVelocityX -= moveSpeed / 5f;
         }
     }
     void CheckEnemy()
     {
         target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
+        int layer = LayerMask.NameToLayer("Player");
         int targetLayer = 1 << layer;
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
         if (collider.Length == 0)
@@ -74,15 +82,15 @@ public class TeamFlyUnit : Unit
     {
         Vector2 direction = (target.position - transform.position).normalized;
         GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-        obj.GetComponent<TeamRangedAttack>().damage = damage;
+        obj.GetComponent<EmenyRangedAttack>().damage = damage;
         obj.SetActive(true);
         obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15;
         attackCooltime = 0;
     }
     public void Move()
     {
-        if (rb.linearVelocityX < moveSpeed)
-            rb.linearVelocityX += moveSpeed / 30f;
+        if (rb.linearVelocityX > -moveSpeed)
+            rb.linearVelocityX -= moveSpeed / 30f;
     }
     void Fly()
     {
@@ -94,7 +102,7 @@ public class TeamFlyUnit : Unit
         {
             rb.linearVelocityY += 0.1f;
         }
-        if (transform.position.y > 2f)  //높이 제한
+        if (transform.position.y > 2f)
         {
             rb.linearVelocityY = -1;
         }

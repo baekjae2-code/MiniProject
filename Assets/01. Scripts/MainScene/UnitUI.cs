@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UnitUI : PrintText
 {
-    public GameObject lockUnit;
-
+    public GameObject lockUnit;             //유닛 추가 방법 => UnitsData에 유닛 데이터 추가
+                                            //DeckSetting에 이미지 추가, GameManager에 이미지, 객체 프리팹 추가
     public Image[] unitUnlockBtnsColor;
 
     private void Start()
@@ -33,7 +33,7 @@ public class UnitUI : PrintText
         {
             lockUnit.SetActive(true);
 
-            lockUnit.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Unlock : {nowUnitNumber * 1000}";
+            lockUnit.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Unlock : {nowUnitNumber * 100}";
         }
         else
         {
@@ -64,10 +64,10 @@ public class UnitUI : PrintText
 
         if (GameManager.instance.printData[nowUnitNumber].level == 0)
         {
-            if (GameManager.instance.Gold >= nowUnitNumber * 1000)
+            if (GameManager.instance.Gold >= nowUnitNumber * 100)
             {
                 GameManager.instance.printData[nowUnitNumber].level++;
-                GameManager.instance.UseGold(nowUnitNumber * 1000);
+                GameManager.instance.UseGold(nowUnitNumber * 100);
                 lockUnit.SetActive(false);
                 UnitBtnUI();
                 PrintTexts();

@@ -34,7 +34,10 @@ public class EnemyGrabUnit : Unit
     private void FixedUpdate()
     {
         if (target != null && isGrab)
+        {
             target.position = transform.position + new Vector3(-0.5f, 0.5f);
+            target.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        }
 
         if (isStun == true)
             return;
@@ -86,19 +89,36 @@ public class EnemyGrabUnit : Unit
         isGrab = true;
         throwTarget.SetParent(transform);
         throwTarget.GetComponent<Unit>().Stun(2f);
+        throwTarget.GetComponent<Collider2D>().enabled = false;
+        throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
+
         yield return new WaitForSeconds(0.5f);
         if (throwTarget != null)
         {
             throwTarget.SetParent(null);
-            throwTarget.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-10f, 5f);
+            throwTarget.GetComponent<Unit>().StopAllCoroutines();
+            throwTarget.GetComponent<Unit>().Stun(2f);
+            throwTarget.GetComponent<Collider2D>().enabled = true;
+            throwTarget.GetComponent<Rigidbody2D>().gravityScale = 1;
+            throwTarget.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(Random.Range(-3f, -5f), Random.Range(1f, 2f));
         }
         isGrab = false;
         target = null;
     }
-
     public void Move()
     {
         rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y);
     }
 
+    override protected void Die()
+    {
+        if (target != null)
+        {
+            target.SetParent(null); 
+            target.GetComponent<Unit>().StopAllCoroutines();
+            target.GetComponent<Collider2D>().enabled = true;
+            target.GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
+        base.Die();
+    }
 }

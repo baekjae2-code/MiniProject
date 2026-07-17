@@ -68,11 +68,20 @@ MonoBehaviour:
     mana: 15
     spawn: 10
   - myName: ThrowGoblin
-    level: 1
+    level: 0
     maxHP: 50
     damage: 0
     range: 0
     moveSpeed: 1.5
+    attackSpeed: 2
+    mana: 15
+    spawn: 10
+  - myName: FlyUnit
+    level: 0
+    maxHP: 40
+    damage: 4
+    range: 3
+    moveSpeed: 2
     attackSpeed: 2
     mana: 15
     spawn: 10

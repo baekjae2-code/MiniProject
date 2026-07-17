@@ -190,6 +190,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1030228522147051969}
     m_Modifications:
+    - target: {fileID: 2474691598351415495, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474691598351415495, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474691598351415495, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474691598351415495, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2608398009754249392, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
       propertyPath: m_Name
       value: TeamMagicEffect
@@ -249,6 +265,38 @@ PrefabInstance:
     - target: {fileID: 2608398009754249398, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.22280523
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998415282018464540, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998415282018464540, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998415282018464540, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998415282018464540, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8846485965982029346, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
       propertyPath: m_IsActive

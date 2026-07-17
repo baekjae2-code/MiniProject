@@ -6,14 +6,14 @@ public class TeamMeleeAttack : MonoBehaviour
     Rigidbody2D rb;
     float lifeTime;
     float timer;
-    int damage;
+    float damage;
     void Start()
     {
         rb = transform.parent.GetComponent<Rigidbody2D>();
         lifeTime = 0.5f;
         timer = 0;
         gameObject.SetActive(false);
-        damage = 2;
+        damage = gameObject.GetComponentInParent<Unit>().damage;
     }
 
     void FixedUpdate()
@@ -33,7 +33,8 @@ public class TeamMeleeAttack : MonoBehaviour
             collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
             Vector2 direction = collision.transform.position - transform.position;
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(2f, 4f);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(hitEf, 1);
         }
     }
 }

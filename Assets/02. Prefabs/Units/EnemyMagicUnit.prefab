@@ -682,6 +682,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7160951176799613982}
     m_Modifications:
+    - target: {fileID: 3285792677845552668, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285792677845552668, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285792677845552668, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285792677845552668, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4788416852066922872, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
       propertyPath: m_Name
       value: EnemyMagicEffect
@@ -730,9 +746,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7624398837556671575, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150729444124909584, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150729444124909584, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150729444124909584, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150729444124909584, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
