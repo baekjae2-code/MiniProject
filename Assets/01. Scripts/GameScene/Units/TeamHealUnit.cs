@@ -44,7 +44,7 @@ public class TeamHealUnit : Unit
         target = null;
         int layer = LayerMask.NameToLayer("Enemy");
         int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 2, targetLayer);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
         if (collider.Length == 0)
         {
             canMove = true;
