@@ -197,12 +197,14 @@ public class MainUI : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(0.01f);
         Color32 col = new Color32(255, 0, 0, 255);
+        volume.weight = 0.5f;
 
         for (byte i = 0; i < 255; i++)
         {
             holdWarningImage.color = col;
             holdWarningText.color = col;
             deckSettingImage.color = new Color32(255, i, i, 255);
+            volume.weight -= 0.01f;
             col.a--;
             yield return wait;
         }
