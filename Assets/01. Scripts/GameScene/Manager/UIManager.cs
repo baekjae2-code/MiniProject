@@ -39,11 +39,14 @@ public class UIManager : MonoBehaviour
             if (name == "PlayerBase")
             {
                 gameOverText.text = "Lose...";
+
             }
             else if (name == "EnemyBase")
             {
                 gameOverText.text = "Victory!!";
                 rewardGold = 200 + Random.Range(200 / 5, 200 / 10);
+
+                GameManager.instance.SetClearStage();
             }
         }
         BattleManager.instance.GameOver();

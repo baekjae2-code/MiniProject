@@ -41,9 +41,7 @@ public class BattleManager : MonoBehaviour
     public void GameOver()
     {
         TeamSpawnManager.instance.GameOver();
-        EnemySpawnManager.instance.GameOver();
-
-        GameManager.instance.SetClearStage();
+        EnemySpawnManager.instance.GameOver();        
     }
 
     public float GetManaNow()

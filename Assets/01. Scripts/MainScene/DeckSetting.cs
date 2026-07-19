@@ -46,6 +46,7 @@ public class DeckSetting : MonoBehaviour
                 unit.name = unitNumber.ToString();
                 unit.transform.SetParent(deckSlots[i].transform);
                 unit.transform.position = deckSlots[i].transform.position;
+                unit.transform.localScale = new Vector3(unit.transform.localScale.x / 100f, unit.transform.localScale.y / 100, unit.transform.localScale.z / 100);
                 isSetting[i] = true;
 
                 GameManager.instance.deckUnitNumber[i] = int.Parse(unit.name);
@@ -91,6 +92,7 @@ public class DeckSetting : MonoBehaviour
                 unit.name = GameManager.instance.deckUnitNumber[i].ToString();
                 unit.transform.SetParent(deckSlots[i].transform);
                 unit.transform.position = deckSlots[i].transform.position;
+                unit.transform.localScale = new Vector3(unit.transform.localScale.x/100f, unit.transform.localScale.y/100, unit.transform.localScale.z/100);
                 isSetting[i] = true;
             }
         }
