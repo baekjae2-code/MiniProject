@@ -7,6 +7,9 @@ public class SettingPopUp : PrintText
     public GameObject optionPopUp;
     public GameObject settingPopUp;
 
+    public GameObject hpbarShowBtn;
+    public GameObject hpbarHideBtn;
+    public GameObject hpbarObj;
     public void OnClickOptionPopUp()
     {
         optionPopUp.SetActive(true);
@@ -40,5 +43,18 @@ public class SettingPopUp : PrintText
     public void OnClickCloseSettingPopUp()
     {
         settingPopUp.SetActive(false);
+    }
+
+    public void OnClickHPBarShow()
+    {
+        hpbarHideBtn.SetActive(true);
+        hpbarShowBtn.SetActive(false);
+        hpbarObj.SetActive(true);
+    }
+    public void OnClickHPBarHide()
+    {
+        hpbarHideBtn.SetActive(false);
+        hpbarShowBtn.SetActive(true);
+        hpbarObj.SetActive(false);
     }
 }

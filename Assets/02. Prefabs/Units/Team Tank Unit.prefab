@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 286156614221035946}
   - component: {fileID: 371289394712192588}
   m_Layer: 7
-  m_Name: TeamTankUnit
+  m_Name: Team Tank Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

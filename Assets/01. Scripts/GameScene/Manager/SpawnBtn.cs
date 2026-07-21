@@ -25,8 +25,16 @@ public class SpawnBtn : MonoBehaviour
 
     public void OnClickUseSkill()
     {
-        GameObject skill = Instantiate(mySkill);
-        skill.transform.position = new Vector3(-10f, -0.5f);
+        if (BattleManager.instance.GetManaNow() > 2)
+        {
+            BattleManager.instance.UseMana(2);
+
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject skill = Instantiate(mySkill);
+                skill.transform.position = new Vector3(-10f, -0.5f);
+            }
+        }
     }
 
 }

@@ -6,8 +6,12 @@ public class TeamMagicUnit : Unit
     GameObject attackObj;
     UnitData magicUnit;
 
-    void Start()
+    void Awake()
     {
+        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
+        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
+        rb = GetComponent<Rigidbody2D>();
+
         magicUnit = GameManager.instance.printData[5];
 
         myName = magicUnit.myName;

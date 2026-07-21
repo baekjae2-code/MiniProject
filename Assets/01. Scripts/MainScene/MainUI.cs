@@ -181,8 +181,8 @@ public class MainUI : MonoBehaviour
         warningi.SetActive(true);
         warningt.SetActive(true);
 
-        warningi.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(10, 20));
-        warningt.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(10, 20));
+        warningi.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(8, 15));
+        warningt.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(8, 15));
 
         warningi.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);
         warningt.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);

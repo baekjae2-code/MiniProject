@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
@@ -27,12 +29,27 @@ public class UIManager : MonoBehaviour
     public Slider teamHPBar;
     public Slider enemyHPBar;
 
+    public GameObject unitHPBar;
+    public Transform barParent;
+
     public Transform teamBase;
     public Transform enemyBase;
+
+    TextMeshProUGUI teamHPText;
+    TextMeshProUGUI enemyHPText;
+
+    public TextMeshProUGUI timerText;
+    float timer;
+
+    public TextMeshProUGUI waveText;
 
     private void Start()
     {
         stageText.text = $"Stage {GameManager.instance.NowStage.ToString()}";
+        teamHPText = teamHPBar.transform.GetComponentInChildren<TextMeshProUGUI>();
+        enemyHPText = enemyHPBar.transform.GetComponentInChildren<TextMeshProUGUI>();
+
+        timer = 0;
     }
     void LateUpdate()
     {
@@ -43,14 +60,19 @@ public class UIManager : MonoBehaviour
 
         if (teamBase != null)
         {
-            teamHPBar.transform.position = Camera.main.WorldToScreenPoint(teamBase.position + Vector3.up * 3 + Vector3.right * 2.5f);
-            teamHPBar.value = teamBase.GetComponent<Base>().nowHP / 500f;
+            float hp = teamBase.GetComponent<Base>().nowHP;
+            teamHPBar.value = hp / 500f;
+            teamHPText.text = $"{(int)hp} / 500";
         }
         if (enemyBase != null)
         {
-            enemyHPBar.transform.position = Camera.main.WorldToScreenPoint(enemyBase.position + Vector3.up * 3 + Vector3.right * -2.5f);
-            enemyHPBar.value = enemyBase.GetComponent<Base>().nowHP / 500f;
-        }    
+            float hp = enemyBase.GetComponent<Base>().nowHP;
+            enemyHPBar.value = hp / 500f;
+            enemyHPText.text = $"{(int)hp} / 500";
+        }
+
+        timer += Time.deltaTime;
+        timerText.text = ((int)timer).ToString();
     }
     public void GameOverUI(string name)
     {
@@ -67,7 +89,7 @@ public class UIManager : MonoBehaviour
             else if (name == "EnemyBase")
             {
                 gameOverText.text = "Victory!!";
-                rewardGold = 200 + Random.Range(200 / 5, 200 / 10);
+                rewardGold = (int)timer * 50 + Random.Range((int)timer / 5, (int)timer / 10);
 
                 GameManager.instance.SetClearStage();
             }
@@ -76,5 +98,31 @@ public class UIManager : MonoBehaviour
         rewardText.text = "+ " + rewardGold.ToString();
         GameManager.instance.RewardGold(rewardGold);
 
+    }
+
+    public void PrintUnitHPbar(GameObject parentObj)
+    {
+        GameObject hpbar = Instantiate(unitHPBar);
+        hpbar.GetComponent<UnitHPBar>().myUnit = parentObj;
+        hpbar.transform.SetParent(barParent);
+    }
+
+    public void PrintWaveText(string text)  //EnemySpawnManager
+    {
+        waveText.text = text;
+        StartCoroutine(WarningText());
+    }
+
+    IEnumerator WarningText()
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.01f);
+        Color32 col = new Color32(255, 0, 0, 255);
+
+        for (byte i = 0; i < 255; i++)
+        {
+            waveText.color = col;
+            col.a--;
+            yield return wait;
+        }
     }
 }

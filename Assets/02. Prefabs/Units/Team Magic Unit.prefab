@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6859280593459532143}
   - component: {fileID: 3568119789928845490}
   m_Layer: 7
-  m_Name: TeamMagicUnit
+  m_Name: Team Magic Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

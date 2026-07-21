@@ -1,6 +1,7 @@
+﻿using System.Collections;
 using UnityEngine;
 
-public class TeamMeleeAttack : MonoBehaviour
+public class SkillMeleeAttack : MonoBehaviour
 {
     public GameObject hitEffect;
     float lifeTime;
@@ -29,8 +30,9 @@ public class TeamMeleeAttack : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
+            collision.gameObject.GetComponent<Unit>().Stun(0.5f);
             Vector2 direction = collision.transform.position - transform.position;
-            collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(2f, 4f);
+            collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(3f, 5f);
             GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(hitEf, 1);
         }

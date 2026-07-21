@@ -8,8 +8,12 @@ public class EnemyMeleeUnit : Unit
     protected GameObject attackObj;
     UnitData unitData;
 
-    void Start()
+    void Awake()
     {
+        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
+        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
+        rb = GetComponent<Rigidbody2D>();
+
         unitData = GameManager.instance.unitsData.list[0]; //적 유닛은 원본 데이터에서 데이터 불러옴(printData는 내 level에 영향받기때문)
 
         myName = unitData.myName;

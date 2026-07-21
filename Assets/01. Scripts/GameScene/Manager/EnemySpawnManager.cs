@@ -27,16 +27,19 @@ public class EnemySpawnManager : MonoBehaviour
     {
         while (true)
         {
-            GameObject u = Instantiate(EnemyUnits[1]);
+            GameObject u = Instantiate(EnemyUnits[0]);
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+            UIManager.instance.PrintUnitHPbar(u);
 
             yield return new WaitForSeconds(4f);
         }
     }
     IEnumerator SpawnGrabwave()
     {
+        yield return new WaitForSeconds(30f);
+        UIManager.instance.PrintWaveText("! GrabWave !");
         while (true)
         {
             for (int i = 0; i < 5; i++)
@@ -46,13 +49,15 @@ public class EnemySpawnManager : MonoBehaviour
                 u.transform.position = transform.position;
                 u.SetActive(true);
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+                UIManager.instance.PrintUnitHPbar(u);
             }
             yield return new WaitForSeconds(15);
         }
     }
     IEnumerator SpawnFinalwave()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(60f);
+        UIManager.instance.PrintWaveText("! FinalWave !");
         while (true)
         {
             foreach (GameObject unit in EnemyUnits)
@@ -62,6 +67,7 @@ public class EnemySpawnManager : MonoBehaviour
                 u.transform.position = transform.position;
                 u.SetActive(true);
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+                UIManager.instance.PrintUnitHPbar(u);
             }
 
             yield return new WaitForSeconds(4f);
@@ -70,12 +76,15 @@ public class EnemySpawnManager : MonoBehaviour
 
     IEnumerator WallBrokeSpawn()
     {
+        UIManager.instance.PrintWaveText("! Culse !");
         while (true)
         {
             GameObject u = Instantiate(EnemyUnits[5]);
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+            UIManager.instance.PrintUnitHPbar(u);
+
             yield return new WaitForSeconds(5f);
         }
     }

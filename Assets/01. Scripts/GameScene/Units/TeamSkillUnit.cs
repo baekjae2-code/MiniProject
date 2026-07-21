@@ -1,10 +1,14 @@
+using System.Collections;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
-public class TeamFlyUnit : Unit
+public class TeamSkillUnit : Unit
 {
-    GameObject attackObj;
+    protected GameObject attackObj;
+    protected GameObject attackObj2;
     UnitData unitData;
+    bool isAttack;
 
     void Awake()
     {
@@ -12,7 +16,7 @@ public class TeamFlyUnit : Unit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        unitData = GameManager.instance.printData[7];
+        unitData = GameManager.instance.printData[8];
 
         myName = unitData.myName;
         level = unitData.level;
@@ -23,40 +27,34 @@ public class TeamFlyUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackObj = transform.Find("TeamFlyMagicEffect").gameObject;
+        attackObj = transform.Find("AttackEffect").gameObject;
+        attackObj2 = transform.Find("AttackEffect2").gameObject;
         attackCooltime = attackSpeed;
 
+        isAttack = false;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (isStun == true)
             return;
 
         attackCooltime += Time.deltaTime;
 
+        if (attackCooltime > 5 && isAttack)
+            isAttack = false;
+
         CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
         }
-        if (canMove)
+        if (canMove && !isAttack)
         {
             Move();
         }
-        else
-        {
-            rb.linearVelocityX = moveSpeed / 50f;
-        }
-        Fly();
-
-        {   //움직임 제어 ( 맞을때 빠르게 날아감 )
-            if (rb.linearVelocityX > moveSpeed)
-                rb.linearVelocityX -= moveSpeed / 5f;
-            if (rb.linearVelocityX < -moveSpeed)
-                rb.linearVelocityX += moveSpeed / 5f;
-        }
     }
+
     void CheckEnemy()
     {
         target = null;
@@ -74,33 +72,37 @@ public class TeamFlyUnit : Unit
             canMove = false;
         }
     }
-    void Attack()
+    public void Attack()
     {
-        Vector2 direction = (target.position - transform.position).normalized;
-        GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-        obj.GetComponent<TeamRangedAttack>().damage = damage;
-        obj.SetActive(true);
-        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 10;
+        StartCoroutine(Skill());
         attackCooltime = 0;
     }
     public void Move()
     {
-        if (rb.linearVelocityX < moveSpeed)
-            rb.linearVelocityX += moveSpeed / 30f;
+        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
     }
-    void Fly()
+
+    IEnumerator Skill()
     {
-        if (transform.position.y < 1.5f)
+        isAttack = true;
+        for (int i = 0; i < 3; i++)
         {
-            rb.linearVelocityY = 2f;
+            if (target == null)
+                break;
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.linearVelocity = direction * Random.Range(4, 6) + new Vector2(0f, 4f);
+            attackObj.SetActive(true);
+            yield return new WaitForSeconds(0.55f);
         }
-        if (transform.position.y < 2f)
-        {
-            rb.linearVelocityY += 0.1f;
-        }
-        if (transform.position.y > 2f)  //높이 제한
-        {
-            rb.linearVelocityY = -1;
-        }
+        rb.linearVelocityY = 7f;
+        yield return new WaitForSeconds(0.7f);
+        rb.linearVelocityY = -20f;
+        yield return new WaitForSeconds(0.2f);
+        attackObj2.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        rb.linearVelocity = new Vector2(-5f, 3f);
+
+        yield return new WaitForSeconds(2f);
+        isAttack = false;
     }
 }

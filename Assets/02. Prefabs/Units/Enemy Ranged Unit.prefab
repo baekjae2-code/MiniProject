@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 5110974286563569772}
   - component: {fileID: 3315186577778837010}
   m_Layer: 8
-  m_Name: EnemyRangedUnit
+  m_Name: Enemy Ranged Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

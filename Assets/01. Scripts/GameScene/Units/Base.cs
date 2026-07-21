@@ -14,7 +14,6 @@ public class Base : Unit
     {
         rb.linearVelocity = new Vector2(0, 0);
     }
-
     protected override void Die()
     {
         UIManager.instance?.GameOverUI(gameObject.name);

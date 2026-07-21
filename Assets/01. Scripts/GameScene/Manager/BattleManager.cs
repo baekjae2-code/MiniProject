@@ -23,7 +23,7 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
-        manaNow += Time.deltaTime;
+        manaNow += Time.deltaTime * 1.5f;
         if( manaNow > manaMax )
         {
             manaNow = manaMax;

@@ -7,8 +7,12 @@ public class TeamGrabUnit : Unit
     bool isGrab;
     UnitData unitData;
 
-    void Start()
+    void Awake()
     {
+        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
+        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
+        rb = GetComponent<Rigidbody2D>();
+
         unitData = GameManager.instance.unitsData.list[6];
 
         myName = unitData.myName;

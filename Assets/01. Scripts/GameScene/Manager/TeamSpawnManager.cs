@@ -32,6 +32,7 @@ public class TeamSpawnManager : MonoBehaviour
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+            UIManager.instance.PrintUnitHPbar(u);
 
             yield return new WaitForSeconds(spawnTime);
         }
