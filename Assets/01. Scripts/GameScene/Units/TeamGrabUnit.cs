@@ -102,7 +102,7 @@ public class TeamGrabUnit : Unit
         rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
     }
 
-    override protected void Die()   //타겠있을때 죽을때 안풀리는 버그 개선
+    override protected void Die()   //타겠있을때 죽으면 안풀리는 버그 개선
     {
         if (target != null)
         {

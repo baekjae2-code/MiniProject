@@ -5,6 +5,8 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager instance;
 
+    public GameObject wall;
+
     private void Awake()
     {
         if (instance == null)
@@ -64,6 +66,23 @@ public class EnemySpawnManager : MonoBehaviour
 
             yield return new WaitForSeconds(4f);
         }
+    }
+
+    IEnumerator WallBrokeSpawn()
+    {
+        while (true)
+        {
+            GameObject u = Instantiate(EnemyUnits[5]);
+            u.transform.position = transform.position;
+            u.SetActive(true);
+            u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    public void SpawnWall()
+    {
+        StartCoroutine(WallBrokeSpawn());
     }
     public void GameOver()
     {

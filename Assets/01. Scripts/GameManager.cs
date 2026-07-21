@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
                 printData[i].damage += (printData[i].damage / 10f);
             }
         }
-        ClearStage = PlayerPrefs.GetInt("ClearStage", 1);
+        ClearStage = PlayerPrefs.GetInt("ClearStage", 0);
 
         for (int i = 0; i < deckUnitNumber.Length; i++)
             deckUnitNumber[i] = int.Parse(PlayerPrefs.GetString("DeckData", "-1 -1 -1 -1 -1").Split()[i]);

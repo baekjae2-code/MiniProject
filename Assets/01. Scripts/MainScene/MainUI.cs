@@ -175,14 +175,14 @@ public class MainUI : MonoBehaviour
     }
     void Warning()
     {
-        GameObject warningi = Instantiate(warningImage, new Vector3(960, 0), Quaternion.identity, canvas);
-        GameObject warningt = Instantiate(warningText, new Vector3(960, 0), Quaternion.identity, canvas);
-
+        GameObject warningi = Instantiate(warningImage, new Vector3(0, -5), Quaternion.identity, canvas);
+        GameObject warningt = Instantiate(warningText, new Vector3(0, -5), Quaternion.identity, canvas);
+            
         warningi.SetActive(true);
         warningt.SetActive(true);
 
-        warningi.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-200f, 200f), Random.Range(1300f, 1600f));
-        warningt.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-200f, 200f), Random.Range(900f, 1000f));
+        warningi.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(10, 20));
+        warningt.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-3, 3), Random.Range(10, 20));
 
         warningi.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);
         warningt.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200f, 200f);

@@ -26,7 +26,6 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
     }

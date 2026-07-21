@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944001345435518194}
-  - component: {fileID: 8220551875545323930}
+  - component: {fileID: -3253898125692330210}
   - component: {fileID: 2087399012495045231}
   - component: {fileID: 8947197547019207381}
   m_Layer: 8
@@ -222,7 +222,7 @@ Transform:
   - {fileID: 7317387349619308096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8220551875545323930
+--- !u!114 &-3253898125692330210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3901039603465637647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3734b36cbae66724b843db23af7e13d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ad965418c138f24d949661e7d3b1de5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMeleeUnit
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyKingMeleeUnit
   damage: 0
   maxHP: 100
   nowHP: 100

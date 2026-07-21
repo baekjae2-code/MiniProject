@@ -3,9 +3,12 @@ using UnityEngine.InputSystem;
 
 public class CameraDrag : MonoBehaviour
 {
+    public Transform playerBase;
+    public Transform enemyBase;
+
     public float smoothTime = 0.15f;
-    public float minX = -10f;
-    public float maxX = 10f;
+    public float minX;
+    public float maxX;
 
     private float targetX;
     private float velocity;
@@ -14,7 +17,10 @@ public class CameraDrag : MonoBehaviour
 
     void Start()
     {
-        targetX = transform.position.x;
+        targetX = transform.position.x; 
+        float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        minX = playerBase.position.x + halfWidth;
+        maxX = enemyBase.position.x - halfWidth;
     }
 
     void Update()

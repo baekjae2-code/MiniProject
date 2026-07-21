@@ -10,6 +10,9 @@ public class UnitUI : PrintText
                                             //DeckSetting에 이미지 추가, GameManager에 이미지, 객체 프리팹 추가
     public Image[] unitUnlockBtnsColor;
 
+    public GameObject openEffect;
+    public GameObject levelUpEffect;
+
     private void Start()
     {
         nowUnitNumber = -1;
@@ -53,6 +56,11 @@ public class UnitUI : PrintText
             GameManager.instance.printData[nowUnitNumber].level++;
             GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
             GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
+
+            GameObject lvE = Instantiate(levelUpEffect, new Vector2(lockUnit.transform.position.x, lockUnit.transform.position.y), Quaternion.identity);
+            lvE.transform.localScale = new Vector3(2, 2, 2);
+            Destroy(lvE, 1);
+
             PrintTexts();
         }
     }
@@ -71,6 +79,9 @@ public class UnitUI : PrintText
                 lockUnit.SetActive(false);
                 UnitBtnUI();
                 PrintTexts();
+
+                GameObject oe = Instantiate(openEffect, new Vector2(lockUnit.transform.position.x, lockUnit.transform.position.y), Quaternion.identity);
+                Destroy(oe, 1);
             }
         }
     }

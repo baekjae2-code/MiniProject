@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,8 @@ public class DeckSetting : MonoBehaviour
 
     [SerializeField] GameObject[] deckSlots;// Deckslots 0~4
     bool[] isSetting;
+
+    [SerializeField] Transform deckCostText;// 비용 텍스트
 
     private void Start()
     {
@@ -42,13 +45,20 @@ public class DeckSetting : MonoBehaviour
         {
             if (!isSetting[i])
             {
-                GameObject unit = Instantiate(units[unitNumber]);
+                Transform unit = Instantiate(units[unitNumber].transform);
                 unit.name = unitNumber.ToString();
-                unit.transform.SetParent(deckSlots[i].transform);
-                unit.transform.position = deckSlots[i].transform.position;
-                unit.transform.localScale = new Vector3(unit.transform.localScale.x / 100f, unit.transform.localScale.y / 100, unit.transform.localScale.z / 100);
-                isSetting[i] = true;
+                unit.SetParent(deckSlots[i].transform);
+                unit.position = deckSlots[i].transform.position;
+                unit.localScale = new Vector3(unit.transform.localScale.x / 100f, unit.transform.localScale.y / 100, unit.transform.localScale.z / 100);
 
+                Transform costText = Instantiate(deckCostText);
+                costText.SetParent(unit);
+                costText.GetComponent<TextMeshProUGUI>().text = GameManager.instance.printData[unitNumber].mana.ToString();
+                costText.position = unit.position + Vector3.right * 0.3f + Vector3.down * 0.3f;
+                costText.localScale = new Vector3(costText.transform.localScale.x / 100f, costText.transform.localScale.y / 100, costText.transform.localScale.z / 100);
+                costText.gameObject.SetActive(true);
+
+                isSetting[i] = true;
                 GameManager.instance.deckUnitNumber[i] = int.Parse(unit.name);
 
                 break;
@@ -88,11 +98,19 @@ public class DeckSetting : MonoBehaviour
         {
             if (GameManager.instance.deckUnitNumber[i] != -1)
             {
-                GameObject unit = Instantiate(units[GameManager.instance.deckUnitNumber[i]]);
+                Transform unit = Instantiate(units[GameManager.instance.deckUnitNumber[i]].transform);
                 unit.name = GameManager.instance.deckUnitNumber[i].ToString();
-                unit.transform.SetParent(deckSlots[i].transform);
-                unit.transform.position = deckSlots[i].transform.position;
-                unit.transform.localScale = new Vector3(unit.transform.localScale.x/100f, unit.transform.localScale.y/100, unit.transform.localScale.z/100);
+                unit.SetParent(deckSlots[i].transform);
+                unit.position = deckSlots[i].transform.position;
+                unit.localScale = new Vector3(unit.transform.localScale.x/100f, unit.transform.localScale.y/100, unit.transform.localScale.z/100);
+
+                Transform costText = Instantiate(deckCostText);
+                costText.SetParent(unit);
+                costText.GetComponent<TextMeshProUGUI>().text = GameManager.instance.printData[GameManager.instance.deckUnitNumber[i]].mana.ToString();
+                costText.position = unit.position + Vector3.right * 0.3f + Vector3.down * 0.3f;
+                costText.localScale = new Vector3(costText.transform.localScale.x / 100f, costText.transform.localScale.y / 100, costText.transform.localScale.z / 100);
+                costText.gameObject.SetActive(true);
+
                 isSetting[i] = true;
             }
         }

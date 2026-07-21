@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,14 +22,36 @@ public class UIManager : MonoBehaviour
     public TextMeshPro gameOverText;
     public TextMeshPro rewardText;
 
+    public TextMeshProUGUI stageText;
+
+    public Slider teamHPBar;
+    public Slider enemyHPBar;
+
+    public Transform teamBase;
+    public Transform enemyBase;
+
+    private void Start()
+    {
+        stageText.text = $"Stage {GameManager.instance.NowStage.ToString()}";
+    }
     void LateUpdate()
     {
         float manaNow = BattleManager.instance.GetManaNow();
         float manaMax = BattleManager.instance.GetManaMax();
         manaSlider.value = manaNow / manaMax;
         manaText.text = $"{(int)manaNow}/{manaMax}";
-    }
 
+        if (teamBase != null)
+        {
+            teamHPBar.transform.position = Camera.main.WorldToScreenPoint(teamBase.position + Vector3.up * 3 + Vector3.right * 2.5f);
+            teamHPBar.value = teamBase.GetComponent<Base>().nowHP / 500f;
+        }
+        if (enemyBase != null)
+        {
+            enemyHPBar.transform.position = Camera.main.WorldToScreenPoint(enemyBase.position + Vector3.up * 3 + Vector3.right * -2.5f);
+            enemyHPBar.value = enemyBase.GetComponent<Base>().nowHP / 500f;
+        }    
+    }
     public void GameOverUI(string name)
     {
         int rewardGold = 0;
