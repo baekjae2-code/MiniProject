@@ -18,43 +18,60 @@ public class CameraDrag : MonoBehaviour
     void Start()
     {
         targetX = transform.position.x; 
-        float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        float halfWidth = Camera.main.orthographicSize * Camera.main.aspect; //Orthographic Size = 5
+                                                                             //Aspect = 16 / 9 = 1.777
         minX = playerBase.position.x + halfWidth;
         maxX = enemyBase.position.x - halfWidth;
     }
 
     void Update()
     {
-        if (Mouse.current == null) return;
+        Vector2 screenPos;
+        bool pressed = false;
+        bool down = false;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Touchscreen.current != null)
         {
-            lastMouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            screenPos = Touchscreen.current.primaryTouch.position.ReadValue();
+            pressed = Touchscreen.current.primaryTouch.press.isPressed;
+            down = Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
+        }
+        else if (Mouse.current != null)
+        {
+            screenPos = Mouse.current.position.ReadValue();
+            pressed = Mouse.current.leftButton.isPressed;
+            down = Mouse.current.leftButton.wasPressedThisFrame;
+        }
+        else
+        {
+            return;
+        }
+        if (Touchscreen.current != null)
+        {
+            Debug.Log("Touch");
         }
 
-        if (Mouse.current.leftButton.isPressed)
+        if (Mouse.current != null)
         {
-            Vector3 currentMouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Debug.Log("Mouse");
+        }
+        if (down)
+        {
+            lastMouseWorld = Camera.main.ScreenToWorldPoint(screenPos); //클릭하자마자 위치
+        }
 
-            float deltaX = lastMouseWorld.x - currentMouseWorld.x;
+        if (pressed)
+        {
+            Vector3 currentMouseWorld = Camera.main.ScreenToWorldPoint(screenPos);  //드래그 중
 
-            targetX += deltaX;
+            float deltaX = lastMouseWorld.x - currentMouseWorld.x;  //얼마나 움직였는지 계산
+
+            targetX += deltaX;                                       //카메라 이동
             targetX = Mathf.Clamp(targetX, minX, maxX);
 
             lastMouseWorld = currentMouseWorld;
         }
-
-        float smoothX = Mathf.SmoothDamp(
-            transform.position.x,
-            targetX,
-            ref velocity,
-            smoothTime
-        );
-
-        transform.position = new Vector3(
-            smoothX,
-            transform.position.y,
-            transform.position.z
-        );
+        float smoothX = Mathf.SmoothDamp(transform.position.x, targetX, ref velocity, smoothTime); 
+        transform.position = new Vector3(smoothX, transform.position.y, transform.position.z);
     }
 }

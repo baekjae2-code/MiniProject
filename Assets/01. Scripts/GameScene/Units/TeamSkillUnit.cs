@@ -33,7 +33,13 @@ public class TeamSkillUnit : Unit
 
         isAttack = false;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     private void FixedUpdate()
     {
         if (isStun == true)

@@ -16,7 +16,7 @@ public class TeamSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnUnits(0, 3f));
+        Spawn(0, 3);
     }
 
     public void Spawn(int spawnUnitNum, float spawnTime)
@@ -30,6 +30,7 @@ public class TeamSpawnManager : MonoBehaviour
         {
             //GameObject u = Instantiate(GameManager.instance.unitsPrefab[spawnUnitNum]);
             GameObject u = ObjectPoolManager.instance.GetObject(GameManager.instance.unitsPrefab[spawnUnitNum].name);
+            u.GetComponent<Unit>().enabled = true;
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));

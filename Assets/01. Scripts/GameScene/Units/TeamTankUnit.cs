@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TeamTankUnit : Unit
 {
     GameObject tankObj;
-    UnitData tankUnit;
+    UnitData unitData;
 
     void Awake()
     {
@@ -14,20 +14,26 @@ public class TeamTankUnit : Unit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        tankUnit = GameManager.instance.printData[2];
+        unitData = GameManager.instance.printData[2];
 
-        myName = tankUnit.myName;
-        level = tankUnit.level;
-        maxHP = tankUnit.maxHP;
-        nowHP = tankUnit.maxHP;
-        damage = tankUnit.damage;
-        range = tankUnit.range;
-        moveSpeed = tankUnit.moveSpeed;
-        attackSpeed = tankUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level;
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         //tankObj = transform.Find("HealMagicEffect").gameObject;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     private void FixedUpdate()
     {
         if (isStun == true)

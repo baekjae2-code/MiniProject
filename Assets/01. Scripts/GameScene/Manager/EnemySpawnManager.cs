@@ -29,7 +29,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             //GameObject u = Instantiate(EnemyUnits[0]);
             GameObject u = ObjectPoolManager.instance.GetObject("Enemy Melee Unit");
-            print("getObj :" + u.name);
+            u.GetComponent<Unit>().enabled = true;        
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
@@ -40,14 +40,15 @@ public class EnemySpawnManager : MonoBehaviour
     }
     IEnumerator SpawnGrabwave()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(10f);
         UIManager.instance.PrintWaveText("! GrabWave !");
         while (true)
         {
             for (int i = 0; i < 5; i++)
             {
                 yield return new WaitForSeconds(0.1f);
-                GameObject u = ObjectPoolManager.instance.GetObject("Enemy Grab Unit");
+                GameObject u = ObjectPoolManager.instance.GetObject("Enemy Grab Unit"); 
+                u.GetComponent<Unit>().enabled = true;
                 u.transform.position = transform.position;
                 u.SetActive(true);
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
@@ -58,7 +59,7 @@ public class EnemySpawnManager : MonoBehaviour
     }
     IEnumerator SpawnFinalwave()
     {
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(30f);
         UIManager.instance.PrintWaveText("! FinalWave !");
         while (true)
         {
@@ -67,6 +68,7 @@ public class EnemySpawnManager : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
                 //GameObject u = Instantiate(unit);
                 GameObject u = ObjectPoolManager.instance.GetObject(unit.name);
+                u.GetComponent<Unit>().enabled = true;
                 u.transform.position = transform.position;
                 u.SetActive(true);
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
@@ -84,6 +86,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             //GameObject u = Instantiate(EnemyUnits[5]);
             GameObject u = ObjectPoolManager.instance.GetObject("Enemy Fly Unit");
+            u.GetComponent<Unit>().enabled = true;
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));

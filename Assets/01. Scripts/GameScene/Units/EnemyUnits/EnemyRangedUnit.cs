@@ -36,6 +36,23 @@ public class EnemyRangedUnit : Unit
         attackCooltime = attackSpeed;
     }
 
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 8;
+
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+
+        for (int i = 0; i < GameManager.instance.NowStage; i++)
+        {
+            maxHP += (maxHP / 10f);
+            nowHP += (nowHP / 10f);
+            damage += (damage / 10f);
+        }
+    }
+
     void FixedUpdate()
     {
         if (isStun == true)
@@ -75,8 +92,8 @@ public class EnemyRangedUnit : Unit
         SoundManager.instance.PlaySFX((SFXType)4);
 
         Vector2 direction = (target.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //Quaternion rotation = Quaternion.Euler(0, 0, angle);
         //GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, rotation);
 
         GameObject obj = ObjectPoolManager.instance.GetObject(attackObj.name);

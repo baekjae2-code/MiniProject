@@ -34,4 +34,20 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 8;
+
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+
+        for (int i = 0; i < GameManager.instance.NowStage; i++)
+        {
+            maxHP += (maxHP / 10f);
+            nowHP += (nowHP / 10f);
+            damage += (damage / 10f);
+        }
+    }
 }

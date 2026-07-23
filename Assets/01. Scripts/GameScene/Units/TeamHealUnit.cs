@@ -25,7 +25,13 @@ public class TeamHealUnit : Unit
 
         healObj = transform.Find("HealMagicEffect").gameObject;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     private void FixedUpdate()
     {
         if (isStun == true)

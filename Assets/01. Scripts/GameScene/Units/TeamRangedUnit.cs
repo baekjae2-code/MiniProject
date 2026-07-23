@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TeamRangedUnit : Unit
 {
     GameObject attackObj;
-    UnitData rangedUnit;
+    UnitData unitData;
 
     void Awake()
     {
@@ -13,22 +13,27 @@ public class TeamRangedUnit : Unit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        rangedUnit = GameManager.instance.printData[1];
+        unitData = GameManager.instance.printData[1];
 
-        myName = rangedUnit.myName;
-        level = rangedUnit.level;
-        maxHP = rangedUnit.maxHP;
-        nowHP = rangedUnit.maxHP;
-        damage = rangedUnit.damage;
-        range = rangedUnit.range;
-        moveSpeed = rangedUnit.moveSpeed;
-        attackSpeed = rangedUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level;
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackObj = transform.Find("TeamRangedAttack").gameObject;
         attackCooltime = attackSpeed;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
-    // Update is called once per frame
+        Awake();
+    }
     void FixedUpdate()
     {
         if (isStun == true)
@@ -69,8 +74,8 @@ public class TeamRangedUnit : Unit
         SoundManager.instance.PlaySFX((SFXType)4);
 
         Vector2 direction = (target.position - transform.position).normalized; 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //Quaternion rotation = Quaternion.Euler(0, 0, angle);
         //GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, rotation);
 
         GameObject obj = ObjectPoolManager.instance.GetObject(attackObj.name);

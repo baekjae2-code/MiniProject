@@ -15,6 +15,7 @@ public class SpriteButtons : MonoBehaviour
 
             if (col != null && col.gameObject == gameObject)
             {
+                ObjectPoolManager.instance.GameEnd();
                 if (name == "RestartButton")
                 {
                     SceneManager.LoadScene("GameScene");

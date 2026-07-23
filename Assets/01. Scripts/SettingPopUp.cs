@@ -50,6 +50,7 @@ public class SettingPopUp : PrintText
         optionPopUp.SetActive(false);
         Time.timeScale = 1;
         SoundManager.instance.ChangeBgm();
+        ObjectPoolManager.instance.GameEnd();
         SceneManager.LoadScene("MainScene");
     }
     public void OnClickDataClear()

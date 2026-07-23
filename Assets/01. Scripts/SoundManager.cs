@@ -1,6 +1,4 @@
-using Unity.VectorGraphics.Editor;
 using UnityEngine;
-using UnityEngine.UI;
 public enum SFXType
 {
     slash, magic, meteor, heal, arrow, die, hit, button, warning, money

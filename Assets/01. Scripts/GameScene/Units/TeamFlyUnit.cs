@@ -27,7 +27,13 @@ public class TeamFlyUnit : Unit
         attackCooltime = attackSpeed;
 
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     void FixedUpdate()
     {
         if (isStun == true)

@@ -26,4 +26,11 @@ public class TeamKingMeleeUnit : TeamMeleeUnit
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
+
+        Awake();
+    }
 }

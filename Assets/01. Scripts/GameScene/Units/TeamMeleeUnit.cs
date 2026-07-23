@@ -5,7 +5,7 @@ using UnityEngine;
 public class TeamMeleeUnit : Unit
 {
     protected GameObject attackObj;
-    UnitData meleeUnit;
+    UnitData unitData;
 
     void Awake()
     {
@@ -13,21 +13,27 @@ public class TeamMeleeUnit : Unit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        meleeUnit = GameManager.instance.printData[0];
+        unitData = GameManager.instance.printData[0];
 
-        myName = meleeUnit.myName;
-        level = meleeUnit.level;
-        maxHP = meleeUnit.maxHP;
-        nowHP = meleeUnit.maxHP;
-        damage = meleeUnit.damage;
-        range = meleeUnit.range;
-        moveSpeed = meleeUnit.moveSpeed;
-        attackSpeed = meleeUnit.attackSpeed;
+        myName = unitData.myName;
+        level = unitData.level;
+        maxHP = unitData.maxHP;
+        nowHP = unitData.maxHP;
+        damage = unitData.damage;
+        range = unitData.range;
+        moveSpeed = unitData.moveSpeed;
+        attackSpeed = unitData.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     private void FixedUpdate()
     {
         if (isStun == true)

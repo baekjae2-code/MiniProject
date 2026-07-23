@@ -36,6 +36,16 @@ public class ObjectPoolManager : MonoBehaviour
             }
         }
     }
+    public void GameEnd()
+    {
+        foreach (Transform pool in transform)
+        {
+            foreach (Transform child in pool)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
 
     public GameObject GetObject(string name)
     {
@@ -52,7 +62,8 @@ public class ObjectPoolManager : MonoBehaviour
         }
         else
         {
-            GameObject go = Instantiate(objList.Find(obj => obj.name == name));
+            Transform parent = transform.Find($"{name}_Pool");
+            GameObject go = Instantiate(objList.Find(obj => obj.name == name), parent);
             return go;
         }
     }

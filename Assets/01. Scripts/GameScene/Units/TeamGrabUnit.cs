@@ -26,7 +26,13 @@ public class TeamGrabUnit : Unit
 
         attackCooltime = attackSpeed;
     }
+    private void OnEnable()
+    {
+        Respawn();
+        gameObject.layer = 7;
 
+        Awake();
+    }
     private void FixedUpdate()
     {
         if (target != null && isGrab)

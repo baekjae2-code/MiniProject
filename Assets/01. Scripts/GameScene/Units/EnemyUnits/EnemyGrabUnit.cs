@@ -7,7 +7,7 @@ public class EnemyGrabUnit : Unit
     bool isGrab;
     UnitData unitData;
 
-    void Awake()
+    void OnEnable()
     {
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
@@ -33,6 +33,9 @@ public class EnemyGrabUnit : Unit
         attackSpeed = unitData.attackSpeed;
 
         attackCooltime = attackSpeed;
+
+        Respawn();
+        gameObject.layer = 8;
     }
 
     private void FixedUpdate()
@@ -92,11 +95,13 @@ public class EnemyGrabUnit : Unit
     {
         Transform throwTarget = target;
         isGrab = true;
-        throwTarget.tag = "Grabbed";
-        throwTarget.GetComponent<Unit>().Stun(2f);
-        throwTarget.GetComponent<Collider2D>().enabled = false;
-        throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
-
+        if (throwTarget != null)
+        {
+            throwTarget.tag = "Grabbed";
+            throwTarget.GetComponent<Unit>().Stun(2f);
+            throwTarget.GetComponent<Collider2D>().enabled = false;
+            throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
         yield return new WaitForSeconds(0.5f);
         if (throwTarget != null)
         {

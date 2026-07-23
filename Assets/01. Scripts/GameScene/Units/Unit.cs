@@ -22,7 +22,6 @@ public abstract class Unit : MonoBehaviour
     protected Transform target;
     protected bool isStun;
     protected float attackCooltime;
-    protected bool isDead;
     protected SpriteRenderer[] sr;
 
     void Awake()
@@ -40,7 +39,6 @@ public abstract class Unit : MonoBehaviour
         {
             nowHP = 0;
             Die();
-            isDead = true;
         }
     }
     public void TakeHeal(int heal)
@@ -55,6 +53,8 @@ public abstract class Unit : MonoBehaviour
     public void Stun(float time)
     {
         StopAllCoroutines();
+        if (!gameObject.activeInHierarchy)
+            return;
         StartCoroutine(StunCoroutine(time));
     }
     IEnumerator StunCoroutine(float time)
@@ -87,6 +87,18 @@ public abstract class Unit : MonoBehaviour
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Unit>().enabled = false;
         StartCoroutine(DieCoroutine());
+    }
+
+    public void Respawn()
+    {
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        transform.rotation = Quaternion.identity;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        for (int i = 0; i < sr.Length; i++)
+        {
+            sr[i].color = new Color(1, 1, 1);
+        }
+        isStun = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
