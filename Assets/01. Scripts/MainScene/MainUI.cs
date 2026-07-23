@@ -66,11 +66,13 @@ public class MainUI : MonoBehaviour
 
     public void OnClickMainToSet()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         screenImgManager.DOLocalMoveX(-1920, 0.5f).SetEase(Ease.OutQuad);    //0에서 왼쪽으로 -960만큼 이동
 
     }
     public void OnClickSetToMain()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         screenImgManager.DOLocalMoveX(0, 0.5f).SetEase(Ease.OutCubic);    //오른쪽으로 1920만큼 이동(0으로)
 
         infoImage.SetParent(settingScreenImg); //메인화면으로 갈때 자원 창 이동X
@@ -90,6 +92,7 @@ public class MainUI : MonoBehaviour
                 return;
             }
         }
+        SoundManager.instance.PlaySFX((SFXType)7);
         screenImgManager.DOLocalMoveX(-1920 - 1920, 0.5f).SetEase(Ease.OutQuad);
 
         infoImage.SetParent(canvas);    //자원 창 -> 세팅+스테이지 창 둘다 보임
@@ -100,6 +103,7 @@ public class MainUI : MonoBehaviour
 
     public void OnClickStageToSet()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         screenImgManager.DOLocalMoveX(-1920, 0.5f).SetEase(Ease.OutQuad);
 
         stageLeftBtn.SetParent(stageScreenImg); //스테이지에서 세팅 창으로 이동할때 다시 안보이게
@@ -108,6 +112,7 @@ public class MainUI : MonoBehaviour
 
     public void OnClickStageRight() //화면 오른쪽이동
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         stageLeftBtn.SetParent(canvas); //스테이지 이동 버튼 -> 이동할때 제자리
         stageRightBtn.SetParent(canvas);
 
@@ -121,6 +126,7 @@ public class MainUI : MonoBehaviour
     }
     public void OnClickStageLeft()  //화면 왼쪽이동
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         stageLeftBtn.SetParent(canvas);
         stageRightBtn.SetParent(canvas);
 
@@ -148,13 +154,14 @@ public class MainUI : MonoBehaviour
                 return;
             }
         }
-
+        SoundManager.instance.PlaySFX((SFXType)7);
         if (GameManager.instance.ClearStage + 1 < int.Parse(EventSystem.current.currentSelectedGameObject.name))    //현재 클리어 다음 스테이지만 가능
         {
             return;
         }
 
         GameManager.instance.SetStage(int.Parse(EventSystem.current.currentSelectedGameObject.name));    //선택한 버튼의 이름을 스테이지로 세팅
+        SoundManager.instance.ChangeBgm();
         SceneManager.LoadScene("GameScene");
     }
     public void StageUI()    //스테이지 버튼들 색깔이 클리어하였으면 바뀜, 초기화할떄 호출
@@ -175,6 +182,7 @@ public class MainUI : MonoBehaviour
     }
     void Warning()
     {
+        SoundManager.instance.PlaySFX((SFXType)8);
         GameObject warningi = Instantiate(warningImage, new Vector3(0, -5), Quaternion.identity, canvas);
         GameObject warningt = Instantiate(warningText, new Vector3(0, -5), Quaternion.identity, canvas);
             

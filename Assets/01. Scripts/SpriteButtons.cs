@@ -21,6 +21,7 @@ public class SpriteButtons : MonoBehaviour
                 }
                 else if (name == "MainmenuButton")
                 {
+                    SoundManager.instance.ChangeBgm();
                     SceneManager.LoadScene("MainScene");
                     for (int i = 0; i < GameManager.instance.deckUnitNumber.Length; i++)
                     {

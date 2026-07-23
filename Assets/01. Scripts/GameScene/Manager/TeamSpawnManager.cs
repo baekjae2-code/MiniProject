@@ -28,7 +28,8 @@ public class TeamSpawnManager : MonoBehaviour
     {
         while (true)
         {
-            GameObject u = Instantiate(GameManager.instance.unitsPrefab[spawnUnitNum]);
+            //GameObject u = Instantiate(GameManager.instance.unitsPrefab[spawnUnitNum]);
+            GameObject u = ObjectPoolManager.instance.GetObject(GameManager.instance.unitsPrefab[spawnUnitNum].name);
             u.transform.position = transform.position;
             u.SetActive(true);
             u.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));

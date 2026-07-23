@@ -62,6 +62,8 @@ public class TeamHealUnit : Unit
     }
     void Heal()
     {
+        SoundManager.instance.PlaySFX((SFXType)3);
+
         GameObject obj = Instantiate(healObj, transform.position, healObj.transform.rotation);
         obj.SetActive(true);
         attackCooltime = 0;

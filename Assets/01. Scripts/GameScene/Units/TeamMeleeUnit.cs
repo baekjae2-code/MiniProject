@@ -69,6 +69,8 @@ public class TeamMeleeUnit : Unit
     }
     void Attack()
     {
+        SoundManager.instance.PlaySFX((SFXType)0);
+
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * Random.Range(3f, 4f) + new Vector2(0f, 3f);
         attackObj.SetActive(true);

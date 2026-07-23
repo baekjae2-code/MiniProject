@@ -71,6 +71,8 @@ public class EnemyMagicUnit : Unit
     }
     void Attack()
     {
+        SoundManager.instance.PlaySFX((SFXType)2);
+
         GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.left * 1f, Quaternion.identity);
         obj.SetActive(true);
         attackCooltime = 0;

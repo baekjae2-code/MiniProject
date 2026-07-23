@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EmenyRangedAttack : MonoBehaviour
@@ -13,7 +14,7 @@ public class EmenyRangedAttack : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2);
+        StartCoroutine(DestroyCoroutine());
     }
     void Update()
     {
@@ -32,7 +33,16 @@ public class EmenyRangedAttack : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(1f, 2f);
             GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(hitEf, 1);
-            Destroy(gameObject);
+            string names = name.Split("(Clone)")[0];
+            ObjectPoolManager.instance.ReturnObject(names, gameObject);
         }
+    }
+
+    IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        string names = name.Split("(Clone)")[0];
+        ObjectPoolManager.instance.ReturnObject(names, gameObject);
     }
 }

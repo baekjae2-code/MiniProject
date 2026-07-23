@@ -67,7 +67,7 @@ public class TeamGrabUnit : Unit
         {
 
             target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-            if (target.transform.parent != null)
+            if (target.tag == "Grabbed")
                 target = null;
 
             canMove = false;
@@ -83,7 +83,7 @@ public class TeamGrabUnit : Unit
     {
         Transform throwTarget = target;
         isGrab = true;
-        throwTarget.SetParent(transform);
+        throwTarget.tag = "Grabbed";
         throwTarget.GetComponent<Unit>().Stun(2f);
         throwTarget.GetComponent<Collider2D>().enabled = false;
         throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -91,7 +91,7 @@ public class TeamGrabUnit : Unit
         yield return new WaitForSeconds(0.5f);
         if (throwTarget != null)
         {
-            throwTarget.SetParent(null);
+            throwTarget.tag = "Untagged";
             throwTarget.GetComponent<Unit>().StopAllCoroutines();
             throwTarget.GetComponent<Unit>().Stun(2f);
             throwTarget.GetComponent<Collider2D>().enabled = true;
@@ -110,7 +110,7 @@ public class TeamGrabUnit : Unit
     {
         if (target != null)
         {
-            target.SetParent(null);
+            target.tag = "Untagged";
             target.GetComponent<Unit>().StopAllCoroutines();
             target.GetComponent<Collider2D>().enabled = true;
             target.GetComponent<Rigidbody2D>().gravityScale = 1;

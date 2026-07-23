@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     public int[] deckUnitNumber;  //덱에 있는 유닛의 이름들 저장, 덱이 다 정해졌는지 체크
 
+    public float bgmSoundVolume;
+    public float sfxSoundVolume;
+
     private void Awake()
     {
         if (instance == null)
@@ -55,8 +58,11 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < deckUnitNumber.Length; i++)
             deckUnitNumber[i] = int.Parse(PlayerPrefs.GetString("DeckData", "-1 -1 -1 -1 -1").Split()[i]);
-    }
 
+        bgmSoundVolume = PlayerPrefs.GetFloat("bgmSoundVolume", 1);
+        sfxSoundVolume = PlayerPrefs.GetFloat("sfxSoundVolume", 1);
+    }
+        
     public void UseGold(int useGold)
     {
         if (Gold >= useGold)
@@ -111,5 +117,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("SkillUnitLv", printData[8].level);
         PlayerPrefs.SetInt("ClearStage", ClearStage);
         PlayerPrefs.SetString("DeckData", deckUnitNumber[0] + " " + deckUnitNumber[1] + " " + deckUnitNumber[2] + " " + deckUnitNumber[3] + " " + deckUnitNumber[4]);
+        PlayerPrefs.SetFloat("bgmSoundVolume", bgmSoundVolume);
+        PlayerPrefs.SetFloat("sfxSoundVolume", sfxSoundVolume);
     }
 }

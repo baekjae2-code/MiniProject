@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8924536030298589621
 Transform:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 7096481202881774179}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.9485254, y: 5.586361, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -233,8 +233,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamTankUnit
   damage: 0
-  maxHP: 100
-  nowHP: 100
 --- !u!61 &286156614221035946
 BoxCollider2D:
   m_ObjectHideFlags: 0

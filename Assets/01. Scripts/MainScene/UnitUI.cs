@@ -24,6 +24,7 @@ public class UnitUI : PrintText
 
     public void OnClickUnitSelect()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         GameObject clicked = EventSystem.current.currentSelectedGameObject; //선택한 버튼의 이름 불러오기
 
         string[] btnName = clicked.name.Split();
@@ -49,8 +50,10 @@ public class UnitUI : PrintText
         if (nowUnitNumber == -1)
             return;
 
+
         if (GameManager.instance.Gold >= GameManager.instance.printData[nowUnitNumber].level * 100)
         {
+            SoundManager.instance.PlaySFX((SFXType)9);
             GameManager.instance.UseGold(GameManager.instance.printData[nowUnitNumber].level * 100);
 
             GameManager.instance.printData[nowUnitNumber].level++;

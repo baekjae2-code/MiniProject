@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TeamRangedAttack : MonoBehaviour
@@ -13,7 +14,7 @@ public class TeamRangedAttack : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2);
+        StartCoroutine(DestroyCoroutine());
     }
     void Update()
     {
@@ -32,8 +33,16 @@ public class TeamRangedAttack : MonoBehaviour
             Vector2 direction = collision.transform.position - transform.position;
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(1f, 3f);
             GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(hitEf, 1);
-            Destroy(gameObject);
+            Destroy(hitEf, 1); 
+            string names = name.Split("(Clone)")[0];
+            ObjectPoolManager.instance.ReturnObject(names, gameObject);
         }
+    }
+    IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        string names = name.Split("(Clone)")[0];
+        ObjectPoolManager.instance.ReturnObject(names, gameObject);
     }
 }

@@ -89,6 +89,7 @@ public class TeamSkillUnit : Unit
         {
             if (target == null)
                 break;
+            SoundManager.instance.PlaySFX((SFXType)0);
             Vector2 direction = (target.position - transform.position).normalized;
             rb.linearVelocity = direction * Random.Range(4, 6) + new Vector2(0f, 4f);
             attackObj.SetActive(true);
@@ -98,6 +99,7 @@ public class TeamSkillUnit : Unit
         yield return new WaitForSeconds(0.7f);
         rb.linearVelocityY = -20f;
         yield return new WaitForSeconds(0.2f);
+        SoundManager.instance.PlaySFX((SFXType)0);
         attackObj2.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         rb.linearVelocity = new Vector2(-5f, 3f);

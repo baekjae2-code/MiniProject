@@ -229,7 +229,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58233916
 MonoBehaviour:
@@ -556,6 +556,8 @@ MonoBehaviour:
   hpbarShowBtn: {fileID: 1553118851}
   hpbarHideBtn: {fileID: 610910970}
   hpbarObj: {fileID: 202456319}
+  bgmSlider: {fileID: 569837238}
+  sfxSlider: {fileID: 1687458222}
 --- !u!4 &115507479
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,12 +3196,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -100
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1529697990, guid: a0396d856647c8b459b4704c6034749b, type: 3}
+  m_Sprite: {fileID: 4142488910823833096, guid: 316ab3a80cf9c74468ae72cfc946e5ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16.72, y: 9.41}
+  m_Size: {x: 17.74, y: 8.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3213,8 +3215,8 @@ Transform:
   m_GameObject: {fileID: 427052375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 2.48, z: 0}
-  m_LocalScale: {x: 2.8499997, y: 2.8499997, z: 2.8499997}
+  m_LocalPosition: {x: 4.59, y: 2.3, z: 0}
+  m_LocalScale: {x: 2.680028, y: 2.3439522, z: 2.680028}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3468,7 +3470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4330,7 +4332,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 115507478}
+        m_TargetAssemblyTypeName: SettingPopUp, Assembly-CSharp
+        m_MethodName: OnBGMAudioChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &582526567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -227.71936, y: -23.898254}
+  m_AnchoredPosition: {x: -227.71936, y: -23.898315}
   m_SizeDelta: {x: 256.56116, y: 173.10352}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &664919979
@@ -7038,7 +7052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7308,7 +7322,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 10, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897342569
 MonoBehaviour:
@@ -7323,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9417,7 +9431,7 @@ Transform:
   m_GameObject: {fileID: 1140269779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.090026855, y: -0.6500244, z: 0}
+  m_LocalPosition: {x: 0.090026855, y: -1.05, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -10773,7 +10787,7 @@ Transform:
   m_GameObject: {fileID: 1423141958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19, y: -1.5, z: 0}
+  m_LocalPosition: {x: -19, y: -1.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11131,7 +11145,7 @@ Transform:
   m_GameObject: {fileID: 1474412282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6500244, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.95, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15289,7 +15303,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 115507478}
+        m_TargetAssemblyTypeName: SettingPopUp, Assembly-CSharp
+        m_MethodName: OnSFXAudioChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!213 &1688671059
 Sprite:
   m_ObjectHideFlags: 0
@@ -15808,7 +15834,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1756647923
 MonoBehaviour:
@@ -17370,7 +17396,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 10, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018525702
 MonoBehaviour:
@@ -17385,7 +17411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -24,7 +24,7 @@ public class TeamRangedUnit : Unit
         moveSpeed = rangedUnit.moveSpeed;
         attackSpeed = rangedUnit.attackSpeed;
 
-        attackObj = transform.Find("AttackEffect").gameObject;
+        attackObj = transform.Find("TeamRangedAttack").gameObject;
         attackCooltime = attackSpeed;
     }
 
@@ -66,10 +66,15 @@ public class TeamRangedUnit : Unit
 
     void Attack()
     {
+        SoundManager.instance.PlaySFX((SFXType)4);
+
         Vector2 direction = (target.position - transform.position).normalized; 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
-        GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, rotation);
+        //GameObject obj = Instantiate(attackObj, transform.position + Vector3.up * 0.5f, rotation);
+
+        GameObject obj = ObjectPoolManager.instance.GetObject(attackObj.name);
+        obj.transform.position = transform.position + Vector3.up * 0.5f;
         obj.GetComponent<TeamRangedAttack>().damage = damage;
         obj.SetActive(true);
         obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15 + Vector2.up * 3f;

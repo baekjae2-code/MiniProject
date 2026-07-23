@@ -26,6 +26,7 @@ public class DeckSetting : MonoBehaviour
 
     public void OnAddDeckSlot()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         GameObject clicked = EventSystem.current.currentSelectedGameObject; //선택한 버튼의 이름 불러오기
 
         string[] btnName = clicked.name.Split();
@@ -70,6 +71,7 @@ public class DeckSetting : MonoBehaviour
 
     public void OnRemoveDeckSlot()
     {
+        SoundManager.instance.PlaySFX((SFXType)7);
         GameObject clicked = EventSystem.current.currentSelectedGameObject; //선택한 버튼의 이름 불러오기
 
         string[] btnName = clicked.name.Split();

@@ -130,9 +130,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 471
+        y: 470
         width: 1672
-        height: 470
+        height: 471
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,33 +147,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "ChatGPT Image 2026\uB144 7\uC6D4 15\uC77C \uC624\uD6C4 03_34_04_1"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 1672
-        height: 470
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eaf8ffb50815d824f9e5ef4477e2d628
-      internalID: -1529697990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8a2aa5f0fe31dc243a788694ac6f9e92
+    spriteID: 0ab2a06e76841264f872bbb3c5d8fc22
     internalID: 0
     vertices: []
     indices: 
@@ -181,12 +159,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":2.0},"gridSpriteSize":{"x":1672.0,"y":470.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       "ChatGPT Image 2026\uB144 7\uC6D4 15\uC77C \uC624\uD6C4 03_34_04_0": -4198201787868946379
-      "ChatGPT Image 2026\uB144 7\uC6D4 15\uC77C \uC624\uD6C4 03_34_04_1": -1529697990
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
