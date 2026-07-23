@@ -1,7 +1,4 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +42,7 @@ public class GameManager : MonoBehaviour
         printData[5].level = PlayerPrefs.GetInt("MagicUnitLv", 0);
         printData[6].level = PlayerPrefs.GetInt("GrabUnitLv", 0);
         printData[7].level = PlayerPrefs.GetInt("FlyUnitLv", 0);
+        printData[8].level = PlayerPrefs.GetInt("SkillUnitLv", 0);
         for (int i = 0; i < printData.Length; i++)  //레벨에 맞춰서 스펙 세팅
         {
             for (int j = 1; j < printData[i].level; j++)    //레벨 1부터 본인보다 작으면 스펙업
@@ -110,6 +108,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("MagicUnitLv", printData[5].level);
         PlayerPrefs.SetInt("GrabUnitLv", printData[6].level);
         PlayerPrefs.SetInt("FlyUnitLv", printData[7].level);
+        PlayerPrefs.SetInt("SkillUnitLv", printData[8].level);
         PlayerPrefs.SetInt("ClearStage", ClearStage);
         PlayerPrefs.SetString("DeckData", deckUnitNumber[0] + " " + deckUnitNumber[1] + " " + deckUnitNumber[2] + " " + deckUnitNumber[3] + " " + deckUnitNumber[4]);
     }

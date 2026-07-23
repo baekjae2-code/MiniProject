@@ -22,6 +22,11 @@ public class SettingPopUp : PrintText
         Time.timeScale = 1;
     }
 
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
     public void OnClickMainMenu()
     {
         optionPopUp.SetActive(false);
