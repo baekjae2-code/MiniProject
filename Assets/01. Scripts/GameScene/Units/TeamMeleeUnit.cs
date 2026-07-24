@@ -38,10 +38,11 @@ public class TeamMeleeUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -56,23 +57,6 @@ public class TeamMeleeUnit : Unit
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawWireSphere(transform.position + Vector3.up * 0.5f, 3f);
     //}
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
-        }
-    }
     void Attack()
     {
         SoundManager.instance.PlaySFX((SFXType)0);
@@ -81,6 +65,7 @@ public class TeamMeleeUnit : Unit
         rb.linearVelocity = direction * Random.Range(3f, 4f) + new Vector2(0f, 3f);
         attackObj.SetActive(true);
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {

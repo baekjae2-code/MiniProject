@@ -36,10 +36,11 @@ public class TeamHealUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Heal();
@@ -49,23 +50,7 @@ public class TeamHealUnit : Unit
             Move();
         }
     }
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
-        }
-    }
+  
     void Heal()
     {
         SoundManager.instance.PlaySFX((SFXType)3);
@@ -73,6 +58,7 @@ public class TeamHealUnit : Unit
         GameObject obj = Instantiate(healObj, transform.position, healObj.transform.rotation);
         obj.SetActive(true);
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {

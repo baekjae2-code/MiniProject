@@ -17,12 +17,17 @@ public class DeckPaste : MonoBehaviour
         {
             Transform deckUnit = Instantiate(GameManager.instance.unitsImg[GameManager.instance.deckUnitNumber[i]].transform);
             deckUnit.SetParent(deckButtons[i + 1].transform);
-            deckUnit.position = deckButtons[i + 1].transform.position;
+            deckUnit.localPosition = Vector3.zero;
+            int scaleX = 1;
+            if (deckUnit.localScale.x < 0)
+                scaleX = -1;
+            deckUnit.localScale = new Vector3(scaleX, 1, 1);
 
             Transform costText = Instantiate(deckCostText);
-            costText.SetParent(deckUnit);
+            costText.SetParent(deckButtons[i + 1]);
             costText.GetComponent<TextMeshProUGUI>().text = GameManager.instance.printData[GameManager.instance.deckUnitNumber[i]].mana.ToString();
-            costText.position = deckUnit.position + Vector3.right * 30f + Vector3.down * 30f;
+            costText.GetComponent<RectTransform>().anchoredPosition = Vector3.left * 10f + Vector3.up * 30f;
+            costText.localScale = Vector3.one;
             costText.gameObject.SetActive(true);
         }
     }

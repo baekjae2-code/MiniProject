@@ -16,7 +16,7 @@ public class TeamSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        Spawn(0, 3);
+        Spawn(0, 5);
     }
 
     public void Spawn(int spawnUnitNum, float spawnTime)

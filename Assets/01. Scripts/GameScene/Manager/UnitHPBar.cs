@@ -37,7 +37,7 @@ public class UnitHPBar : MonoBehaviour
 
     void LateUpdate()
     {
-        if (myUnit == null)
+        if (myUnit.activeSelf == false)
         {
             Destroy(gameObject);
             return;

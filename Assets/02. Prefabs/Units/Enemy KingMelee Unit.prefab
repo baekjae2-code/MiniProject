@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3235153565978503651}
   - component: {fileID: 4469451565007257262}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7317387349619308096}
   - component: {fileID: 9088019547633495914}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6409233830306689853}
   - component: {fileID: 8441801391454149136}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6365798473224052667}
   - component: {fileID: 4754592642436642807}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

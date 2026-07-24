@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5327195736985663669}
   - component: {fileID: 2521262839579802764}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7397941001343248157}
   - component: {fileID: 1151822802530901827}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6695319678970767092}
   - component: {fileID: 3035955033134989708}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

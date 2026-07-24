@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4342678045800243004}
   - component: {fileID: 8017296533267702035}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7621967078092373138}
   - component: {fileID: 4712626237601698802}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532837837607408232}
   - component: {fileID: 5112657270758405419}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786846039044329542}
   - component: {fileID: 8686258719885679327}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7464833240649788998}
   - component: {fileID: 8100358292342613449}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9132504333819318440}
   - component: {fileID: 6389505565812699368}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: arm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

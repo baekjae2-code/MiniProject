@@ -1,10 +1,14 @@
+using System.Linq;
 using UnityEngine;
 
 public class Wall : Unit
 {
-    private void FixedUpdate()
+    private void Awake()
     {
-        rb.linearVelocity = new Vector2(0,0);
+        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
+        rb = GetComponent<Rigidbody2D>();
+        maxHP = 200f; 
+        nowHP = 200f;
     }
     protected override void Die()
     {

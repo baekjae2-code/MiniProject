@@ -21,16 +21,16 @@ MonoBehaviour:
     moveSpeed: 2
     attackSpeed: 2
     mana: 5
-    spawn: 5
+    spawn: 7
   - myName: RangeGoblin
     level: 1
     maxHP: 30
-    damage: 3
+    damage: 5
     range: 6
     moveSpeed: 2
     attackSpeed: 2
     mana: 5
-    spawn: 5
+    spawn: 7
   - myName: ShieldSlime
     level: 1
     maxHP: 50
@@ -39,16 +39,16 @@ MonoBehaviour:
     moveSpeed: 1
     attackSpeed: 0
     mana: 7
-    spawn: 8
+    spawn: 10
   - myName: KingSkeleton
     level: 0
     maxHP: 100
-    damage: 10
+    damage: 15
     range: 2
     moveSpeed: 2
     attackSpeed: 2
     mana: 15
-    spawn: 10
+    spawn: 15
   - myName: HealSlime
     level: 0
     maxHP: 20
@@ -57,38 +57,38 @@ MonoBehaviour:
     moveSpeed: 1.5
     attackSpeed: 3
     mana: 10
-    spawn: 8
+    spawn: 13
   - myName: MagicSkeleton
     level: 0
     maxHP: 20
-    damage: 0
+    damage: 3
     range: 8
     moveSpeed: 1
     attackSpeed: 7
     mana: 15
-    spawn: 10
+    spawn: 15
   - myName: ThrowGoblin
     level: 0
     maxHP: 50
     damage: 0
-    range: 0
+    range: 0.5
     moveSpeed: 1.5
     attackSpeed: 2
-    mana: 15
+    mana: 10
     spawn: 10
   - myName: FlyUnit
     level: 0
     maxHP: 40
-    damage: 4
+    damage: 8
     range: 3
     moveSpeed: 2
     attackSpeed: 2
     mana: 15
-    spawn: 10
+    spawn: 15
   - myName: SkillUnit
     level: 0
     maxHP: 200
-    damage: 4
+    damage: 7
     range: 3.5
     moveSpeed: 3
     attackSpeed: 6

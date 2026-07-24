@@ -44,13 +44,14 @@ public class TeamSkillUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
         if (attackCooltime > 5 && isAttack)
             isAttack = false;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -61,23 +62,6 @@ public class TeamSkillUnit : Unit
         }
     }
 
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
-        }
-    }
     public void Attack()
     {
         StartCoroutine(Skill());
@@ -112,5 +96,6 @@ public class TeamSkillUnit : Unit
 
         yield return new WaitForSeconds(2f);
         isAttack = false;
+        target = null;
     }
 }

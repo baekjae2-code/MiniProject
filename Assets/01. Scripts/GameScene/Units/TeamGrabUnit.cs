@@ -35,21 +35,28 @@ public class TeamGrabUnit : Unit
     }
     private void FixedUpdate()
     {
+        if (isDie == true)
+            return;
+
         if (target != null && isGrab)
         {
-            target.position = transform.position + new Vector3(0.5f, 0.5f);
+            target.localPosition = transform.position + new Vector3(0.5f, 0.5f);
             target.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
 
         if (isStun == true)
+        {
+            if (target != null)
+            {
+                target.tag = "Untagged";
+                target.GetComponent<Collider2D>().enabled = true;
+                target.GetComponent<Rigidbody2D>().gravityScale = 1;
+                target = null;
+            }
             return;
+        }
 
         attackCooltime += Time.deltaTime;
-
-        if (!isGrab)
-        {
-            CheckEnemy();
-        }
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -59,24 +66,21 @@ public class TeamGrabUnit : Unit
             Move();
         }
     }
-    void CheckEnemy()
+    protected override void CheckEnemy()
     {
         target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 1, targetLayer);
-        if (collider.Length == 0)
+        int targetLayer = 1 << enemyLayer;
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, range, targetLayer);
+        if (collider == null)
         {
             canMove = true;
         }
         else
         {
-
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-            if (target.tag == "Grabbed")
-                target = null;
-
             canMove = false;
+            if (collider.tag == "Grabbed")
+                return;
+            target = collider.transform;
         }
     }
     void Attack()
@@ -89,16 +93,17 @@ public class TeamGrabUnit : Unit
     {
         Transform throwTarget = target;
         isGrab = true;
-        throwTarget.tag = "Grabbed";
-        throwTarget.GetComponent<Unit>().Stun(2f);
-        throwTarget.GetComponent<Collider2D>().enabled = false;
-        throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
-
+        if (throwTarget != null)
+        {
+            throwTarget.tag = "Grabbed";
+            throwTarget.GetComponent<Unit>().Stun(2f);
+            throwTarget.GetComponent<Collider2D>().enabled = false;
+            throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
         yield return new WaitForSeconds(0.5f);
         if (throwTarget != null)
         {
             throwTarget.tag = "Untagged";
-            throwTarget.GetComponent<Unit>().StopAllCoroutines();
             throwTarget.GetComponent<Unit>().Stun(2f);
             throwTarget.GetComponent<Collider2D>().enabled = true;
             throwTarget.GetComponent<Rigidbody2D>().gravityScale = 1;
@@ -117,10 +122,19 @@ public class TeamGrabUnit : Unit
         if (target != null)
         {
             target.tag = "Untagged";
-            target.GetComponent<Unit>().StopAllCoroutines();
             target.GetComponent<Collider2D>().enabled = true;
             target.GetComponent<Rigidbody2D>().gravityScale = 1;
+            target = null;
         }
         base.Die();
+    }
+    override protected IEnumerator SearchEnemy()
+    {
+        while (true)
+        {
+            if (target == null && attackCooltime > attackSpeed)
+                CheckEnemy();
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }

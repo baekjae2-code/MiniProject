@@ -24,6 +24,10 @@ public abstract class Unit : MonoBehaviour
     protected float attackCooltime;
     protected SpriteRenderer[] sr;
 
+    protected bool isDie;
+
+    protected int myLayer;
+    protected int enemyLayer;
     void Awake()
     {
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
@@ -31,6 +35,29 @@ public abstract class Unit : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        myLayer = gameObject.layer;
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+        if (myLayer == enemyLayer)
+            enemyLayer = LayerMask.NameToLayer("Player");
+    }
+    protected virtual void CheckEnemy()
+    {
+        target = null;
+        int targetLayer = 1 << enemyLayer;
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, range, targetLayer);
+        if (collider == null)
+        {
+            canMove = true;
+        }
+        else
+        {
+            target = collider.transform;
+
+            canMove = false;
+        }
+    }
     public void TakeDamage(float damage)
     {
         SoundManager.instance.PlaySFX((SFXType)6);
@@ -52,7 +79,6 @@ public abstract class Unit : MonoBehaviour
 
     public void Stun(float time)
     {
-        StopAllCoroutines();
         if (!gameObject.activeInHierarchy)
             return;
         StartCoroutine(StunCoroutine(time));
@@ -85,7 +111,7 @@ public abstract class Unit : MonoBehaviour
             sr[i].color = new Color(1, 50 / 255f, 50 / 255f);
         }
         gameObject.GetComponent<Collider2D>().enabled = false;
-        gameObject.GetComponent<Unit>().enabled = false;
+        isDie = true;
         StartCoroutine(DieCoroutine());
     }
 
@@ -99,6 +125,11 @@ public abstract class Unit : MonoBehaviour
             sr[i].color = new Color(1, 1, 1);
         }
         isStun = false;
+        isDie = false;
+        canMove = true;
+        target = null;
+        StopAllCoroutines();
+        StartCoroutine(SearchEnemy());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -118,5 +149,14 @@ public abstract class Unit : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         ReturnPool();
+    }
+    protected virtual IEnumerator SearchEnemy() // GrabUnit은 타겟이 계속 바뀌면 안되기때문에 virtual override로 재선언
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 0.2f));
+        while (true)
+        {
+            CheckEnemy();
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }

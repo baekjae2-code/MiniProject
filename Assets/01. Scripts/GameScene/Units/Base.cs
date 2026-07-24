@@ -10,10 +10,6 @@ public class Base : Unit
         maxHP = 500f;
         nowHP = 500f;
     }
-    private void FixedUpdate()
-    {
-        rb.linearVelocity = new Vector2(0, 0);
-    }
     protected override void Die()
     {
         UIManager.instance?.GameOverUI(gameObject.name);

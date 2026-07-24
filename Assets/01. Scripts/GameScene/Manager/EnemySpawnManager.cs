@@ -35,7 +35,7 @@ public class EnemySpawnManager : MonoBehaviour
             u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
             UIManager.instance.PrintUnitHPbar(u);
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(5f);
         }
     }
     IEnumerator SpawnGrabwave()
@@ -54,7 +54,7 @@ public class EnemySpawnManager : MonoBehaviour
                 u.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
                 UIManager.instance.PrintUnitHPbar(u);
             }
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(7);
         }
     }
     IEnumerator SpawnFinalwave()
@@ -75,7 +75,7 @@ public class EnemySpawnManager : MonoBehaviour
                 UIManager.instance.PrintUnitHPbar(u);
             }
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(10f);
         }
     }
 

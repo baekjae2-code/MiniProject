@@ -57,10 +57,11 @@ public class EnemyRangedUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -68,23 +69,6 @@ public class EnemyRangedUnit : Unit
         if (canMove)
         {
             Move();
-        }
-    }
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Player");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
         }
     }
     void Attack()
@@ -102,6 +86,7 @@ public class EnemyRangedUnit : Unit
         obj.SetActive(true);
         obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15 + Vector2.up * 6f;
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {

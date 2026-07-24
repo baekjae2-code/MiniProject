@@ -37,10 +37,11 @@ public class TeamMagicUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -50,23 +51,6 @@ public class TeamMagicUnit : Unit
             Move();
         }
     }
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Enemy");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, range, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
-        }
-    }
     void Attack()
     {
         SoundManager.instance.PlaySFX((SFXType)2);
@@ -74,6 +58,7 @@ public class TeamMagicUnit : Unit
         GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.right * 1f, Quaternion.identity);
         obj.SetActive(true);
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {

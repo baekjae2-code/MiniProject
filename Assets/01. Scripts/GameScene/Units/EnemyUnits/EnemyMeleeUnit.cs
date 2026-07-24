@@ -57,10 +57,11 @@ public class EnemyMeleeUnit : Unit
     {
         if (isStun == true)
             return;
+        if (isDie == true)
+            return;
 
         attackCooltime += Time.deltaTime;
 
-        CheckEnemy();
         if (target != null && attackCooltime > attackSpeed)
         {
             Attack();
@@ -68,23 +69,6 @@ public class EnemyMeleeUnit : Unit
         if (canMove)
         {
             Move();
-        }
-    }
-    void CheckEnemy()
-    {
-        target = null;
-        int layer = LayerMask.NameToLayer("Player");
-        int targetLayer = 1 << layer;
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 3, targetLayer);
-        if (collider.Length == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            target = collider.OrderBy(col => Vector2.Distance(transform.position, col.transform.position)).FirstOrDefault().transform;
-
-            canMove = false;
         }
     }
     void Attack()
@@ -95,6 +79,7 @@ public class EnemyMeleeUnit : Unit
         rb.linearVelocity = direction * Random.Range(3f, 4f) + new Vector2(0f, 3f);
         attackObj.SetActive(true);
         attackCooltime = 0;
+        target = null;
     }
     public void Move()
     {

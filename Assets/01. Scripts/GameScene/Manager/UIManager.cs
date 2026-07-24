@@ -26,17 +26,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI stageText;
 
-    public Slider teamHPBar;
-    public Slider enemyHPBar;
-
     public GameObject unitHPBar;
     public Transform barParent;
-
-    public Transform teamBase;
-    public Transform enemyBase;
-
-    TextMeshProUGUI teamHPText;
-    TextMeshProUGUI enemyHPText;
 
     public TextMeshProUGUI timerText;
     float timer;
@@ -46,9 +37,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         stageText.text = $"Stage {GameManager.instance.NowStage.ToString()}";
-        teamHPText = teamHPBar.transform.GetComponentInChildren<TextMeshProUGUI>();
-        enemyHPText = enemyHPBar.transform.GetComponentInChildren<TextMeshProUGUI>();
-
         timer = 0;
     }
     void LateUpdate()
@@ -57,19 +45,6 @@ public class UIManager : MonoBehaviour
         float manaMax = BattleManager.instance.GetManaMax();
         manaSlider.value = manaNow / manaMax;
         manaText.text = $"{(int)manaNow}/{manaMax}";
-
-        if (teamBase != null)
-        {
-            float hp = teamBase.GetComponent<Base>().nowHP;
-            teamHPBar.value = hp / 500f;
-            teamHPText.text = $"{(int)hp} / 500";
-        }
-        if (enemyBase != null)
-        {
-            float hp = enemyBase.GetComponent<Base>().nowHP;
-            enemyHPBar.value = hp / 500f;
-            enemyHPText.text = $"{(int)hp} / 500";
-        }
 
         timer += Time.deltaTime;
         timerText.text = ((int)timer).ToString();
@@ -101,7 +76,7 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void PrintUnitHPbar(GameObject parentObj)
+    public void PrintUnitHPbar(GameObject parentObj)    //TeamSpawnManager, EnemySpaenManager
     {
         GameObject hpbar = Instantiate(unitHPBar);
         hpbar.GetComponent<UnitHPBar>().myUnit = parentObj;
