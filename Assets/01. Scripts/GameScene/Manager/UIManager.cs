@@ -88,6 +88,7 @@ public class UIManager : MonoBehaviour
             }
             else if (name == "EnemyBase")
             {
+                SoundManager.instance.PlaySFX((SFXType)10);
                 gameOverText.text = "Victory!!";
                 rewardGold = (int)timer * 50 + Random.Range((int)timer / 5, (int)timer / 10);
 

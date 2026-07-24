@@ -1,7 +1,7 @@
 using UnityEngine;
 public enum SFXType
 {
-    slash, magic, meteor, heal, arrow, die, hit, button, warning, money
+    slash, magic, meteor, heal, arrow, die, hit, button, warning, money, victory
 }
 
 public class SoundManager : MonoBehaviour

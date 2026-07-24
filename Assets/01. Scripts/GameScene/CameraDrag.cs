@@ -46,15 +46,7 @@ public class CameraDrag : MonoBehaviour
         {
             return;
         }
-        if (Touchscreen.current != null)
-        {
-            Debug.Log("Touch");
-        }
 
-        if (Mouse.current != null)
-        {
-            Debug.Log("Mouse");
-        }
         if (down)
         {
             lastMouseWorld = Camera.main.ScreenToWorldPoint(screenPos); //클릭하자마자 위치
