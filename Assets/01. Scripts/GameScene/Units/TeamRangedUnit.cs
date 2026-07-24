@@ -82,7 +82,7 @@ public class TeamRangedUnit : Unit
         obj.transform.position = transform.position + Vector3.up * 0.5f;
         obj.GetComponent<TeamRangedAttack>().damage = damage;
         obj.SetActive(true);
-        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15 + Vector2.up * 3f;
+        obj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15 + Vector2.up * 2f;
         attackCooltime = 0;
     }
     public void Move()
