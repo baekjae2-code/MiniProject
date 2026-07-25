@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPopUp;
     public TextMeshPro gameOverText;
     public TextMeshPro rewardText;
+    public TextMeshPro timeText;
 
     public TextMeshProUGUI stageText;
 
@@ -34,23 +35,30 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
 
+    bool isGameOver;
+
     private void Start()
     {
         stageText.text = $"Stage {GameManager.instance.NowStage.ToString()}";
         timer = 0;
+        isGameOver = false;
     }
     void LateUpdate()
     {
-        float manaNow = BattleManager.instance.GetManaNow();
-        float manaMax = BattleManager.instance.GetManaMax();
-        manaSlider.value = manaNow / manaMax;
-        manaText.text = $"{(int)manaNow}/{manaMax}";
+        if (!isGameOver)
+        {
+            float manaNow = BattleManager.instance.GetManaNow();
+            float manaMax = BattleManager.instance.GetManaMax();
+            manaSlider.value = manaNow / manaMax;
+            manaText.text = $"{(int)manaNow}/{manaMax}";
 
-        timer += Time.deltaTime;
-        timerText.text = ((int)timer).ToString();
+            timer += Time.deltaTime;
+            timerText.text = ((int)timer).ToString();
+        }
     }
     public void GameOverUI(string name)
     {
+        isGameOver = true;
         int rewardGold = 0;
         if (gameOverPopUp != null)
         {
@@ -71,7 +79,9 @@ public class UIManager : MonoBehaviour
             }
         }
         BattleManager.instance.GameOver();
-        rewardText.text = "+ " + rewardGold.ToString();
+        rewardText.text = $"+ {rewardGold.ToString()}";
+        int time = (int)timer;
+        timeText.text = $"{time / 60:D2} : {time % 60:D2}";
         GameManager.instance.RewardGold(rewardGold);
 
     }
