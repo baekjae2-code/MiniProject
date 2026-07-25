@@ -142,6 +142,8 @@ public class DeckSetting : MonoBehaviour
 
         GameObject endSlot = eventData.pointerCurrentRaycast.gameObject;
 
+        if (dragCard == null)   //빈공간에서 빈공간 드래그할때 에러
+            return;
         if (endSlot == null || startSlot == null)   //endslot이 화면 바깥 다른 객체일때 에러
         {
             if (dragCard != null)
@@ -155,16 +157,22 @@ public class DeckSetting : MonoBehaviour
         }
         if (startSlot.name.Split()[0] != "DeckSlot" || endSlot.name.Split()[0] != "DeckSlot")
         {
-            dragCard.transform.SetParent(startSlot.transform);
-            dragCard.transform.localPosition = Vector3.zero;
-            dragCard = null;
+            if (dragCard != null)
+            {
+                dragCard.transform.SetParent(startSlot.transform);
+                dragCard.transform.localPosition = Vector3.zero;
+                dragCard = null;
+            }
             print("다른 이름");
             return;
         }
-        if(endSlot == startSlot)    //덱 삭제 안되는 상황 있음(드래그 판정이라 그런듯)
+        if (endSlot == startSlot)    //OnRemoveDeckSlot() 덱 삭제 안되는 상황 있음(드래그 판정이라 그런듯)
         {
-            Destroy(dragCard.gameObject);
-            GameManager.instance.deckUnitNumber[int.Parse(startSlot.name.Split()[1])] = -1;
+            if (dragCard != null)
+            {
+                Destroy(dragCard.gameObject);
+                GameManager.instance.deckUnitNumber[int.Parse(startSlot.name.Split()[1])] = -1;
+            }
             return;
         }
 
@@ -194,6 +202,7 @@ public class DeckSetting : MonoBehaviour
         Debug.Log($"{startSlot.name} ↔ {endSlot.name} 교체");
 
         dragCard = null;
+        startSlot = null;//맵 밖 객체에서 드래그한 상태로 안으로 들어올때 에러
     }
     public void OnDeckSlotDrag()
     {

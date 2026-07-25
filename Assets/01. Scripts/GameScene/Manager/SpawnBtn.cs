@@ -1,9 +1,16 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SpawnBtn : MonoBehaviour
 {
+    int nowUnitNumber;
+
+    public GameObject mySkill;
+    public Image mySkillCooltimeImage;
+
     public void OnSpawnUnit()
     {
         GameObject clicked = EventSystem.current.currentSelectedGameObject; //선택한 버튼의 이름 불러오기
@@ -19,13 +26,9 @@ public class SpawnBtn : MonoBehaviour
             TeamSpawnManager.instance.Spawn(nowUnitNumber, spawnTime);
         }
     }
-    int nowUnitNumber;
-
-    public GameObject mySkill;
-
     public void OnClickUseSkill()
     {
-        if (BattleManager.instance.GetManaNow() > 2)
+        if (BattleManager.instance.GetManaNow() > 2 && mySkillCooltimeImage.fillAmount == 0)
         {
             BattleManager.instance.UseMana(2);
 
@@ -34,7 +37,19 @@ public class SpawnBtn : MonoBehaviour
                 GameObject skill = Instantiate(mySkill);
                 skill.transform.position = new Vector3(-10f, -0.5f);
             }
+            StartCoroutine(SkillCoolCoroutine());
         }
     }
 
+    IEnumerator SkillCoolCoroutine()
+    {
+        float coolTIme = (0.01f / 3f);
+        WaitForSeconds wait = new WaitForSeconds(0.01f);
+        mySkillCooltimeImage.fillAmount = 1;
+        while (mySkillCooltimeImage.fillAmount > 0)
+        {
+            mySkillCooltimeImage.fillAmount -= coolTIme;
+            yield return wait;
+        }
+    }
 }
