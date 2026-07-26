@@ -1,13 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour
 {
     //싱글톤, 미리생성, 필요할때 가져다 쓰기, 사용 후 반납
     public static ObjectPoolManager instance;
 
-    [SerializeField] List<GameObject> objList = new List<GameObject>();
-    Dictionary<string, Queue<GameObject>> pools = new Dictionary<string, Queue<GameObject>>();  //TeamSpawnManager, EnemySpawnManager에서 소환
+    [SerializeField] private List<GameObject> objList = new();
+    private Dictionary<string, Queue<GameObject>> pools = new();  //TeamSpawnManager, EnemySpawnManager에서 소환
+    //Dictionary<string, IObjectPool<GameObject>> poolss = new();
+
+    //IObjectPool<GameObject> test;
 
     int poolSize;
     private void Awake()

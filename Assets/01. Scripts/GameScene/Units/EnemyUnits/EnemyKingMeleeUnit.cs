@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyKingMeleeUnit : EnemyMeleeUnit
 {
-    UnitData unitData;
+    UnitData unitData2;
 
     void Awake()
     {
@@ -12,13 +12,13 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        unitData = GameManager.instance.unitsData.list[3];
+        unitData2 = GameManager.instance.unitsData.list[3];
 
-        myName = unitData.myName;
+        myName = unitData2.myName;
         level = GameManager.instance.NowStage * 3;         //스테이지만큼 레벨업(스텟증가)
-        maxHP = unitData.maxHP;
-        nowHP = unitData.maxHP;
-        damage = unitData.damage;
+        maxHP = unitData2.maxHP;
+        nowHP = unitData2.maxHP;
+        damage = unitData2.damage;
 
         for (int i = 0; i < GameManager.instance.NowStage; i++)
         {
@@ -27,9 +27,9 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
             damage += (damage / 10f);
         }
 
-        range = unitData.range;
-        moveSpeed = unitData.moveSpeed;
-        attackSpeed = unitData.attackSpeed;
+        range = unitData2.range;
+        moveSpeed = unitData2.moveSpeed;
+        attackSpeed = unitData2.attackSpeed;
 
         attackObj = transform.Find("AttackEffect").gameObject;
         attackCooltime = attackSpeed;
@@ -39,9 +39,9 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
         Respawn();
         gameObject.layer = 8;
 
-        maxHP = unitData.maxHP;
-        nowHP = unitData.maxHP;
-        damage = unitData.damage;
+        maxHP = unitData2.maxHP;
+        nowHP = unitData2.maxHP;
+        damage = unitData2.damage;
 
         for (int i = 0; i < GameManager.instance.NowStage; i++)
         {

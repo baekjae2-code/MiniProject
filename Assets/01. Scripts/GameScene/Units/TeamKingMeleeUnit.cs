@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TeamKingMeleeUnit : TeamMeleeUnit
 {
-    UnitData unitData;
+    UnitData unitData2;
 
     void Awake()
     {
@@ -11,16 +11,16 @@ public class TeamKingMeleeUnit : TeamMeleeUnit
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
 
-        unitData = GameManager.instance.printData[3];
+        unitData2 = GameManager.instance.printData[3];
 
-        myName = unitData.myName;
-        level = unitData.level;
-        maxHP = unitData.maxHP;
-        nowHP = unitData.maxHP;
-        damage = unitData.damage;
-        range = unitData.range;
-        moveSpeed = unitData.moveSpeed;
-        attackSpeed = unitData.attackSpeed;
+        myName = unitData2.myName;
+        level = unitData2.level;
+        maxHP = unitData2.maxHP;
+        nowHP = unitData2.maxHP;
+        damage = unitData2.damage;
+        range = unitData2.range;
+        moveSpeed = unitData2.moveSpeed;
+        attackSpeed = unitData2.attackSpeed;
 
         rb = GetComponent<Rigidbody2D>();
         attackObj = transform.Find("AttackEffect").gameObject;
