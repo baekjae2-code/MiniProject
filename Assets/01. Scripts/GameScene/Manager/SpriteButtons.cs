@@ -32,9 +32,10 @@ public class SpriteButtons : MonoBehaviour
                 else if (name == "NextStageButton")
                 {
                     if (GameManager.instance.NowStage > GameManager.instance.ClearStage)//1스테이지 클리어했을때 => 현재스테이지 1 => 2스테이지 가능
-                        return;                                                              // 1 > 2, 2 > 2, 2 > 3, 3 > 3
+                        return;                                                              // 1 > 2, 2 > 2, 3 > 2
 
                     GameManager.instance.SetStage(GameManager.instance.NowStage + 1);
+                    ObjectPoolManager.instance.GameEnd();
                     SceneManager.LoadScene("GameScene");
                 }
             }

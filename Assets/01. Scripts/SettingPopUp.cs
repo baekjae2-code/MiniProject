@@ -97,4 +97,11 @@ public class SettingPopUp : PrintText
     {
         SoundManager.instance.OnSFXSettingChanged(sfxSlider.value);
     }
+
+    public void OnClickRestart()
+    {
+        Time.timeScale = 1;
+        ObjectPoolManager.instance.GameEnd();
+        SceneManager.LoadScene("GameScene");
+    }
 }
