@@ -26,6 +26,7 @@ public class UnitHPBar : MonoBehaviour
         unit = myUnit.GetComponent<Unit>();
         unitName = new string[] { "Melee", "Ranged", "Tank", "KingMelee", "Heal", "Magic", "Grab", "Fly", "Skill" };
         sliderPosition = new float[] { 1.2f, 1.2f, 1.4f, 2f, 1.4f, 1.1f, 1.7f, 1.0f, 0.9f };
+        transform.localScale = new Vector3(1, 1);
         for (int i = 0; i < unitName.Length; i++)
         {
             if (myUnit.name.ToString().Split()[1] == unitName[i])

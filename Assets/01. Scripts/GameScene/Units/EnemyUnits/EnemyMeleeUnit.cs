@@ -17,7 +17,7 @@ public class EnemyMeleeUnit : Unit
         unitData = GameManager.instance.unitsData.list[0]; //적 유닛은 원본 데이터에서 데이터 불러옴(printData는 내 level에 영향받기때문)
 
         myName = unitData.myName;
-        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        level = GameManager.instance.NowStage * 3;         //스테이지만큼 레벨업(스텟증가)
         maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;
         damage = unitData.damage;

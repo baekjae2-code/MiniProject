@@ -15,7 +15,7 @@ public class EnemyMagicUnit : Unit
         unitData = GameManager.instance.unitsData.list[5];
 
         myName = unitData.myName;
-        level = unitData.level + GameManager.instance.NowStage;        //스테이지만큼 레벨업(스텟증가)
+        level = GameManager.instance.NowStage * 3;         //스테이지만큼 레벨업(스텟증가)
         maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;
         damage = unitData.damage;

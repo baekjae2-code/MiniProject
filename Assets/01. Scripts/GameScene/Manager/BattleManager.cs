@@ -53,9 +53,9 @@ public class BattleManager : MonoBehaviour
             if (rb.GetComponent<RectMask2D>() != null)
                 rb.GetComponent<RectMask2D>().enabled = false;
             rb.GetComponent<Collider2D>().enabled = true;
-            rb.gravityScale = 50;
+            rb.gravityScale = 30;
 
-            rb.linearVelocity = new Vector2(Random.Range(100f, 5000f), Random.Range(3000f, 5000f));
+            rb.linearVelocity = new Vector2(Random.Range(100f, 1000f), Random.Range(500f, 2000f));
             rb.angularVelocity = Random.Range(-1000, 1000);
         }
     }
