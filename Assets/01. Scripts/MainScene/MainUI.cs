@@ -62,6 +62,12 @@ public class MainUI : MonoBehaviour
         stageRightBtnPosition = stageRightBtn.localPosition.x;
 
         StageUI();
+
+        if (GameManager.instance.ClearStage > 5)
+        {
+            stageBtns[4].name = (GameManager.instance.ClearStage + 1).ToString();
+            stageBtns[4].GetComponentInChildren<TextMeshProUGUI>().text = $"Stage {(GameManager.instance.ClearStage + 1).ToString()}";
+        }
     }
 
     public void OnClickMainToSet()
@@ -185,7 +191,7 @@ public class MainUI : MonoBehaviour
         SoundManager.instance.PlaySFX((SFXType)8);
         GameObject warningi = Instantiate(warningImage, new Vector3(0, -5), Quaternion.identity, canvas);
         GameObject warningt = Instantiate(warningText, new Vector3(0, -5), Quaternion.identity, canvas);
-            
+
         warningi.SetActive(true);
         warningt.SetActive(true);
 
