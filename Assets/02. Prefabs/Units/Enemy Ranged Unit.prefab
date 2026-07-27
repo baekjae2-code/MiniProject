@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRangedAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 7381855232798674356, guid: b74e07c2de2ee3542a200d86d17bbca3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

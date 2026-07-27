@@ -36,8 +36,6 @@ public class TeamSkillUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 7;
-
         Awake();
     }
     private void FixedUpdate()

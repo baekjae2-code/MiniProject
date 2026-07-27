@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -82,5 +84,19 @@ public class ObjectPoolManager : MonoBehaviour
         go.SetActive(false);
         pools[name].Enqueue(go);
     }
-
+    public void ReturnObject(string name, GameObject go, float time)
+    {
+        StartCoroutine(ReturnObjectTime(name, go, time));
+    }
+    IEnumerator ReturnObjectTime(string name, GameObject go, float time)    //EnemyMeleeAttack에서 hitEffect 사라지게할때 사용
+    {
+        yield return new WaitForSeconds(time);
+        if (!pools.ContainsKey(name))
+        {
+            Destroy(go);
+            yield break;
+        }
+        go.SetActive(false);
+        pools[name].Enqueue(go);
+    }
 }

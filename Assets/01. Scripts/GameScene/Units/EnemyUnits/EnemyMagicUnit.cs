@@ -37,7 +37,6 @@ public class EnemyMagicUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 8;
 
         maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;
@@ -72,8 +71,10 @@ public class EnemyMagicUnit : Unit
     {
         SoundManager.instance.PlaySFX((SFXType)2);
 
-        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.left * 1f, Quaternion.identity);
-        obj.SetActive(true);
+        GameObject u = ObjectPoolManager.instance.GetObject(attackObj.name);
+        u.transform.position = target.position + Vector3.up * 5f + Vector3.left * 1f;
+        ObjectPoolManager.instance.ReturnObject(attackObj.name, u, 5);
+
         attackCooltime = 0;
         target = null;
     }

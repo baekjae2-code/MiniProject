@@ -35,7 +35,6 @@ public class EnemyGrabUnit : Unit
         attackCooltime = attackSpeed;
 
         Respawn();
-        gameObject.layer = 8;
     }
 
     private void FixedUpdate()

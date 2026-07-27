@@ -39,7 +39,6 @@ public class EnemyRangedUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 8;
 
         maxHP = unitData.maxHP;
         nowHP = unitData.maxHP;

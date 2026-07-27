@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class MagicEffect : MonoBehaviour
 {
-    private void Awake()
-    {
-        Destroy(gameObject, 5);
-    }
-
     // 유니티 파티클 시스템이 충돌할 때 자동으로 실행되는 이벤트 함수
     private void OnParticleCollision(GameObject other)
     {

@@ -28,8 +28,6 @@ public class TeamHealUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 7;
-
         Awake();
     }
     private void FixedUpdate()
@@ -55,8 +53,10 @@ public class TeamHealUnit : Unit
     {
         SoundManager.instance.PlaySFX((SFXType)3);
 
-        GameObject obj = Instantiate(healObj, transform.position, healObj.transform.rotation);
-        obj.SetActive(true);
+        GameObject u = ObjectPoolManager.instance.GetObject(healObj.name);
+        u.transform.position = transform.position;
+        ObjectPoolManager.instance.ReturnObject(healObj.name, u, 1);
+
         attackCooltime = 0;
         target = null;
     }

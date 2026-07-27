@@ -37,7 +37,6 @@ public class EnemyKingMeleeUnit : EnemyMeleeUnit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 8;
 
         maxHP = unitData2.maxHP;
         nowHP = unitData2.maxHP;

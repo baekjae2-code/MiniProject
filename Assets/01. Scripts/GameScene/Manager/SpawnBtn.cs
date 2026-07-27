@@ -34,8 +34,9 @@ public class SpawnBtn : MonoBehaviour
 
             for (int i = 0; i < 3; i++)
             {
-                GameObject skill = Instantiate(mySkill);
-                skill.transform.position = new Vector3(-10f, -0.5f);
+                GameObject u = ObjectPoolManager.instance.GetObject(mySkill.name);
+                u.transform.position = new Vector3(-10f, -0.5f);
+                ObjectPoolManager.instance.ReturnObject(mySkill.name, u, 10);
             }
             StartCoroutine(SkillCoolCoroutine());
         }

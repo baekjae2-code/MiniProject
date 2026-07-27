@@ -29,8 +29,6 @@ public class TeamMagicUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 7;
-
         Awake();
     }
     void FixedUpdate()
@@ -55,8 +53,10 @@ public class TeamMagicUnit : Unit
     {
         SoundManager.instance.PlaySFX((SFXType)2);
 
-        GameObject obj = Instantiate(attackObj, target.position + Vector3.up * 5f + Vector3.right * 1f, Quaternion.identity);
-        obj.SetActive(true);
+        GameObject u = ObjectPoolManager.instance.GetObject(attackObj.name);
+        u.transform.position = target.position + Vector3.up * 5f + Vector3.right * 1f;
+        ObjectPoolManager.instance.ReturnObject(attackObj.name, u, 5);
+
         attackCooltime = 0;
         target = null;
     }

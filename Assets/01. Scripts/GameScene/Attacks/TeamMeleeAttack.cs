@@ -31,8 +31,10 @@ public class TeamMeleeAttack : MonoBehaviour
             collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
             Vector2 direction = collision.transform.position - transform.position;
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(2f, 4f);
-            GameObject hitEf = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(hitEf, 1);
+
+            GameObject u = ObjectPoolManager.instance.GetObject(hitEffect.name);
+            u.transform.position = transform.position;
+            ObjectPoolManager.instance.ReturnObject(hitEffect.name, u, 1);
         }
     }
 }

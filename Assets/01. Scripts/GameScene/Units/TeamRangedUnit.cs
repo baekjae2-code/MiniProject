@@ -30,8 +30,6 @@ public class TeamRangedUnit : Unit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 7;
-
         Awake();
     }
     void FixedUpdate()

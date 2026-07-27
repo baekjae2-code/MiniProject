@@ -7,7 +7,6 @@ public class HealEffect : MonoBehaviour
     void Start()
     {
         heal = 2;
-        Destroy(gameObject, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,7 +14,10 @@ public class HealEffect : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             collision.gameObject.GetComponent<Unit>().TakeHeal(heal);
-            Instantiate(healEffect, collision.transform.position + Vector3.up, Quaternion.identity);
+
+            GameObject u = ObjectPoolManager.instance.GetObject(healEffect.name);
+            u.transform.position = transform.position;
+            ObjectPoolManager.instance.ReturnObject(healEffect.name, u, 1);
         }
     }
 }

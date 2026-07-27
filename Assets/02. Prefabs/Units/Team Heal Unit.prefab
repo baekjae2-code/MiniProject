@@ -589,6 +589,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4066627917826452709}
     m_Modifications:
+    - target: {fileID: 342983555830993920, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056787246522577704, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758407901681985612, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8291100282933097564, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -632,6 +644,10 @@ PrefabInstance:
     - target: {fileID: 8826941630602427334, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
       propertyPath: m_Name
       value: HealMagicEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826941630602427334, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8826941630602427334, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
       propertyPath: m_IsActive

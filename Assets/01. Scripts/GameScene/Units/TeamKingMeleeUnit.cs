@@ -29,8 +29,6 @@ public class TeamKingMeleeUnit : TeamMeleeUnit
     private void OnEnable()
     {
         Respawn();
-        gameObject.layer = 7;
-
         Awake();
     }
 }
