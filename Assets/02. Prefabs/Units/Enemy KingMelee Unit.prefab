@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: -3253898125692330210}
   - component: {fileID: 2087399012495045231}
   - component: {fileID: 8947197547019207381}
+  - component: {fileID: 1823293378784342785}
   m_Layer: 8
   m_Name: Enemy KingMelee Unit
   m_TagString: Untagged
@@ -216,9 +217,9 @@ Transform:
   m_Children:
   - {fileID: 8391774381083671724}
   - {fileID: 696180336079076164}
-  - {fileID: 6409233830306689853}
   - {fileID: 6365798473224052667}
   - {fileID: 3235153565978503651}
+  - {fileID: 6409233830306689853}
   - {fileID: 7317387349619308096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,6 +309,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &1823293378784342785
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901039603465637647}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5847278539067819083
 GameObject:
   m_ObjectHideFlags: 0

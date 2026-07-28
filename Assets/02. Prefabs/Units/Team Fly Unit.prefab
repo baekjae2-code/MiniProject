@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 9115380992356297266}
   - component: {fileID: 2562925006524778458}
   - component: {fileID: 1957307166770206226}
+  - component: {fileID: 5595252750821246807}
   m_Layer: 7
   m_Name: Team Fly Unit
   m_TagString: Untagged
@@ -273,6 +274,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &5595252750821246807
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727081763188492455}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1001 &7450788845477988337
 PrefabInstance:
   m_ObjectHideFlags: 0

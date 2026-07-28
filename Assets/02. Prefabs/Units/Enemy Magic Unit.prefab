@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 1084676119700447034}
   - component: {fileID: 9107671019460679647}
   - component: {fileID: 4982499343352156816}
+  - component: {fileID: -4853340866739231044}
   m_Layer: 8
   m_Name: Enemy Magic Unit
   m_TagString: Untagged
@@ -674,6 +675,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &-4853340866739231044
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453558335028499552}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &7454234015523267675
 GameObject:
   m_ObjectHideFlags: 0

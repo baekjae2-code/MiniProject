@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 5909595505278985755}
   - component: {fileID: 7922778753455773213}
   - component: {fileID: 8879405865546042132}
+  - component: {fileID: -2920843361114776456}
   m_Layer: 7
   m_Name: Team Skill Unit
   m_TagString: Untagged
@@ -275,6 +276,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.1035237, y: 6.726886}
   m_EdgeRadius: 0
+--- !u!210 &-2920843361114776456
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4626530832865713367}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1001 &1066940273661336773
 PrefabInstance:
   m_ObjectHideFlags: 0

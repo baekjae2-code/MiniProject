@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8841301040276676629}
   - component: {fileID: 6859280593459532143}
   - component: {fileID: 3568119789928845490}
+  - component: {fileID: 4835235524409427636}
   m_Layer: 7
   m_Name: Team Magic Unit
   m_TagString: Untagged
@@ -182,6 +183,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!210 &4835235524409427636
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269772887062911029}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &7532484284459289265
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,6 +95,7 @@ public class EnemySpawnManager : MonoBehaviour
         Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[2], true);
         int myGround = Random.Range(0, 3);
         Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[myGround], false);
+        unit.transform.position = new Vector3(unit.transform.position.x, unit.transform.position.y, 2 - myGround);
     }
     public void SpawnWall()
     {

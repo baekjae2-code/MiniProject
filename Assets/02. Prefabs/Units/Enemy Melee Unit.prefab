@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 4436288993722071750}
   - component: {fileID: 4363573104469847291}
   - component: {fileID: 3467405233664294719}
+  - component: {fileID: 7136041453624847041}
   m_Layer: 8
   m_Name: Enemy Melee Unit
   m_TagString: Untagged
@@ -307,6 +308,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &7136041453624847041
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089421568498003372}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &8114985107257177236
 GameObject:
   m_ObjectHideFlags: 0

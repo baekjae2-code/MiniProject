@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1171826429725505860}
   - component: {fileID: 4942282383504656572}
   - component: {fileID: 8174607397813626029}
+  - component: {fileID: -7236365722778840949}
   m_Layer: 7
   m_Name: Team Grab Unit
   m_TagString: Untagged
@@ -218,6 +219,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &-7236365722778840949
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556408953853303025}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &677142131949559741
 GameObject:
   m_ObjectHideFlags: 0

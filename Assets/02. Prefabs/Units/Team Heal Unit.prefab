@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 1516713246127614121}
   - component: {fileID: 667753324386409438}
   - component: {fileID: 8786878511161673498}
+  - component: {fileID: -2563511666499701282}
   m_Layer: 7
   m_Name: Team Heal Unit
   m_TagString: Untagged
@@ -490,6 +491,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &-2563511666499701282
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389424238830910297}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &9101670054905870605
 GameObject:
   m_ObjectHideFlags: 0

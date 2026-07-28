@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 2340410533150054501}
   - component: {fileID: 3746231883951367462}
   - component: {fileID: 4967277860658718982}
+  - component: {fileID: -325840501247779471}
   m_Layer: 7
   m_Name: Team KingMelee Unit
   m_TagString: Untagged
@@ -307,12 +308,12 @@ Transform:
   m_Children:
   - {fileID: 4993203955001448841}
   - {fileID: 3838687907446506440}
-  - {fileID: 2569941175582068753}
-  - {fileID: 4630333612853001173}
   - {fileID: 6405021615764841085}
   - {fileID: 1501855329837945339}
   - {fileID: 7418580466528389586}
   - {fileID: 5771952638172857322}
+  - {fileID: 4630333612853001173}
+  - {fileID: 2569941175582068753}
   - {fileID: 8530271201753116433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,6 +403,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &-325840501247779471
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364413760567687914}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &3677645216499742782
 GameObject:
   m_ObjectHideFlags: 0

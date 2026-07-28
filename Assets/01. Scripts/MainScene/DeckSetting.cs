@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings;
 
 public class DeckSetting : MonoBehaviour
 {

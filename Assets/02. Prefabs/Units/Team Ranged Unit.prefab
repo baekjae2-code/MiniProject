@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 1442768152706663673}
   - component: {fileID: 4655103285495163422}
   - component: {fileID: 1703922004403476122}
+  - component: {fileID: 6360304304925505191}
   m_Layer: 7
   m_Name: Team Ranged Unit
   m_TagString: Untagged
@@ -216,10 +217,10 @@ Transform:
   m_Children:
   - {fileID: 7170874707407608873}
   - {fileID: 2502237787440337056}
-  - {fileID: 3622905891220275395}
   - {fileID: 166985345296891792}
   - {fileID: 6917858147597570253}
   - {fileID: 3237735886440831109}
+  - {fileID: 3622905891220275395}
   - {fileID: 2889272095782561541}
   - {fileID: 9215821924062191327}
   m_Father: {fileID: 0}
@@ -310,6 +311,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &6360304304925505191
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679547281167946321}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &4697009989947334499
 GameObject:
   m_ObjectHideFlags: 0

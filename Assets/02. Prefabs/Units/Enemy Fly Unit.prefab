@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 3195237910281309806}
   - component: {fileID: 5009127934538645631}
   - component: {fileID: 3923646012761334108}
+  - component: {fileID: -8107533305338047556}
   m_Layer: 8
   m_Name: Enemy Fly Unit
   m_TagString: Untagged
@@ -273,6 +274,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.32, y: 4.83}
   m_EdgeRadius: 0
+--- !u!210 &-8107533305338047556
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700717364291302111}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1001 &1176476134892132814
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 1460089984830119790}
   - component: {fileID: 5110974286563569772}
   - component: {fileID: 3315186577778837010}
+  - component: {fileID: 8131183272680726130}
   m_Layer: 8
   m_Name: Enemy Ranged Unit
   m_TagString: Untagged
@@ -216,11 +217,11 @@ Transform:
   m_Children:
   - {fileID: 2291836876385990267}
   - {fileID: 5913550800277524188}
-  - {fileID: 5950153734306620401}
-  - {fileID: 5554094572788100355}
   - {fileID: 2037024623531681569}
   - {fileID: 16054391474675455}
   - {fileID: 4232628752168729515}
+  - {fileID: 5554094572788100355}
+  - {fileID: 5950153734306620401}
   - {fileID: 578984545029710071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,6 +311,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &8131183272680726130
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809789647478519742}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &2833643705505696647
 GameObject:
   m_ObjectHideFlags: 0
