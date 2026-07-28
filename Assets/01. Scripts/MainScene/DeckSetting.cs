@@ -207,7 +207,12 @@ public class DeckSetting : MonoBehaviour
     {
         if (dragCard == null) return;
 
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 pos = Vector3.zero;
+
+        if (Touchscreen.current != null)
+            pos = Camera.main.ScreenToWorldPoint(Touchscreen.current.position.ReadValue());        
+        else if (Mouse.current != null)
+            pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         pos.z = dragCard.transform.position.z;
 
         dragCard.transform.position = pos;
