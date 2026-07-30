@@ -11,10 +11,9 @@ public class TeamRangedAttack : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    void Start()
+    private void OnEnable()
     {
-        StartCoroutine(DestroyCoroutine());
+        ObjectPoolManager.instance.ReturnObject(name.Split("(Clone)")[0], gameObject, 2);
     }
     void Update()
     {
@@ -39,12 +38,5 @@ public class TeamRangedAttack : MonoBehaviour
             u.transform.position = transform.position;
             ObjectPoolManager.instance.ReturnObject(hitEffect.name, u, 1);
         }
-    }
-    IEnumerator DestroyCoroutine()
-    {
-        yield return new WaitForSeconds(2f);
-
-        string names = name.Split("(Clone)")[0];
-        ObjectPoolManager.instance.ReturnObject(names, gameObject);
     }
 }

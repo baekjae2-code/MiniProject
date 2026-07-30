@@ -601,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564e930e010bb8b40ac0558e9b215469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMagicUnit
+  state: 0
   damage: 0
 --- !u!61 &9107671019460679647
 BoxCollider2D:
@@ -876,6 +877,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158111992607454870, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
@@ -897,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7624398837556671575, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7638754691576903400, guid: 61d4159df7c183a4c9655a5994c10186, type: 3}
       propertyPath: m_Layer

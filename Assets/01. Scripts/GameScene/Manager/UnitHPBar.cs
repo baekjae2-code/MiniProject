@@ -13,34 +13,34 @@ public class UnitHPBar : MonoBehaviour
     float[] sliderPosition;
 
     float mySliderPosition;
-    private void Start()
+    private void OnEnable()
     {
-        mySlider = GetComponent<Slider>();
+        mySlider ??= GetComponent<Slider>();
+    }
+    public void Init(GameObject unitObj)
+    {
+        myUnit = unitObj;
+        unit = unitObj.GetComponent<Unit>();
 
-        if (myUnit == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        unit = myUnit.GetComponent<Unit>();
         unitName = new string[] { "Melee", "Ranged", "Tank", "KingMelee", "Heal", "Magic", "Grab", "Fly", "Skill" };
         sliderPosition = new float[] { 1.2f, 1.2f, 1.4f, 2f, 1.4f, 1.1f, 1.7f, 1.0f, 0.9f };
-        transform.localScale = new Vector3(1, 1);
+
         for (int i = 0; i < unitName.Length; i++)
         {
-            if (myUnit.name.ToString().Split()[1] == unitName[i])
+            if (myUnit.name.Split()[1] == unitName[i])
             {
                 mySliderPosition = sliderPosition[i];
+                break;
             }
         }
     }
-
     void LateUpdate()
     {
-        if (myUnit.activeSelf == false)
+        if (myUnit == null || !myUnit.activeInHierarchy)
         {
-            Destroy(gameObject);
+            ObjectPoolManager.instance.ReturnObject(name.Split("(Clone)")[0], gameObject);
+            unit = null;
+            myUnit = null;
             return;
         }
 

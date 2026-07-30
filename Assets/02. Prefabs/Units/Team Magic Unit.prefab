@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95abb5285ee71246989efb5de9d37f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamMagicUnit
+  state: 0
   damage: 0
 --- !u!61 &8841301040276676629
 BoxCollider2D:
@@ -416,6 +417,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565167566194924567, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
@@ -433,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846485965982029346, guid: f93206cf4fc9de04eaf0d91a8176ebfb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

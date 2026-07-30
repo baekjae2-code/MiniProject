@@ -6,13 +6,11 @@ public class SkillMeleeAttack : MonoBehaviour
     public GameObject hitEffect;
     float lifeTime;
     float timer;
-    float damage;
+    public float damage;
     void Start()
     {
         lifeTime = 0.5f;
         timer = 0;
-        gameObject.SetActive(false);
-        damage = gameObject.GetComponentInParent<Unit>().damage;
     }
 
     void FixedUpdate()
@@ -29,14 +27,10 @@ public class SkillMeleeAttack : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
             collision.gameObject.GetComponent<Unit>().Stun(0.5f);
+            collision.gameObject.GetComponent<Unit>().TakeDamage(damage);
             Vector2 direction = collision.transform.position - transform.position;
             collision.GetComponent<Rigidbody2D>().linearVelocity += direction * Random.Range(3f, 5f);
-
-            GameObject u = ObjectPoolManager.instance.GetObject(hitEffect.name);
-            u.transform.position = transform.position;
-            ObjectPoolManager.instance.ReturnObject(hitEffect.name, u, 1);
         }
     }
 }

@@ -88,8 +88,8 @@ public class UIManager : MonoBehaviour
 
     public void PrintUnitHPbar(GameObject parentObj)    //TeamSpawnManager, EnemySpaenManager
     {
-        GameObject hpbar = Instantiate(unitHPBar);
-        hpbar.GetComponent<UnitHPBar>().myUnit = parentObj;
+        GameObject hpbar = ObjectPoolManager.instance.GetObject(unitHPBar.name);
+        hpbar.GetComponent<UnitHPBar>().Init(parentObj);
         hpbar.transform.SetParent(barParent);
     }
 

@@ -8,18 +8,29 @@ public class EnemySpawnManager : MonoBehaviour
     public GameObject wall;
 
     public Collider2D[] ground;
+
+    WaitForSeconds wave1Time;
+    WaitForSeconds waveGrabTime;
+    WaitForSeconds wallBrokenTime;
+    WaitForSeconds waveFinalTime;
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+
+        wave1Time = new WaitForSeconds(5f);
+        waveGrabTime = new WaitForSeconds(7f);
+        waveFinalTime = new WaitForSeconds(10f);
+        wallBrokenTime = new WaitForSeconds(5f);
     }
 
     public GameObject[] EnemyUnits;
 
     private void Start()
     {
+
         StartCoroutine(Spawn1wave());
         StartCoroutine(SpawnGrabwave());
         StartCoroutine(SpawnFinalwave());
@@ -32,8 +43,8 @@ public class EnemySpawnManager : MonoBehaviour
             GameObject u = ObjectPoolManager.instance.GetObject("Enemy Melee Unit");
             SpawnUnit(u);
 
-            yield return new WaitForSeconds(5f);
-        }   
+            yield return wave1Time;
+        }
     }
     IEnumerator SpawnGrabwave()
     {
@@ -47,7 +58,7 @@ public class EnemySpawnManager : MonoBehaviour
                 GameObject u = ObjectPoolManager.instance.GetObject("Enemy Grab Unit");
                 SpawnUnit(u);
             }
-            yield return new WaitForSeconds(7);
+            yield return waveGrabTime;
         }
     }
     IEnumerator SpawnFinalwave()
@@ -64,7 +75,7 @@ public class EnemySpawnManager : MonoBehaviour
                 SpawnUnit(u);
             }
 
-            yield return new WaitForSeconds(10f);
+            yield return waveFinalTime;
         }
     }
 
@@ -77,24 +88,28 @@ public class EnemySpawnManager : MonoBehaviour
             GameObject u = ObjectPoolManager.instance.GetObject("Enemy Fly Unit");
             SpawnUnit(u);
 
-            yield return new WaitForSeconds(5f);
+            yield return wallBrokenTime;
         }
     }
 
     void SpawnUnit(GameObject unit)
     {
-        unit.layer = 8;
-        unit.GetComponent<Unit>().enabled = true;
+        Unit unitScript = unit.GetComponent<Unit>();
+        Rigidbody2D rb = unit.GetComponent<Rigidbody2D>();
+        Collider2D unitCol = unit.GetComponent<Collider2D>();
+
+        unit.layer = LayerMask.NameToLayer("Enemy");
+        unitScript.enabled = true;
         unit.transform.position = transform.position;
         unit.SetActive(true);
-        unit.GetComponent<Rigidbody2D>().linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
+        rb.linearVelocity -= new Vector2(Random.Range(1f, 3f), Random.Range(1f, 3f));
         UIManager.instance.PrintUnitHPbar(unit);
 
-        Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[0], true);
-        Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[1], true);
-        Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[2], true);
+        Physics2D.IgnoreCollision(unitCol, ground[0], true);
+        Physics2D.IgnoreCollision(unitCol, ground[1], true);
+        Physics2D.IgnoreCollision(unitCol, ground[2], true);
         int myGround = Random.Range(0, 3);
-        Physics2D.IgnoreCollision(unit.GetComponent<Collider2D>(), ground[myGround], false);
+        Physics2D.IgnoreCollision(unitCol, ground[myGround], false);
         unit.transform.position = new Vector3(unit.transform.position.x, unit.transform.position.y, 2 - myGround);
     }
     public void SpawnWall()

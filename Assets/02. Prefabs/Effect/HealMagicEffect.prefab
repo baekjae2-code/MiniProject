@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9095752340101872256}
   - component: {fileID: 5533969538157935924}
   - component: {fileID: 3312504927642335659}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3045858088203496154}
   - component: {fileID: 5953275421248472188}
   - component: {fileID: 3435451925220792839}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 1473742495611690966}
   - component: {fileID: 6707714212768118191}
   - component: {fileID: 1215956707772589132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Runes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9858,7 +9858,7 @@ GameObject:
   - component: {fileID: 9214982086528516435}
   - component: {fileID: 8872972700370798148}
   - component: {fileID: 9117892159270751791}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealMagicEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

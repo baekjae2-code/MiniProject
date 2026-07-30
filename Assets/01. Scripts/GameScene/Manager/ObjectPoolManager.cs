@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class ObjectPoolManager : MonoBehaviour
     //Dictionary<string, IObjectPool<GameObject>> poolss = new();
 
     //IObjectPool<GameObject> test;
+    List<GameObject> activeObjects = new(); //현재 나오는 유닛 받아오기 (게임 종료할때 풀에 다 꺼서 리턴하기위해서)
 
     int poolSize;
     private void Awake()
@@ -42,14 +44,11 @@ public class ObjectPoolManager : MonoBehaviour
             }
         }
     }
-    public void GameEnd()
+    public void GameEnd()   //ToArray() 쓰는 이유는 foreach 돌면서 activeObjects.Remove()가 일어나면 리스트 변경 오류가 나기 때문.
     {
-        foreach (Transform pool in transform)
+        foreach (GameObject obj in activeObjects.ToArray())
         {
-            foreach (Transform child in pool)
-            {
-                child.gameObject.SetActive(false);
-            }
+            ReturnObject(obj.name.Split("(Clone)")[0], obj);
         }
     }
 
@@ -60,16 +59,19 @@ public class ObjectPoolManager : MonoBehaviour
             return null;
         }
 
+
         if (pools[name].Count > 0)
         {
             GameObject go = pools[name].Dequeue();
             go.SetActive(true);
+            activeObjects.Add(go);
             return go;
         }
         else
         {
             Transform parent = transform.Find($"{name}_Pool");
             GameObject go = Instantiate(objList.Find(obj => obj.name == name), parent);
+            activeObjects.Add(go);
             return go;
         }
     }
@@ -82,7 +84,11 @@ public class ObjectPoolManager : MonoBehaviour
             return;
         }
         go.SetActive(false);
+        Transform parent = transform.Find($"{name}_Pool");
+        go.transform.SetParent(parent);
         pools[name].Enqueue(go);
+
+        activeObjects.Remove(go);
     }
     public void ReturnObject(string name, GameObject go, float time)
     {
@@ -97,6 +103,10 @@ public class ObjectPoolManager : MonoBehaviour
             yield break;
         }
         go.SetActive(false);
+        Transform parent = transform.Find($"{name}_Pool");
+        go.transform.SetParent(parent);
         pools[name].Enqueue(go);
+
+        activeObjects.Remove(go);
     }
 }

@@ -7,7 +7,7 @@ public class TeamGrabUnit : Unit
     bool isGrab;
     UnitData unitData;
 
-    void Awake()
+    protected override void Awake()
     {
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
@@ -26,11 +26,6 @@ public class TeamGrabUnit : Unit
 
         attackCooltime = attackSpeed;
     }
-    private void OnEnable()
-    {
-        Respawn();
-        Awake();
-    }
     private void FixedUpdate()
     {
         if (isDie == true)
@@ -38,30 +33,8 @@ public class TeamGrabUnit : Unit
 
         if (target != null && isGrab)
         {
-            target.localPosition = transform.position + new Vector3(0.5f, 0.5f);
+            target.localPosition = transform.position + new Vector3(-0.5f, 0.5f);
             target.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        }
-
-        if (isStun == true)
-        {
-            if (target != null)
-            {
-                target.tag = "Untagged";
-                target.GetComponent<Collider2D>().enabled = true;
-                target.GetComponent<Rigidbody2D>().gravityScale = 1;
-                target = null;
-            }
-            return;
-        }
-
-        attackCooltime += Time.deltaTime;
-        if (target != null && attackCooltime > attackSpeed)
-        {
-            Attack();
-        }
-        if (canMove)
-        {
-            Move();
         }
     }
     protected override void CheckEnemy()
@@ -71,17 +44,16 @@ public class TeamGrabUnit : Unit
         Collider2D collider = Physics2D.OverlapCircle(transform.position, range, targetLayer);
         if (collider == null)
         {
-            canMove = true;
+            ChangeState(State.Move);
         }
         else
         {
-            canMove = false;
             if (collider.tag == "Grabbed")
                 return;
             target = collider.transform;
         }
     }
-    void Attack()
+    protected override void Attack()
     {
         rb.linearVelocity = new Vector2(0f, 5f);
         StartCoroutine(Throw());
@@ -94,7 +66,6 @@ public class TeamGrabUnit : Unit
         if (throwTarget != null)
         {
             throwTarget.tag = "Grabbed";
-            throwTarget.GetComponent<Unit>().Stun(2f);
             throwTarget.GetComponent<Collider2D>().enabled = false;
             throwTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
@@ -110,11 +81,17 @@ public class TeamGrabUnit : Unit
         isGrab = false;
         target = null;
     }
-    public void Move()
+    override protected void StunState()
     {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        if (target != null)
+        {
+            target.tag = "Untagged";
+            target.GetComponent<Collider2D>().enabled = true;
+            target.GetComponent<Rigidbody2D>().gravityScale = 1;
+            target = null;
+        }
+        base.StunState();
     }
-
     override protected void Die()   //타겠있을때 죽으면 안풀리는 버그 개선
     {
         if (target != null)

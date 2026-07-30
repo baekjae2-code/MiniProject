@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2474691598351415495}
   - component: {fileID: 3650536457486245348}
   - component: {fileID: 587941256545861559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4923,7 +4923,7 @@ GameObject:
   - component: {fileID: 1003741980323810527}
   - component: {fileID: 3913602121641270011}
   - component: {fileID: 83142278075890297}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SubEmitter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9836,7 +9836,7 @@ GameObject:
   - component: {fileID: 4663179787337712184}
   - component: {fileID: 1559097937688807464}
   - component: {fileID: 3330401829861194541}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14730,7 +14730,7 @@ GameObject:
   - component: {fileID: 3998415282018464540}
   - component: {fileID: 2838309201932848675}
   - component: {fileID: 108532228345690755}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19652,7 +19652,7 @@ GameObject:
   - component: {fileID: 3891015580555709114}
   - component: {fileID: 5973733791069945925}
   - component: {fileID: 6854381317716454269}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24546,7 +24546,7 @@ GameObject:
   - component: {fileID: 1947720501795269284}
   - component: {fileID: 3244375230207697931}
   - component: {fileID: 4373499105196262139}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SubEmitter3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29441,7 +29441,7 @@ GameObject:
   - component: {fileID: 2937955235778822852}
   - component: {fileID: 334984771261697080}
   - component: {fileID: 7912006445205632558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TeamMagicEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

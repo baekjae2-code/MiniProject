@@ -5,16 +5,13 @@ using UnityEngine;
 
 public class TeamSkillUnit : Unit
 {
-    protected GameObject attackObj;
-    protected GameObject attackObj2;
     UnitData unitData;
-    bool isAttack;
+    WaitForSeconds attack1Time;
+    WaitForSeconds attack2Time;
 
-    void Awake()
+    protected override void Awake()
     {
-        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
-        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
 
         unitData = GameManager.instance.printData[8];
 
@@ -26,53 +23,25 @@ public class TeamSkillUnit : Unit
         range = unitData.range;
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
-
-        attackObj = transform.Find("AttackEffect").gameObject;
-        attackObj2 = transform.Find("AttackEffect2").gameObject;
         attackCooltime = attackSpeed;
 
-        isAttack = false;
-    }
-    private void OnEnable()
-    {
-        Respawn();
-        Awake();
-    }
-    private void FixedUpdate()
-    {
-        if (isStun == true)
-            return;
-        if (isDie == true)
-            return;
-
-        attackCooltime += Time.deltaTime;
-
-        if (attackCooltime > 5 && isAttack)
-            isAttack = false;
-
-        if (target != null && attackCooltime > attackSpeed)
-        {
-            Attack();
-        }
-        if (canMove && !isAttack)
-        {
-            Move();
-        }
+        attack1Time = new WaitForSeconds(0.55f);
+        attack2Time = new WaitForSeconds(0.2f);
     }
 
-    public void Attack()
+    protected override void Attack()
     {
         StartCoroutine(Skill());
-        attackCooltime = 0;
+        base.Attack();
     }
-    public void Move()
+    protected override void StunState()
     {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        StopCoroutine(Skill());
     }
-
     IEnumerator Skill()
     {
-        isAttack = true;
+        attackObj[0].GetComponent<SkillMeleeAttack>().damage = damage;
+        attackObj[1].GetComponent<SkillMeleeAttack>().damage = damage;
         for (int i = 0; i < 3; i++)
         {
             if (target == null)
@@ -80,20 +49,16 @@ public class TeamSkillUnit : Unit
             SoundManager.instance.PlaySFX((SFXType)0);
             Vector2 direction = (target.position - transform.position).normalized;
             rb.linearVelocity = direction * Random.Range(4, 6) + new Vector2(0f, 4f);
-            attackObj.SetActive(true);
-            yield return new WaitForSeconds(0.55f);
+            attackObj[0].SetActive(true);
+            yield return attack1Time;
         }
         rb.linearVelocityY = 7f;
-        yield return new WaitForSeconds(0.7f);
+        yield return attack1Time;
         rb.linearVelocityY = -20f;
-        yield return new WaitForSeconds(0.2f);
+        yield return attack2Time;
         SoundManager.instance.PlaySFX((SFXType)0);
-        attackObj2.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        attackObj[1].SetActive(true);
+        yield return attack1Time;
         rb.linearVelocity = new Vector2(-5f, 3f);
-
-        yield return new WaitForSeconds(2f);
-        isAttack = false;
-        target = null;
     }
 }

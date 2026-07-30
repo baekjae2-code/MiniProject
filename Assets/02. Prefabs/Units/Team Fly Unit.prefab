@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7e2ee0588766942903f9d315018ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamFlyUnit
+  state: 0
   damage: 0
 --- !u!61 &2562925006524778458
 BoxCollider2D:
@@ -309,11 +310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 794702681426152435, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 794702681426152435, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 794702681426152435, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -347,13 +348,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1201807982222076019, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961513550252818461, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4125682421242154895, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
       propertyPath: m_Name
       value: TeamFlyMagicEffect
       objectReference: {fileID: 0}
     - target: {fileID: 4125682421242154895, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571466361664565266, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571466363220827800, guid: 032480ee6c30d7e4a8912e1599e45f4e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

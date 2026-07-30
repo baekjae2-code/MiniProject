@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bcc3d0468b2f145a9d5d8e113f8942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyRangedUnit
+  state: 0
   damage: 0
 --- !u!61 &5110974286563569772
 BoxCollider2D:
@@ -833,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381855232798674356, guid: b74e07c2de2ee3542a200d86d17bbca3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

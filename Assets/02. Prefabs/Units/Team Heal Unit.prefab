@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f2270b973c021479595dd329178c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamHealUnit
+  state: 0
   damage: 0
 --- !u!61 &667753324386409438
 BoxCollider2D:
@@ -665,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826941630602427334, guid: 2e4e262701c00d346b9de027102aaa1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

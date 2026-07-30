@@ -14,15 +14,15 @@ public class SpriteButtons : MonoBehaviour
             Collider2D col = Physics2D.OverlapPoint(mousePos);
 
             if (col != null && col.gameObject == gameObject)
-            {
-                ObjectPoolManager.instance.GameEnd();
                 if (name == "RestartButton")
                 {
+                    ObjectPoolManager.instance.GameEnd();
                     SceneManager.LoadScene("GameScene");
                 }
                 else if (name == "MainmenuButton")
                 {
                     SoundManager.instance.ChangeBgm();
+                    ObjectPoolManager.instance.GameEnd();
                     SceneManager.LoadScene("MainScene");
                     for (int i = 0; i < GameManager.instance.deckUnitNumber.Length; i++)
                     {
@@ -38,8 +38,6 @@ public class SpriteButtons : MonoBehaviour
                     ObjectPoolManager.instance.GameEnd();
                     SceneManager.LoadScene("GameScene");
                 }
-            }
         }
     }
-
 }

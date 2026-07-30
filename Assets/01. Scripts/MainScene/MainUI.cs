@@ -63,7 +63,7 @@ public class MainUI : MonoBehaviour
 
         StageUI();
 
-        if (GameManager.instance.ClearStage > 5)
+        if (GameManager.instance.ClearStage >= 5)
         {
             stageBtns[4].name = (GameManager.instance.ClearStage + 1).ToString();
             stageBtns[4].GetComponentInChildren<TextMeshProUGUI>().text = $"Stage {(GameManager.instance.ClearStage + 1).ToString()}";

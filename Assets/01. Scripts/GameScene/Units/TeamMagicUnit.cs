@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class TeamMagicUnit : Unit
 {
-    GameObject attackObj;
     UnitData unitData;
 
-    void Awake()
+    protected override void Awake()
     {
-        sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
-        //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
 
         unitData = GameManager.instance.printData[5];
 
@@ -23,45 +20,20 @@ public class TeamMagicUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackObj = transform.Find("TeamMagicEffect").gameObject;
         attackCooltime = attackSpeed;
     }
-    private void OnEnable()
+    protected override void Attack()
     {
-        Respawn();
-        Awake();
-    }
-    void FixedUpdate()
-    {
-        if (isStun == true)
-            return;
-        if (isDie == true)
+        if (target == null)
             return;
 
-        attackCooltime += Time.deltaTime;
-
-        if (target != null && attackCooltime > attackSpeed)
-        {
-            Attack();
-        }
-        if (canMove)
-        {
-            Move();
-        }
-    }
-    void Attack()
-    {
         SoundManager.instance.PlaySFX((SFXType)2);
 
-        GameObject u = ObjectPoolManager.instance.GetObject(attackObj.name);
+        GameObject u = ObjectPoolManager.instance.GetObject(attackObj[0].name);
         u.transform.position = target.position + Vector3.up * 5f + Vector3.right * 1f;
-        ObjectPoolManager.instance.ReturnObject(attackObj.name, u, 5);
+        u.GetComponent<MagicEffect>().damage = damage;
+        ObjectPoolManager.instance.ReturnObject(attackObj[0].name, u, 5);
 
-        attackCooltime = 0;
-        target = null;
-    }
-    public void Move()
-    {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        base.Attack();
     }
 }

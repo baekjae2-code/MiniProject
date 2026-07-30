@@ -907,6 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072741622f0bb9418db4cbf4d8ab865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Base
+  state: 0
   damage: 0
 --- !u!212 &98942955
 SpriteRenderer:
@@ -11685,6 +11686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e072741622f0bb9418db4cbf4d8ab865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Base
+  state: 0
   damage: 0
 --- !u!212 &845273425
 SpriteRenderer:
@@ -17570,7 +17572,7 @@ GameObject:
   - component: {fileID: 1221315290}
   m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Grabbed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17736,6 +17738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec080849cc64e459ab858206c7092c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wall
+  state: 0
   damage: 0
 --- !u!1 &1238551488
 GameObject:
