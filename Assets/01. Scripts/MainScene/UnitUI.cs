@@ -50,20 +50,28 @@ public class UnitUI : PrintText
         if (nowUnitNumber == -1)
             return;
 
+        UnitData nowUnit = GameManager.instance.printData[nowUnitNumber];
+        int cost = 100;
+        int level = nowUnit.level;
 
-        if (GameManager.instance.Gold >= GameManager.instance.printData[nowUnitNumber].level * 100)
+        for (int i = 0; i < level - 1; i++)
+        {
+            cost = (int)((cost + 100) * 1.15f);
+        }
+        if (GameManager.instance.Gold >= cost)
         {
             SoundManager.instance.PlaySFX((SFXType)9);
-            GameManager.instance.UseGold(GameManager.instance.printData[nowUnitNumber].level * 100);
+            GameManager.instance.UseGold(cost);
 
-            GameManager.instance.printData[nowUnitNumber].level++;
-            GameManager.instance.printData[nowUnitNumber].maxHP += (GameManager.instance.printData[nowUnitNumber].maxHP) / 10;
-            GameManager.instance.printData[nowUnitNumber].damage += (GameManager.instance.printData[nowUnitNumber].damage) / 10;
+            nowUnit.level++;
+            nowUnit.maxHP += (nowUnit.maxHP) / 10;
+            nowUnit.damage += (nowUnit.damage) / 10;
 
             GameObject lvE = Instantiate(levelUpEffect, new Vector2(lockUnit.transform.position.x, lockUnit.transform.position.y), Quaternion.identity);
             lvE.transform.localScale = new Vector3(2, 2, 2);
             Destroy(lvE, 1);
 
+            GameManager.instance.printData[nowUnitNumber] = nowUnit;
             PrintTexts();
         }
     }

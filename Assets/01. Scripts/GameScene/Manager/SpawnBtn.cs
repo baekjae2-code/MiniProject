@@ -44,7 +44,7 @@ public class SpawnBtn : MonoBehaviour
 
     IEnumerator SkillCoolCoroutine()
     {
-        float coolTIme = (0.01f / 3f);
+        float coolTIme = (0.01f / 2f);
         WaitForSeconds wait = new WaitForSeconds(0.01f);
         mySkillCooltimeImage.fillAmount = 1;
         while (mySkillCooltimeImage.fillAmount > 0)

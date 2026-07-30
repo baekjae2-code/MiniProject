@@ -11,7 +11,9 @@ public class TeamTankUnit : Unit
     {
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
         rb = GetComponent<Rigidbody2D>();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[2];
 
         myName = unitData.myName;
@@ -23,6 +25,7 @@ public class TeamTankUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
+        base.OnEnable();
     }
     protected override void Attack()
     {

@@ -4,11 +4,12 @@ using UnityEngine;
 public class TeamHealUnit : Unit
 {
     UnitData unitData;
-
     protected override void Awake()
     {
         base.Awake();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[4];
 
         myName = unitData.myName;
@@ -18,8 +19,8 @@ public class TeamHealUnit : Unit
         damage = unitData.damage;
         range = unitData.range;
         moveSpeed = unitData.moveSpeed;
-        attackSpeed = unitData.attackSpeed;
 
+        base.OnEnable();
     }
     protected override void Attack()
     {

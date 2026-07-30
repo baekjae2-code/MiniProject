@@ -7,7 +7,9 @@ public class TeamFlyUnit : Unit
     protected override void Awake()
     {
         base.Awake();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[7];
 
         myName = unitData.myName;
@@ -19,8 +21,7 @@ public class TeamFlyUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackCooltime = attackSpeed;
-
+        base.OnEnable();
     }
     void FixedUpdate()
     {

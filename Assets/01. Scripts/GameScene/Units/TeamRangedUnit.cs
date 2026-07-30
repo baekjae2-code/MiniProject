@@ -7,7 +7,9 @@ public class TeamRangedUnit : Unit
     protected override void Awake()
     {
         base.Awake();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[1];
 
         myName = unitData.myName;
@@ -19,7 +21,7 @@ public class TeamRangedUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackCooltime = attackSpeed;
+        base.OnEnable();
     }
     //void FixedUpdate()
     //{

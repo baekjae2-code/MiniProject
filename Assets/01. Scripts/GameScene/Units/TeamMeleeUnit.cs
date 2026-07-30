@@ -7,7 +7,9 @@ public class TeamMeleeUnit : Unit
     protected override void Awake()
     {
         base.Awake();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[0];
 
         myName = unitData.myName;
@@ -19,7 +21,7 @@ public class TeamMeleeUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackCooltime = attackSpeed;
+        base.OnEnable();
     }
     //private void FixedUpdate()
     //{

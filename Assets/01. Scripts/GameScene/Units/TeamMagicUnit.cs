@@ -8,7 +8,9 @@ public class TeamMagicUnit : Unit
     protected override void Awake()
     {
         base.Awake();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[5];
 
         myName = unitData.myName;
@@ -20,7 +22,7 @@ public class TeamMagicUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackCooltime = attackSpeed;
+        base.OnEnable();
     }
     protected override void Attack()
     {

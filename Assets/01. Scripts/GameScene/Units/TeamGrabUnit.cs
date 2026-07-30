@@ -12,7 +12,9 @@ public class TeamGrabUnit : Unit
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
         //Linq를 이용하여 미니맵 객체를 배열에 넣지않음( 스턴, 사망시 색 변경 제외)
         rb = GetComponent<Rigidbody2D>();
-
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.unitsData.list[6];
 
         myName = unitData.myName;
@@ -24,7 +26,7 @@ public class TeamGrabUnit : Unit
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
 
-        attackCooltime = attackSpeed;
+        base.OnEnable();
     }
     private void FixedUpdate()
     {

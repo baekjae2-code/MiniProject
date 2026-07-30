@@ -12,7 +12,11 @@ public class TeamSkillUnit : Unit
     protected override void Awake()
     {
         base.Awake();
-
+        attack1Time = new WaitForSeconds(0.55f);
+        attack2Time = new WaitForSeconds(0.2f);
+    }
+    protected override void OnEnable()
+    {
         unitData = GameManager.instance.printData[8];
 
         myName = unitData.myName;
@@ -23,10 +27,8 @@ public class TeamSkillUnit : Unit
         range = unitData.range;
         moveSpeed = unitData.moveSpeed;
         attackSpeed = unitData.attackSpeed;
-        attackCooltime = attackSpeed;
 
-        attack1Time = new WaitForSeconds(0.55f);
-        attack2Time = new WaitForSeconds(0.2f);
+        base.OnEnable();
     }
 
     protected override void Attack()

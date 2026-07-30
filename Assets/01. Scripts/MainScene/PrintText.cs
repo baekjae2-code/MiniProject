@@ -21,14 +21,23 @@ public class PrintText : MonoBehaviour
         if (nowUnitNumber == -1)
             return;
 
-        nameText.text = $"Name  : {GameManager.instance.printData[nowUnitNumber].myName}";
-        stateText.text = $"Lv   : {GameManager.instance.printData[nowUnitNumber].level}\n" +
-            $"Hp   : {GameManager.instance.printData[nowUnitNumber].maxHP:F0}\n" +
-            $"Damage    : {GameManager.instance.printData[nowUnitNumber].damage:F0}\n" +
-            $"Range : {GameManager.instance.printData[nowUnitNumber].range}";
-        costText.text = $"Mana  : {GameManager.instance.printData[nowUnitNumber].mana}\n" +
-            $"Spawn : {GameManager.instance.printData[nowUnitNumber].spawn}";
+        UnitData nowUnit = GameManager.instance.printData[nowUnitNumber];
+        nameText.text = $"Name  : {nowUnit.myName}";
+        stateText.text = $"Lv   : {nowUnit.level}\n" +
+            $"Hp   : {nowUnit.maxHP:F0}\n" +
+            $"Damage    : {nowUnit.damage:F0}\n" +
+            $"Range : {nowUnit.range}";
+        costText.text = $"Mana  : {nowUnit.mana}\n" +
+            $"Spawn : {nowUnit.spawn}";
 
-        levelUpText.text = $"Level Up : {GameManager.instance.printData[nowUnitNumber].level * 100} G";
+        int cost = 100;
+        int level = nowUnit.level;
+
+        for (int i = 0; i < level - 1; i++)
+        {
+            cost = (int)((cost + 100) * 1.15f);
+        }
+        levelUpText.text = $"Level Up : {cost} G";
+        GameManager.instance.printData[nowUnitNumber] = nowUnit;
     }
 }
