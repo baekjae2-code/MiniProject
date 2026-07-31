@@ -37,6 +37,8 @@ public abstract class Unit : MonoBehaviour
 
     protected int myLayer;
     protected int enemyLayer;
+
+    protected WaitForSeconds findEnemy;
     protected virtual void Awake()
     {
         sr = GetComponentsInChildren<SpriteRenderer>().Where((x) => x.gameObject.layer != 12).ToArray();
@@ -45,6 +47,8 @@ public abstract class Unit : MonoBehaviour
 
         attackObj = GetComponentsInChildren<Transform>().Where((x) => x.gameObject.layer == 10).Select(x => x.gameObject).ToArray();
         attackObj[0].SetActive(false);
+
+        findEnemy = new WaitForSeconds(0.2f);
     }
     protected virtual void OnEnable()
     {
@@ -236,7 +240,7 @@ public abstract class Unit : MonoBehaviour
         while (true)
         {
             CheckEnemy();
-            yield return new WaitForSeconds(0.2f);
+            yield return findEnemy;
         }
     }
 }
